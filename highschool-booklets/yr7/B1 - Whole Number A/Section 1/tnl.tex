@@ -1,0 +1,150 @@
+\begin{student}
+This is the stage upon which much of the mathematics you will see in High-School is set:
+
+\begin{center}
+\begin{tikzpicture}[scale=0.8]
+    \centering
+    \draw[<-] (-7.5,0) -- (7.5,0) node [left] at (-7.5,0) {$-\infty$};
+    \draw[->] (-7.5,0) -- (7.5,0) node [right] {$+\infty$};
+    \foreach \x in  {-6,-4,-2,0,2,4,6}
+        \draw[shift={(\x,0)},color=black] (0pt,3pt) -- (0pt,-3pt);
+    \foreach \x in {-3,-2,-1,0,1,2,3}
+        \draw[shift={(2*\x,0)},color=black] (0pt,0pt) -- (0pt,-3pt) node[below] {$\x$};
+\end{tikzpicture}
+\end{center}
+
+Then if we overlay another axis perpendicular to this one we get:
+
+\begin{center}
+\begin{tikzpicture}[scale=0.4]
+    % Horizontal axis
+    \draw[->] (-7.5,0) -- (7.5,0);
+    \draw[<-] (-7.5,0) -- (7.5,0);
+    \node[left] at (-7.5,0) {$-\infty$};
+    \node[right] at (7.5,0) {$+\infty$};
+
+    \foreach \x in {-6,-4,-2,0,2,4,6}
+    \draw[shift={(\x,0)},color=black] (0pt,3pt) -- (0pt,-3pt);
+
+    \foreach \x in {-3,-2,-1,1,2,3}
+    \draw[shift={(2*\x,0)},color=black] (0pt,0pt) -- (0pt,-3pt) node[below] {$\x$};
+
+    % Vertical axis
+    \draw[->] (0,-7.5) -- (0,7.5);
+    \draw[<-] (0,-7.5) -- (0,7.5);
+    \node[below] at (0,-7.5) {$-\infty$};
+    \node[above] at (0,7.5) {$+\infty$};
+
+    \foreach \y in {-6,-4,-2,0,2,4,6}
+    \draw[shift={(0,\y)},color=black] (3pt,0pt) -- (-3pt,0pt);
+    \node[below right] at (0,0) {$0$};
+
+    \foreach \y in {-3,-2,-1,1,2,3}
+    \draw[shift={(0,2*\y)},color=black] (0pt,0pt) -- (-3pt,0pt) node[left] {$\y$};
+
+\end{tikzpicture}
+\end{center}
+
+And finally, placing yet \emph{another} axis perpendicular to both of these we spawn 3-Dimensional Space!
+
+\begin{center}
+\begin{tikzpicture}[scale=0.8]
+\centering
+
+% Set up 3D view
+\tdplotsetmaincoords{60}{110}
+
+% Axes
+\draw[->] (-4,0,0) -- (4,0,0);
+\draw[<-] (-4,0,0) -- (4,0,0);
+\draw[->] (0,-4,0) -- (0,4,0);
+\draw[<-] (0,-4,0) -- (0,4,0);
+\draw[->] (0,0,-6) -- (0,0,6);
+\draw[<-] (0,0,-6) -- (0,0,6);
+
+% Horizontal axis (x)
+\foreach \x in {-3,-2,-1,1,2,3}
+\draw[shift={(\x,0,0)},color=black] (0pt,2pt) -- (0pt,-2pt) node[below] {$\x$};
+\node[right] at (4,0,0) {$+\infty$};
+\node[left] at (-4,0,0) {$-\infty$};
+
+% Vertical axis (y)
+\foreach \y in {-3,-2,-1,1,2,3}
+\draw[shift={(0,\y,0)},color=black] (2pt,0pt) -- (-2pt,0pt) node[left] {$\y$};
+\node[above] at (0,4,0) {$+\infty$};
+\node[below] at (0,-4,0) {$-\infty$};
+
+% Perpendicular axis (z)
+\foreach \z in {-5,-4,-3,-2,-1,1,2,3,4,5}
+\draw[shift={(0,0,\z)},color=black] (2pt,0pt) -- (-2pt,0pt);
+\node[above right] at (0,0,8) {$+\infty$};
+\node[below left] at (0,0,-8) {$-\infty$};
+\end{tikzpicture}
+\end{center}
+\end{student}
+
+\begin{questions}
+    \Question[1] The highest possible dimensional space is \fillin[$\infty$]!
+\end{questions}
+
+\begin{student}
+\subsection{Less than \& Greater than}
+On the number line, you can compare 2 quantities:
+\begin{center}
+    \begin{tikzpicture}[scale=0.8]
+        \draw[->] (-6, 0) -- (6,0);
+        \draw[<-] (-6, 0) -- (6,0);
+        \foreach \x in {-4,-2,0,2,4}
+            \draw[shift={(\x,0)},color=black] (0pt,3pt) -- (0pt,-3pt);
+        \node[above] at (4,0) {$a$};
+        \node[above] at (-2,0) {$b$};
+        \node[below] at (0,0) {$0$};
+        \draw (1,0) circle;
+        \draw (-2,0) circle;
+    \end{tikzpicture}
+\end{center}
+\vspace*{-0.3cm}
+\begin{align*}
+    a &> b\\
+    b &< a
+\end{align*}
+\end{student}
+
+\begin{examples}
+    \begin{questions}
+        \Question[1] Draw a number line and on it mark with dots all the whole numbers less than 5.
+        \begin{solutionorbox}[2in]
+            \begin{center}
+            \end{center}
+        \end{solutionorbox}
+        \Question[1] Draw another number line and on it mark all the whole numbers greater than 45 and less than 52.
+        \begin{solutionorbox}[2in]
+            \begin{center}
+            \end{center}
+        \end{solutionorbox}
+    \end{questions}
+\end{examples}
+
+
+\begin{exercises}
+    \begin{questions}
+        \Question[4] For each of the following, draw a number line from 0 to 10.
+        \begin{parts}
+            \part Mark the numbers 2,4,6 and 8 on it.
+            \begin{solutionorbox}[1in]
+            \end{solutionorbox}
+            \part Mark the numbers 1,3,5 and 7 on it.
+            \begin{solutionorbox}[1in]
+            \end{solutionorbox}
+            \part Mark the whole numbers less than 5 on it.
+            \begin{solutionorbox}[1in]
+            \end{solutionorbox}
+            \part Mark the whole numbers less than 8 and greater than 2 on it.
+            \begin{solutionorbox}[1in]
+            \end{solutionorbox}
+        \end{parts}
+        \Question[2] The manager of an underground railway system decides to save time in the mornings by having one particular train only stop at every third station between stations 1 and 19. The stations are all \(1 \mathrm{~km}\) apart. Show the stations on a number line and mark with a dot each station where the train stops.
+            \begin{solutionorbox}[2in]
+            \end{solutionorbox}
+    \end{questions}
+\end{exercises}

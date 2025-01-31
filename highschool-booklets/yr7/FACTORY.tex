@@ -1,0 +1,31 @@
+\documentclass[12pt,twoside]{exam}
+
+% This is the preamble for every single file.
+% contains theorems, counters, etc.
+\input{gradetables}
+\input{preamble}
+\noprintanswers
+
+\begin{document}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% FIRST PAGE
+\typein[\file]{Enter booklet to compile:}
+\input{\file/title}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% CONTENT
+%
+% this is the premable of the individual booklet you are creating
+% it will contain the maketitle information
+\reversemarginpar
+\setlength{\marginparwidth}{1in}
+\input{\file/content}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% LAST PAGE
+\input{feedback}
+
+\end{document}

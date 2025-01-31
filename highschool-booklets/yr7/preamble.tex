@@ -1,0 +1,310 @@
+% baabaas environment for definition boxes
+%\usepackage[top=20mm,bottom=20mm,right=20mm,left=20mm]{geometry}
+\usepackage[top = 3cm, bottom = 3cm, outer=1.7cm, inner=1.7cm]{geometry}
+\usepackage{pgffor}
+\usepackage{setspace}
+\usepackage{mathtools}
+\usepackage{longdivision}
+\usepackage{enumerate}
+\usepackage{tabularx}
+\usepackage{multicol}
+\usepackage{background}
+\usepackage{cancel}
+\usepackage{fontspec}
+\usepackage{csquotes}
+\usepackage[dvipsnames]{pstricks}
+\usepackage{pst-eucl,pst-text,pst-tree,pst-tools,pstricks-add}
+\usepackage{calc,pifont,fontawesome}
+\usepackage{wasysym}
+\usepackage{hyperref}
+\usepackage{amssymb}
+\usepackage{tocloft}
+\usepackage{titlesec}
+\usepackage{parskip}
+\usepackage{tikz}
+\usetikzlibrary{tikzmark}
+\usepackage{tikz-3dplot}
+\usetikzlibrary{decorations.text, shadows, arrows.meta}
+
+
+\setcounter{section}{-1}
+
+\marksnotpoints
+\pointsinrightmargin
+\boxedpoints
+\setlength{\rightpointsmargin}{1cm}
+
+% header and footer stuff
+\lhead{\leftmark}
+\runningheadrule
+\runningfootrule
+\runningfooter{}{\scriptsize\copyright \textsc{PEN Education, Ryde}}{\thepage}
+\thispagestyle{headandfoot}
+%\firstpageheadrule
+
+\newcommand{\randomword}[1]{%
+  \pgfmathsetmacro{\angle}{random(-45,45)}% Generate a random angle between -45 and 45
+  \rotatebox{\angle}{#1}%
+}
+
+\setcounter{tocdepth}{1}
+%\setlength\parindent{0pt}
+
+%Redefining the section command.
+\AddToHook{cmd/section/before}{\clearpage}
+\titleformat{\section}
+{\normalfont\Large\bfseries}{{\color{purple}\S}}{0.5em}{\setcounter{secmarks}{0}}[\addtocounter{numsections}{1}]
+\titleformat{\subsection}
+{\normalfont\large\bfseries}{{\color{purple}\S\S}}{0.5em}{}
+
+\definecolor{Blue}{rgb}{0.18, 0.19, 0.58}
+\newlength{\margedef}
+\newlength{\marge}
+\setlength{\marge}{0.75cm}
+\newcounter{definition}
+
+\newsavebox{\defbox}
+\newcommand{\defboxtext}{\raisebox{-0.5ex}{\Large \faBook} \textsf{Definition \thedefinition}}
+\newlength{\deftextlength}
+\setlength{\deftextlength}{\widthof{\textbf{\defboxtext}}+\widthof{\textsf{\textbf{8}}}+0.66cm+1cm}
+\newlength{\defboxheight}
+\newenvironment{boxdef}{
+   %\par\noindent                        % No indentation
+   \begin{flushleft}
+   \refstepcounter{definition}             % Counter for this environment
+   \begin{lrbox}{\defbox}           % Name of box to contain text
+   \begin{minipage}{0.95\linewidth-0.5cm}
+}
+{
+  \end{minipage}
+  \end{lrbox}%
+  \setlength{\defboxheight}{\totalheightof{\usebox{\defbox}}+20.5pt}
+  \rput[tl](0,0){   % Choose colours of framebox
+    \psframebox[opacity=0.8,fillstyle=solid,fillcolor=blue!10,framearc=0,framesep=10pt,linecolor=blue,linestyle=none]{%
+      \usebox{\defbox}
+    }
+  }
+  \rput[l](1cm,0){      % Patch white line
+    \psline[linewidth=2.1\pslinewidth,linecolor=white](-0.25em,0)(\deftextlength,0)%
+  }%
+  \rput[l](1cm,0.5ex){  % Place text
+    %\textcolor{Blue}{\parbox[m]{0.66cm}{\includegraphics[width=0.66cm]{./include/books8_Blue.eps}} \textbf{\defboxtext}}%
+    \color{Blue} \textbf{\defboxtext}
+  }
+  \psline[linewidth=3pt,linecolor=Blue](0.22,0)(0.22,-\defboxheight)
+  \par
+  \setlength{\margedef}{\ht\defbox+\dp\defbox+\marge}
+  \vspace{\margedef}
+  \end{flushleft}
+}
+
+\newsavebox{\lawbox}
+\newcommand{\lawboxtext}{\raisebox{-0.5ex}{\Large \faGavel} \textsf{Laws/Results}}
+\newlength{\lawtextlength}
+\setlength{\lawtextlength}{\widthof{\textbf{\lawboxtext}+0.5em}}
+\newlength{\lawboxheight}
+\newenvironment{boxlaw}{
+   %\par\noindent                        % No indentation
+   \begin{flushleft}
+   %\refstepcounter{theorem}             % Counter for this environment
+   \begin{lrbox}{\lawbox}           % Name of box to contain text
+   \begin{minipage}{0.95\linewidth-0.5cm}
+}
+{
+  \end{minipage}
+  \end{lrbox}%
+  \setlength{\lawboxheight}{\totalheightof{\usebox{\lawbox}}+20.5pt}
+  \rput[tl](0,0){   % Choose colours of framebox
+    \psframebox[opacity=0.8,fillstyle=solid,fillcolor=yellow!30,framearc=0,framesep=10pt,linecolor=red,linestyle=none]{%
+      \usebox{\lawbox}
+    }
+  }
+  \rput[l](1cm,0){      % Patch white line
+    \psline[linewidth=2.1\pslinewidth,linecolor=white](-0.25em,0)(\lawtextlength,0)%
+  }%
+  \rput[l](1cm,0.5ex){  % Place text
+    % \textcolor{red}{\parbox[m]{0.66cm}{\includegraphics[width=0.66cm]{./include/law_red.eps}} \textbf{\lawboxtext}}%
+    \color{red} \textbf{\lawboxtext}
+  }
+  \psline[linewidth=3pt,linecolor=red](0.22,0)(0.22,-\lawboxheight)
+  \par
+  \setlength{\margedef}{\ht\lawbox+\dp\lawbox+\marge}
+  \vspace{\margedef}
+  \end{flushleft}
+}
+
+
+% theorembox
+
+\usepackage[tikz]{mdframed}
+\usepackage{xcolor,comment}
+% now sparing PEN eds printers
+%\newmdenv[backgroundcolor=exampleboxcolor]{examplebox}
+\colorlet{problemboxcolor}{blue!20}
+\colorlet{exampleboxcolor}{green!30}
+\colorlet{exerciseboxcolor}{red!20}
+\colorlet{theoremboxcolor}{gray!20}
+\colorlet{deriveboxcolor}{yellow!20}
+
+\newmdenv[linewidth=0.1pt,linecolor=white,tikzsetting={draw=black,dashed,line width=1.5pt,dash pattern = on 7pt off 5pt}]{exercisebox}
+\newmdenv[linewidth=1.5pt,linecolor=black]{examplebox}
+\newmdenv[linewidth=0.1pt,linecolor=white,tikzsetting={draw=black,dashed,line width=.5pt,dash pattern = on 7pt off 5pt}]{homeworkbox}
+\newmdenv[linewidth=0.1pt,linecolor=white,tikzsetting={draw=black,dashed,line width=2pt,dash pattern = on 7pt off 5pt}]{challengebox}
+
+\newmdenv[backgroundcolor=deriveboxcolor]{derivebox}
+\newmdenv[backgroundcolor=problemboxcolor]{problembox}
+\newmdenv[backgroundcolor=theoremboxcolor,linewidth=0pt]{theorembox}
+
+
+\newenvironment{instructor}{
+    \newif\ifprintselected
+    \printselectedfalse
+    \ifprintanswers
+    \else
+        \printselectedtrue
+        \noprintanswers
+        \begin{solution}
+            \renewenvironment{figure}{\setbox0\vbox\bgroup}{\egroup}%
+            \let\oldmarginpar\marginpar
+            \renewcommand{\marginpar}[1]{}%
+            \let\oldcaption\caption
+            \renewcommand{\caption}[1]{}%
+    \fi
+}
+{
+    \ifprintanswers
+    \else
+        \let\marginpar\oldmarginpar
+        \let\caption\oldcaption
+        \end{solution}
+    \fi
+}
+
+\newenvironment{student}{
+    \newif\ifprintselected
+    \printselectedfalse
+
+    \ifprintanswers
+        \printselectedtrue
+        \noprintanswers
+        \begin{solution}
+            \renewenvironment{figure}{\setbox0\vbox\bgroup}{\egroup}%
+            \let\oldmarginpar\marginpar
+            \renewcommand{\marginpar}[1]{}%
+            \let\oldcaption\caption
+            \renewcommand{\caption}[1]{}%
+    \else
+    \fi
+}
+{
+    \ifprintselected
+        \let\marginpar\oldmarginpar
+        \let\caption\oldcaption
+        \end{solution}
+    \else
+    \fi
+}
+
+\newenvironment{examples}
+{
+    {\large$\spadesuit$\ \textbf{Examples:}}
+    \smallskip
+    \begin{examplebox}
+}
+{
+    \end{examplebox}
+}
+
+\newenvironment{exercises}
+{
+    {\large$\heartsuit$\ \textbf{Exercises:}}
+    \smallskip
+    \begin{exercisebox}
+}
+{
+    \end{exercisebox}
+}
+
+\newenvironment{homework}
+{
+    {\large$\clubsuit$\ \textbf{Essential:}}
+    \smallskip
+    \begin{homeworkbox}
+}
+{
+    \end{homeworkbox}
+}
+
+\newenvironment{challenge}
+{
+    {\large$\diamondsuit$\ \textbf{Challenge:}}
+    \smallskip
+    \begin{challengebox}
+}
+{
+    \end{challengebox}
+}
+
+%takes in number and spits out that many dotted lines
+\newcommand{\mdots}[1]{%
+  \ifnum#1>0
+    \begin{doublespace}
+    \begin{center}
+      \foreach \i in {1,...,#1}{%
+        \dotfill\\
+      }
+    \end{center}
+    \end{doublespace}
+  \fi
+  \vspace{-0.5cm}
+}
+
+%fuzzyfont
+
+\newcommand{\fuzzyfont}[1]{%
+\begin{tikzpicture}
+    \foreach \x in {-0.5pt,0.5pt}{
+        \foreach \y in {-0.5pt,0.5pt}{
+            \node at (\x,\y) [opacity=0.4,black,inner sep=0pt] {#1};
+        }
+    }
+    \node at (0,0) [opacity=1,inner sep=0pt] {#1};
+\end{tikzpicture}
+}
+
+\newcommand{\Question}[2][]{%
+    \ifx&#1&%
+        \question $\,$ #2%
+    \else
+     \addtocounter{secmarks}{#1}%
+     \question[#1] $\,$ #2%
+    \fi%
+}
+\newcommand{\Part}[2][]{%
+    \ifx&#1&%
+        \part #2%
+    \else
+        \addtocounter{secmarks}{#1}%
+        \part[#1] #2%
+    \fi
+}
+
+\newcommand{\ineqLine}[6][1]{%\ineqLine[scale]{Rstart}{Rfinish}{Istart}{Ifinish}{fill}
+\begin{center}
+    \begin{tikzpicture}[scale=#1]
+        \draw[latex-latex] (#2,0) -- (#3,0);
+        \foreach \x in {\number\numexpr#2+1,...,\number\numexpr#3-1}
+            \draw (\x,0.1) -- (\x,-0.1) node[below] {\x};
+
+        \draw[very thick, blue, -{Stealth[scale=1.5]}] (#4,0.5) -- (#5,0.5);
+        \draw (#4,0.1) -- (#4,-0.1) node[below] {#4};
+        \ifnum#6=1
+        \filldraw[fill=red, draw=blue, very thick] (#4,0.5) circle (2pt);
+        \else
+        \filldraw[fill=white, draw=blue, very thick] (#4,0.5) circle (2pt);
+        \fi
+    \end{tikzpicture}
+\end{center}
+}
+
+

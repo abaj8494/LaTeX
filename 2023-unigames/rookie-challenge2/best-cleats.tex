@@ -1,0 +1,115 @@
+\documentclass{article}
+
+\usepackage[top=10mm,bottom=20mm,right=20mm, left=20mm]{geometry}
+\usepackage{fancyhdr}
+\usepackage{tcolorbox}
+\tcbuselibrary{theorems}
+\usepackage{multicol}
+\usepackage{caption}
+\usepackage{float}
+\usepackage{graphicx}
+%\usepackage{wrapfig}
+
+%\newenvironment{Figure}
+%  {\par\medskip\noindent\minipage{\linewidth}}
+%  {\endminipage\par\medskip}
+
+\usepackage[tikz]{mdframed}
+\usepackage{xcolor,comment}
+\newmdenv[backgroundcolor=answerboxcolor]{answerbox}
+\colorlet{answerboxcolor}{blue!20}
+
+
+\providecommand\theoremnumber{}
+\newtcbtheorem{Axiombase}{Axiom \theoremnumber}{colback=purple!5,colframe=gray!100!,fonttitle=\bfseries}{Th}
+\newenvironment{Axiom}[1]
+ {\renewcommand{\theoremnumber}{#1}\begin{Axiombase*}}
+ {\end{Axiombase*}}
+
+\title{A Discourse on the \textit{The Best Cleats for \textsc{Ultimate Frisbee}}}
+\author{Aayush Bajaj}
+\date{\today}
+
+\fancyhf{}
+
+\begin{document}
+\vspace{-2cm}
+\maketitle
+
+\dotfill
+
+\thispagestyle{fancy}
+
+\vspace{1cm}
+\fbox{
+    \centering
+\begin{minipage}{0.9\textwidth}
+    \begin{flushleft} \large\emph{If you wish to converse with me define your terms.} \end{flushleft}
+    \begin{flushright}--- Voltaire\end{flushright}
+\end{minipage}
+}
+
+\vspace{0.5cm}
+
+\begin{Axiom}{1}{}
+    Ultimate Frisbee is played by a \textbf{player}.
+\end{Axiom}
+
+\begin{Axiom}{2}{}
+    Each \textbf{player} has their own physiology.
+\end{Axiom}
+
+\begin{Axiom}{3}{}
+    Each \textbf{player} has individual preference and philosophy with respect to play-style.
+\end{Axiom}
+
+\begin{answerbox}
+    \section*{Solution}
+    Considering the axioms, there cannot exist a \textit{perfect cleat for \textsc{Ultimate Frisbee}}, but rather there can only exist cleats for specific player archetypes.
+
+    \begin{multicols}{3}
+    \subsection*{Narrow Foot Cutters}
+    \centering
+        \begin{minipage}{0.3\textwidth}
+            \centering
+            \includegraphics[width=0.4\textwidth]{cleat1.png}
+            \captionof{figure}{NB Freeze}
+        \end{minipage}
+        \begin{minipage}{0.3\textwidth}
+            \centering
+            \includegraphics[width=0.4\textwidth]{cleat4.png}
+            \captionof{figure}{Nike Mercurials}
+        \end{minipage}
+    \subsection*{Wide Foot Cutters}
+    \centering
+        \begin{minipage}{0.3\textwidth}
+            \centering
+            \includegraphics[width=0.4\textwidth]{cleat2.png}
+            \captionof{figure}{Asics Gel}
+        \end{minipage}
+        \begin{minipage}{0.3\textwidth}
+            \centering
+            \includegraphics[width=0.4\textwidth]{cleat3.png}
+            \captionof{figure}{Universe Point Cleats}
+        \end{minipage}
+    \subsection*{Handlers}
+    \centering
+        \begin{minipage}{0.3\textwidth}
+            \centering
+            \includegraphics[width=0.4\textwidth]{cleat3.png}
+            \captionof{figure}{Universe Point Cleats}
+        \end{minipage}
+        \begin{minipage}{0.3\textwidth}
+            \centering
+            \includegraphics[width=0.4\textwidth]{cleat5.png}
+            \captionof{figure}{Nike GOLETTO VIII FG}
+        \end{minipage}
+    \end{multicols}
+
+\end{answerbox}
+
+Caveats: This list is by no means exhaustive as the output of this discourse function is contingent on several variables which blows up the \textbf{range} of ideal cleats; i.e. consider having shit ankles and needing more stability support :/.
+
+
+
+\end{document}

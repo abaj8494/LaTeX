@@ -1,0 +1,36 @@
+\documentclass[tikz, border=0.5cm]{standalone}
+
+\usepgfmodule{nonlineartransformations} 
+
+\makeatletter
+\def\polartransformation{%
+% \pgf@x will contain the radius
+% \pgf@y will contain the distance
+\pgfmathsincos@{\pgf@sys@tonumber\pgf@x}%
+% pgfmathresultx is now the cosine of radius and
+% pgfmathresulty is the sine of radius
+\pgf@x=\pgfmathresultx\pgf@y%
+\pgf@y=\pgfmathresulty\pgf@y%
+}
+\makeatother
+
+
+\begin{document}
+
+\begin{tikzpicture}
+
+    \begin{scope}[shift={(-8,0)}]
+	\draw[thick, black] (0,0) circle(2);
+        \draw[->] (3,0) -- node[above] {$f(z)=e^z$} (5,0);
+    \end{scope}
+
+    % Start nonlinear transformation
+    \pgftransformnonlinear{\polartransformation}
+
+    % Draw something with this transformation in force
+    \draw[thick, black] (0,0) circle(2);
+    %\draw(-3.15,-2) grid[xstep=0.3,ystep=0.3] (3.15,2);
+
+\end{tikzpicture}
+
+\end{document}

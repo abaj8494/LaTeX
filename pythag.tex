@@ -1,0 +1,65 @@
+\documentclass{article}
+\usepackage{tikz}
+\usepackage[top=20mm]{geometry}
+
+\begin{document}
+
+\title{Rearrangement Proof of the Pythagorean Theorem}
+\maketitle
+
+\section*{Theorem}
+For a right-angled triangle, the square of the length of the hypotenuse ($c$) is equal to the sum of the squares of the lengths of the other two sides ($a$ and $b$). This can be represented as:
+\[ c^2 = a^2 + b^2 \]
+
+\section*{Proof}
+
+Consider two squares, each of side length \(a + b\). We can place four congruent right-angled triangles inside each square, with side lengths \(a\), \(b\), and \(c\).
+
+\begin{center}
+\begin{tikzpicture}
+    % First Square
+    \draw (0,0) -- (5,0) -- (5,5) -- (0,5) -- cycle;
+    
+    % Triangles for first square
+    \draw (0,3.5) -- (1.5,0);
+    \draw (1.5,0) -- (5,1.5);
+    \draw (5,1.5) -- (3.5,5);
+    \draw (3.5,5) -- (0,3.5);
+    
+    % Labels for first square
+    \node at (2.5,2.5) {$c^2$};
+    \node at (0,3.5/2) [left] {$a$};
+    \node at (0,3.5+1.5/2) [left] {$b$};
+    \node at (3.5/2,5) [above] {$a$};
+    \node at (3.5+1.5/2,5) [above] {$b$};
+    \node at (5,3.5+1.5/2) [right] {$a$};
+    \node at (5,1.5/2) [right] {$b$};
+    \node at (3.5+1.5/2,0) [below] {$a$};
+    \node at (1.5/2,0) [below] {$b$};
+
+    % Second Square
+    \draw (7,0) rectangle (12,5);
+    \draw (7,0) rectangle (7+3.5,3.5);
+    \draw (7+3.5,3.5) rectangle (12,5);
+    
+    \draw (7,3.5) -- (7+3.5,5);
+    \draw (7+3.5,0) -- (12,3.5);
+
+    \node at (7+3.5/2, 3.5/2) {$a^2$};
+    \node at (7+3.5+1.5/2,3.5+1.5/2) {$b^2$};
+    \node at (7+3.5/2,5) [above] {$a$};
+    \node at (7,3.5+1.5/2) [left] {$b$};
+    \node at (7+3.5+1.5/2,0) [below] {$b$};
+    \node at (12,3.5/2) [right] {$a$};
+    
+    
+\end{tikzpicture}
+\end{center}
+
+In the first square, the total area covered by the triangles and the smaller square is \(4 \times \frac{1}{2}ab + c^2 = 2ab + c^2\).
+
+In the second square, after rearranging the triangles, two smaller squares appear: one of side length \(a\) and the other of side length \(b\). Their combined area is \(a^2 + b^2\).
+
+From the two squares, it is clear that the area represented by \(c^2\) in the first square is equal to the combined areas of \(a^2\) and \(b^2\) in the second square, thus proving the theorem.
+
+\end{document}

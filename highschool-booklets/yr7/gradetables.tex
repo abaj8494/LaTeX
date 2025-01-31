@@ -1,0 +1,301 @@
+\newcounter{totalmarks}
+\newcounter{secmarks}
+\newcounter{sec0marks}
+\newcounter{sec1marks}
+\newcounter{sec2marks}
+\newcounter{sec3marks}
+\newcounter{sec4marks}
+\newcounter{sec5marks}
+\newcounter{sec6marks}
+\newcounter{sec7marks}
+\newcounter{sec8marks}
+\newcounter{sec9marks}
+\newcounter{sec10marks}
+\newcounter{hwmarks}
+\newcounter{numsections}
+
+\newcommand{\tableformatzero}{
+    \begin{tabularx}{\linewidth}{||>{\bfseries}l||>{\centering}X|>{\centering}X|||>{\bfseries}c||}
+    \hline \hline
+    \rule[-0.75em]{0em}{2em}\parbox[m]{2.75cm}{\MakeUppercase{Section}}
+        & 0
+        & HW
+        & Total
+        \\ \hline
+    \rule[-1.75em]{0em}{4em}\parbox[m]{0.15\linewidth}{\MakeUppercase{Marks}}  
+        & $\dfrac{}{\arabic{sec0marks}}$ 
+        & $\dfrac{}{\arabic{hwmarks}}$
+        & $\dfrac{}{\thetotalmarks}$  \\ \hline \hline
+    \end{tabularx}    
+}
+\newcommand{\tableformatone}{
+    \begin{tabularx}{\linewidth}{||>{\bfseries}l||>{\centering}X|>{\centering}X|>{\centering}X|||>{\bfseries}c||}
+    \hline \hline
+    \rule[-0.75em]{0em}{2em}\parbox[m]{2.75cm}{\MakeUppercase{Section}}
+        & 0
+        & 1
+        & HW
+        & Total
+        \\ \hline
+    \rule[-1.75em]{0em}{4em}\parbox[m]{0.15\linewidth}{\MakeUppercase{Marks}}  
+        & $\dfrac{}{\arabic{sec0marks}}$ 
+        & $\dfrac{}{\arabic{sec1marks}}$ 
+        & $\dfrac{}{\arabic{hwmarks}}$
+        & $\dfrac{}{\thetotalmarks}$  \\ \hline \hline
+    \end{tabularx}    
+}
+\newcommand{\tableformattwo}{
+    \begin{tabularx}{\linewidth}{||>{\bfseries}l||>{\centering}X|>{\centering}X|>{\centering}X|>{\centering}X|||>{\bfseries}c||}
+    \hline \hline
+    \rule[-0.75em]{0em}{2em}\parbox[m]{2.75cm}{\MakeUppercase{Section}}
+        & 0
+        & 1
+        & 2
+        & HW
+        & Total
+        \\ \hline
+    \rule[-1.75em]{0em}{4em}\parbox[m]{0.15\linewidth}{\MakeUppercase{Marks}}  
+        & $\dfrac{}{\arabic{sec0marks}}$ 
+        & $\dfrac{}{\arabic{sec1marks}}$ 
+        & $\dfrac{}{\arabic{sec2marks}}$  
+        & $\dfrac{}{\arabic{hwmarks}}$
+        & $\dfrac{}{\thetotalmarks}$  \\ \hline \hline
+    \end{tabularx}    
+}
+\newcommand{\tableformatthree}{
+    \begin{tabularx}{\linewidth}{||>{\bfseries}l||>{\centering}X|>{\centering}X|>{\centering}X|>{\centering}X|>{\centering}X|||>{\bfseries}c||}
+    \hline \hline
+    \rule[-0.75em]{0em}{2em}\parbox[m]{2.75cm}{\MakeUppercase{Section}}
+        & 0
+        & 1
+        & 2
+        & 3
+        & HW
+        & Total
+        \\ \hline
+    \rule[-1.75em]{0em}{4em}\parbox[m]{0.15\linewidth}{\MakeUppercase{Marks}}  
+        & $\dfrac{}{\arabic{sec0marks}}$ 
+        & $\dfrac{}{\arabic{sec1marks}}$ 
+        & $\dfrac{}{\arabic{sec2marks}}$  
+        & $\dfrac{}{\arabic{sec3marks}}$ 
+        & $\dfrac{}{\arabic{hwmarks}}$
+        & $\dfrac{}{\thetotalmarks}$  \\ \hline \hline
+    \end{tabularx}    
+}
+\newcommand{\tableformatfour}{
+    \begin{tabularx}{\linewidth}{||>{\bfseries}l||>{\centering}X|>{\centering}X|>{\centering}X|>{\centering}X|>{\centering}X|>{\centering}X|||>{\bfseries}c||}
+    \hline \hline
+    \rule[-0.75em]{0em}{2em}\parbox[m]{2.75cm}{\MakeUppercase{Section}}
+        & 0
+        & 1
+        & 2
+        & 3
+        & 4
+        & HW
+        & Total
+        \\ \hline
+    \rule[-1.75em]{0em}{4em}\parbox[m]{0.15\linewidth}{\MakeUppercase{Marks}}  
+        & $\dfrac{}{\arabic{sec0marks}}$ 
+        & $\dfrac{}{\arabic{sec1marks}}$ 
+        & $\dfrac{}{\arabic{sec2marks}}$  
+        & $\dfrac{}{\arabic{sec3marks}}$ 
+        & $\dfrac{}{\arabic{sec4marks}}$ 
+        & $\dfrac{}{\arabic{hwmarks}}$
+        & $\dfrac{}{\thetotalmarks}$  \\ \hline \hline
+    \end{tabularx}    
+}
+\newcommand{\tableformatfive}{
+    \begin{tabularx}{\linewidth}{||>{\bfseries}l||>{\centering}X|>{\centering}X|>{\centering}X|>{\centering}X|>{\centering}X|>{\centering}X|>{\centering}X||>{\bfseries}c||}
+    \hline \hline
+    \rule[-0.75em]{0em}{2em}\parbox[m]{2.75cm}{\MakeUppercase{Section}}
+        & 0
+        & 1
+        & 2
+        & 3
+        & 4
+        & 5
+        & HW
+        & Total
+        \\ \hline
+    \rule[-1.75em]{0em}{4em}\parbox[m]{0.15\linewidth}{\MakeUppercase{Marks}}  
+        & $\dfrac{}{\arabic{sec0marks}}$ 
+        & $\dfrac{}{\arabic{sec1marks}}$ 
+        & $\dfrac{}{\arabic{sec2marks}}$  
+        & $\dfrac{}{\arabic{sec3marks}}$ 
+        & $\dfrac{}{\arabic{sec4marks}}$ 
+        & $\dfrac{}{\arabic{sec5marks}}$ 
+        & $\dfrac{}{\arabic{hwmarks}}$
+        & $\dfrac{}{\thetotalmarks}$  \\ \hline \hline
+    \end{tabularx}    
+}
+\newcommand{\tableformatsix}{
+    \begin{tabularx}{\linewidth}{||>{\bfseries}l||>{\centering}X|>{\centering}X|>{\centering}X|>{\centering}X|>{\centering}X|>{\centering}X|>{\centering}X|>{\centering}X||>{\bfseries}c||}
+    \hline \hline
+    \rule[-0.75em]{0em}{2em}\parbox[m]{2.75cm}{\MakeUppercase{Section}}
+        & 0
+        & 1
+        & 2
+        & 3
+        & 4
+        & 5
+        & 6
+        & HW
+        & Total
+        \\ \hline
+    \rule[-1.75em]{0em}{4em}\parbox[m]{0.15\linewidth}{\MakeUppercase{Marks}}  
+        & $\dfrac{}{\arabic{sec0marks}}$ 
+        & $\dfrac{}{\arabic{sec1marks}}$ 
+        & $\dfrac{}{\arabic{sec2marks}}$  
+        & $\dfrac{}{\arabic{sec3marks}}$ 
+        & $\dfrac{}{\arabic{sec4marks}}$ 
+        & $\dfrac{}{\arabic{sec5marks}}$ 
+        & $\dfrac{}{\arabic{sec6marks}}$
+        & $\dfrac{}{\arabic{hwmarks}}$
+        & $\dfrac{}{\thetotalmarks}$  \\ \hline \hline
+    \end{tabularx}    
+}
+\newcommand{\tableformatseven}{
+    \begin{tabularx}{\linewidth}{||>{\bfseries}l||>{\centering}X|>{\centering}X|>{\centering}X|>{\centering}X|>{\centering}X|>{\centering}X|>{\centering}X|>{\centering}X|>{\centering}X||>{\bfseries}c||}
+    \hline \hline
+    \rule[-0.75em]{0em}{2em}\parbox[m]{2.75cm}{\MakeUppercase{Section}}
+        & 0
+        & 1
+        & 2
+        & 3
+        & 4
+        & 5
+        & 6
+        & 7
+        & HW
+        & Total
+        \\ \hline
+    \rule[-1.75em]{0em}{4em}\parbox[m]{0.15\linewidth}{\MakeUppercase{Marks}}  
+        & $\dfrac{}{\arabic{sec0marks}}$ 
+        & $\dfrac{}{\arabic{sec1marks}}$ 
+        & $\dfrac{}{\arabic{sec2marks}}$  
+        & $\dfrac{}{\arabic{sec3marks}}$ 
+        & $\dfrac{}{\arabic{sec4marks}}$ 
+        & $\dfrac{}{\arabic{sec5marks}}$ 
+        & $\dfrac{}{\arabic{sec6marks}}$
+        & $\dfrac{}{\arabic{sec7marks}}$
+        & $\dfrac{}{\arabic{hwmarks}}$
+        & $\dfrac{}{\thetotalmarks}$  \\ \hline \hline
+    \end{tabularx}    
+}
+\newcommand{\tableformateight}{
+    \begin{tabularx}{\linewidth}{||>{\bfseries}l||>{\centering}X|>{\centering}X|>{\centering}X|>{\centering}X|>{\centering}X|>{\centering}X|>{\centering}X|>{\centering}X|>{\centering}X|>{\centering}X||>{\bfseries}c||}
+    \hline \hline
+    \rule[-0.75em]{0em}{2em}\parbox[m]{2.75cm}{\MakeUppercase{Section}}
+        & 0
+        & 1
+        & 2
+        & 3
+        & 4
+        & 5
+        & 6
+        & 7
+        & 8
+        & HW
+        & Total
+        \\ \hline
+    \rule[-1.75em]{0em}{4em}\parbox[m]{0.15\linewidth}{\MakeUppercase{Marks}}  
+        & $\dfrac{}{\arabic{sec0marks}}$ 
+        & $\dfrac{}{\arabic{sec1marks}}$ 
+        & $\dfrac{}{\arabic{sec2marks}}$  
+        & $\dfrac{}{\arabic{sec3marks}}$ 
+        & $\dfrac{}{\arabic{sec4marks}}$ 
+        & $\dfrac{}{\arabic{sec5marks}}$ 
+        & $\dfrac{}{\arabic{sec6marks}}$
+        & $\dfrac{}{\arabic{sec7marks}}$
+        & $\dfrac{}{\arabic{sec8marks}}$
+        & $\dfrac{}{\arabic{hwmarks}}$
+        & $\dfrac{}{\thetotalmarks}$  \\ \hline \hline
+    \end{tabularx}    
+}
+\newcommand{\tableformatnine}{
+    \begin{tabularx}{\linewidth}{||>{\bfseries}l||>{\centering}X|>{\centering}X|>{\centering}X|>{\centering}X|>{\centering}X|>{\centering}X|>{\centering}X|>{\centering}X|>{\centering}X|>{\centering}X|>{\centering}X||>{\bfseries}c||}
+    \hline \hline
+    \rule[-0.75em]{0em}{2em}\parbox[m]{2.75cm}{\MakeUppercase{Section}}
+        & 0
+        & 1
+        & 2
+        & 3
+        & 4
+        & 5
+        & 6
+        & 7
+        & 8
+        & 9
+        & HW
+        & Total
+        \\ \hline
+    \rule[-1.75em]{0em}{4em}\parbox[m]{0.15\linewidth}{\MakeUppercase{Marks}}  
+        & $\dfrac{}{\arabic{sec0marks}}$ 
+        & $\dfrac{}{\arabic{sec1marks}}$ 
+        & $\dfrac{}{\arabic{sec2marks}}$  
+        & $\dfrac{}{\arabic{sec3marks}}$ 
+        & $\dfrac{}{\arabic{sec4marks}}$ 
+        & $\dfrac{}{\arabic{sec5marks}}$ 
+        & $\dfrac{}{\arabic{sec6marks}}$
+        & $\dfrac{}{\arabic{sec7marks}}$
+        & $\dfrac{}{\arabic{sec8marks}}$
+        & $\dfrac{}{\arabic{sec9marks}}$
+        & $\dfrac{}{\arabic{hwmarks}}$
+        & $\dfrac{}{\thetotalmarks}$  \\ \hline \hline
+    \end{tabularx}    
+}
+\newcommand{\tableformatten}{
+    \begin{tabularx}{\linewidth}{||>{\bfseries}l||>{\centering}X|>{\centering}X|>{\centering}X|>{\centering}X|>{\centering}X|>{\centering}X|>{\centering}X|>{\centering}X|>{\centering}X|>{\centering}X|>{\centering}X|>{\centering}X||>{\bfseries}c||}
+    \hline \hline
+    \rule[-0.75em]{0em}{2em}\parbox[m]{2.75cm}{\MakeUppercase{Section}}
+        & 0
+        & 1
+        & 2
+        & 3
+        & 4
+        & 5
+        & 6
+        & 7
+        & 8
+        & 9
+        & 10
+        & HW
+        & Total
+        \\ \hline
+    \rule[-1.75em]{0em}{4em}\parbox[m]{0.15\linewidth}{\MakeUppercase{Marks}}  
+        & $\dfrac{}{\arabic{sec0marks}}$ 
+        & $\dfrac{}{\arabic{sec1marks}}$ 
+        & $\dfrac{}{\arabic{sec2marks}}$  
+        & $\dfrac{}{\arabic{sec3marks}}$ 
+        & $\dfrac{}{\arabic{sec4marks}}$ 
+        & $\dfrac{}{\arabic{sec5marks}}$ 
+        & $\dfrac{}{\arabic{sec6marks}}$
+        & $\dfrac{}{\arabic{sec7marks}}$
+        & $\dfrac{}{\arabic{sec8marks}}$
+        & $\dfrac{}{\arabic{sec9marks}}$
+        & $\dfrac{}{\arabic{sec10marks}}$
+        & $\dfrac{}{\arabic{hwmarks}}$
+        & $\dfrac{}{\thetotalmarks}$  \\ \hline \hline
+    \end{tabularx}    
+}
+
+\newcommand{\mygradetable}[1]{
+    \begin{center}
+        \begin{minipage}[m]{\linewidth}
+            Marker's use only. \\ \large
+            \ifnum#1 = 0 \tableformatzero\fi
+            \ifnum#1 = 1 \tableformatone\fi
+            \ifnum#1 = 2 \tableformattwo\fi
+            \ifnum#1 = 3 \tableformatthree\fi
+            \ifnum#1 = 4 \tableformatfour\fi
+            \ifnum#1 = 5 \tableformatfive\fi
+            \ifnum#1 = 6 \tableformatsix\fi
+            \ifnum#1 = 7 \tableformatseven\fi
+            \ifnum#1 = 8 \tableformateight\fi
+            \ifnum#1 = 9 \tableformatnine\fi
+            \ifnum#1 = 10 \tableformatten\fi
+        \end{minipage}
+    \end{center}
+}
+
+

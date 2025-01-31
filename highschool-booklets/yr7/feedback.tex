@@ -1,0 +1,18 @@
+
+\RemoveFromHook{cmd/section/before}{\clearpage}
+\restoregeometry
+
+\foreach \i in {1,2,...,10} {
+  \addtocounter{totalmarks}{\value{sec\i marks}}
+}
+\addtocounter{totalmarks}{\value{hwmarks}}
+
+
+\section{Marking}
+%wholenumber a = 5
+\mygradetable{9}
+\smallskip
+
+\section{Feedback}
+\setlength\dottedlinefillheight{.4in}
+\fillwithdottedlines{\stretch{1}}

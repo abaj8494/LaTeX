@@ -1,0 +1,168 @@
+\glsdefs@newdocentry{animal}%
+{%
+name={Animal},%
+sort={animal},%
+type={main},%
+first={Animal},%
+firstplural={Animals},%
+text={Animal},%
+plural={Animals},%
+description={an animal},%
+descriptionplural={an animal},%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={},%
+longplural={},%
+short={},%
+shortplural={},%
+counter={page},%
+parent={},%
+%
+}%
+
+\glsdefs@newdocentry{taxonomy}%
+{%
+name={taxonomy},%
+sort={taxonomy},%
+type={main},%
+first={taxonomy},%
+firstplural={taxonomys},%
+text={taxonomy},%
+plural={taxonomys},%
+description={an taxonomy},%
+descriptionplural={an taxonomy},%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={},%
+longplural={},%
+short={},%
+shortplural={},%
+counter={page},%
+parent={},%
+%
+}%
+
+\glsdefs@newdocentry{phylum}%
+{%
+name={phylum},%
+sort={phylum},%
+type={main},%
+first={phylum},%
+firstplural={phylums},%
+text={phylum},%
+plural={phylums},%
+description={an phylum},%
+descriptionplural={an phylum},%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={},%
+longplural={},%
+short={},%
+shortplural={},%
+counter={page},%
+parent={},%
+%
+}%
+
+\glsdefs@newdocentry{herbivore}%
+{%
+name={herbivore},%
+sort={herbivore},%
+type={main},%
+first={herbivore},%
+firstplural={herbivores},%
+text={herbivore},%
+plural={herbivores},%
+description={an herbivore},%
+descriptionplural={an herbivore},%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={},%
+longplural={},%
+short={},%
+shortplural={},%
+counter={page},%
+parent={},%
+%
+}%
+
+\glsdefs@newdocentry{omnivore}%
+{%
+name={omnivore},%
+sort={omnivore},%
+type={main},%
+first={omnivore},%
+firstplural={omnivores},%
+text={omnivore},%
+plural={omnivores},%
+description={an omnivore},%
+descriptionplural={an omnivore},%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={},%
+longplural={},%
+short={},%
+shortplural={},%
+counter={page},%
+parent={},%
+%
+}%
+
+\glsdefs@newdocentry{carnivore}%
+{%
+name={carnivore},%
+sort={carnivore},%
+type={main},%
+first={carnivore},%
+firstplural={carnivores},%
+text={carnivore},%
+plural={carnivores},%
+description={an carnivore},%
+descriptionplural={an carnivore},%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={},%
+longplural={},%
+short={},%
+shortplural={},%
+counter={page},%
+parent={},%
+%
+}%
+

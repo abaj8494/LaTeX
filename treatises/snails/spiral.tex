@@ -1,0 +1,38 @@
+\documentclass[12pt, border=0.5mm]{standalone}
+
+\usepackage{etex}
+\usepackage{graphicx}
+\usepackage[ngerman]{babel}
+\usepackage{pgfplots}
+\usepackage{tikz}
+\usetikzlibrary{calc, arrows, shapes}
+\usepackage{fp}
+\usetikzlibrary{fixedpointarithmetic}
+
+\begin{document}
+
+\begin{tikzpicture}[x=1mm, y=1mm]
+
+    \pgfmathsetmacro{\w}{98}        
+    \pgfmathsetmacro{\h}{\w*(2/(1+sqrt(5)))}    
+
+    \pgfmathsetmacro{\dx}{(-(\h/(\h-\w))*\w)/((\h/\w) - (\h/(\h-\w)))}      
+    \pgfmathsetmacro{\dy}{(\h/\w)*\dx}
+
+    \draw[line width=0.01mm] (0, 0) rectangle (\w, \h);     
+
+    \draw[line width=0.01mm] (\h, 0) -- (\h, \h);       
+    \draw[line width=0.01mm] (\h, {\w-\h}) -- (\w, {\w-\h});        
+    \draw[line width=0.01mm] ({2*\w-2*\h)}, {\w-\h}) -- ({2*\w-2*\h}, \h);      
+    \draw[line width=0.01mm] (\h, {4*\h-2*\w}) -- ({2*\w-2*\h)}, {4*\h-2*\w});
+    \draw[line width=0.01mm] ({6*\h-3*\w}, {4*\h-2*\w}) -- ({6*\h-3*\w}, {\w-\h});
+    \draw[line width=0.01mm] ({6*\h-3*\w}, {6*\w-9*\h}) -- ({2*\w-2*\h}, {6*\w-9*\h});
+    \draw[line width=0.01mm] ({2*\w-2*\h-13*\h+8*\w}, {4*\h-2*\w}) -- ({2*\w-2*\h-13*\h+8*\w}, {4*\h-2*\w-13*\h+8*\w});
+
+    \pgfmathsetmacro{\a}{(-2/pi)*ln((1+sqrt(5))/2)}
+    \pgfmathsetmacro{\d}{sqrt(pow(\dx, 2) + pow((\dy - \h), 2))}    
+
+    \draw[rotate around={{-atan((2*\h-\w)/\w)}:(\dx,\dy)}, line width=0.01mm, domain=0:6*pi, variable=\t, samples=5000]
+        plot[fixed point arithmetic] ({\dx-\d*exp(\a*\t)*cos(deg(\t))}, {\dy-\d*exp(\a*\t)*sin(deg(\t))});          
+
+\end{tikzpicture}
