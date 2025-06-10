@@ -1,0 +1,16 @@
++++
+title = "24 Birthday Problems"
++++
+
+* Q1
+
+** a)
+Use the formulae
+
+\[\sum_{k=1}^N k = \frac{N}{2}(N+1)\]
+and \[\sum_{k=1}^N k^2 = \frac{N}{6}(N+1)(2N+1)\]
+to evaluate
+\[\sum_{k=1}^N (4k+3)^2\]
+
+** b)
+
