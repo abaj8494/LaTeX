@@ -1,0 +1,807 @@
+% $ biblatex auxiliary file $
+% $ biblatex bbl format version 3.3 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated by
+% biber as required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+
+\refsection{0}
+  \datalist[entry]{nyt/global//global/global/global}
+    \entry{ashford2012developing}{article}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=a3514ecdcfa5099dd48c356642a52615}{%
+           family={Ashford},
+           familyi={A\bibinitperiod},
+           given={Susan\bibnamedelima J.},
+           giveni={S\bibinitperiod\bibinitdelim J\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {Elsevier}%
+      }
+      \strng{namehash}{a3514ecdcfa5099dd48c356642a52615}
+      \strng{fullhash}{a3514ecdcfa5099dd48c356642a52615}
+      \strng{fullhashraw}{a3514ecdcfa5099dd48c356642a52615}
+      \strng{bibnamehash}{a3514ecdcfa5099dd48c356642a52615}
+      \strng{authorbibnamehash}{a3514ecdcfa5099dd48c356642a52615}
+      \strng{authornamehash}{a3514ecdcfa5099dd48c356642a52615}
+      \strng{authorfullhash}{a3514ecdcfa5099dd48c356642a52615}
+      \strng{authorfullhashraw}{a3514ecdcfa5099dd48c356642a52615}
+      \field{sortinit}{A}
+      \field{sortinithash}{2f401846e2029bad6b3ecc16d50031e2}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Organizational Dynamics}
+      \field{number}{2}
+      \field{title}{Developing as a Leader: The Power of Mindful Engagement}
+      \field{volume}{41}
+      \field{year}{2012}
+      \true{nocite}
+      \field{pages}{146\bibrangedash 154}
+      \range{pages}{9}
+    \endentry
+    \entry{Baeza2018}{article}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=9b9994232d143cb98b683bb47b629e3b}{%
+           family={Baeza-Yates},
+           familyi={B\bibinithyphendelim Y\bibinitperiod},
+           given={R.},
+           giveni={R\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{9b9994232d143cb98b683bb47b629e3b}
+      \strng{fullhash}{9b9994232d143cb98b683bb47b629e3b}
+      \strng{fullhashraw}{9b9994232d143cb98b683bb47b629e3b}
+      \strng{bibnamehash}{9b9994232d143cb98b683bb47b629e3b}
+      \strng{authorbibnamehash}{9b9994232d143cb98b683bb47b629e3b}
+      \strng{authornamehash}{9b9994232d143cb98b683bb47b629e3b}
+      \strng{authorfullhash}{9b9994232d143cb98b683bb47b629e3b}
+      \strng{authorfullhashraw}{9b9994232d143cb98b683bb47b629e3b}
+      \field{sortinit}{B}
+      \field{sortinithash}{d7095fff47cda75ca2589920aae98399}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Communications of the ACM}
+      \field{number}{6}
+      \field{title}{Bias on the web}
+      \field{volume}{61}
+      \field{year}{2018}
+      \true{nocite}
+      \field{pages}{54\bibrangedash 61}
+      \range{pages}{8}
+    \endentry
+    \entry{beauchamp2004principles}{incollection}{}{}
+      \name{author}{2}{}{%
+        {{un=0,uniquepart=base,hash=e3b58a37a81ebeee8390fc2317d039e3}{%
+           family={Beauchamp},
+           familyi={B\bibinitperiod},
+           given={Tom\bibnamedelima L.},
+           giveni={T\bibinitperiod\bibinitdelim L\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=4aea4e3bf779106425640bdfdc4e06e6}{%
+           family={DeGrazia},
+           familyi={D\bibinitperiod},
+           given={David},
+           giveni={D\bibinitperiod},
+           givenun=0}}%
+      }
+      \name{editor}{1}{}{%
+        {{hash=b0ff8d3f55d78e531e427fe5bcf2e6b3}{%
+           family={Gillon},
+           familyi={G\bibinitperiod},
+           given={Raanan},
+           giveni={R\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {John Wiley \& Sons}%
+      }
+      \strng{namehash}{c154591e127bf00cb2ac87622ad93dad}
+      \strng{fullhash}{c154591e127bf00cb2ac87622ad93dad}
+      \strng{fullhashraw}{c154591e127bf00cb2ac87622ad93dad}
+      \strng{bibnamehash}{c154591e127bf00cb2ac87622ad93dad}
+      \strng{authorbibnamehash}{c154591e127bf00cb2ac87622ad93dad}
+      \strng{authornamehash}{c154591e127bf00cb2ac87622ad93dad}
+      \strng{authorfullhash}{c154591e127bf00cb2ac87622ad93dad}
+      \strng{authorfullhashraw}{c154591e127bf00cb2ac87622ad93dad}
+      \strng{editorbibnamehash}{b0ff8d3f55d78e531e427fe5bcf2e6b3}
+      \strng{editornamehash}{b0ff8d3f55d78e531e427fe5bcf2e6b3}
+      \strng{editorfullhash}{b0ff8d3f55d78e531e427fe5bcf2e6b3}
+      \strng{editorfullhashraw}{b0ff8d3f55d78e531e427fe5bcf2e6b3}
+      \field{sortinit}{B}
+      \field{sortinithash}{d7095fff47cda75ca2589920aae98399}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{Principles of Health Care Ethics}
+      \field{title}{Principles and Principlism}
+      \field{year}{2004}
+      \true{nocite}
+      \field{pages}{55\bibrangedash 66}
+      \range{pages}{12}
+    \endentry
+    \entry{bietti2020ethics}{article}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=a790bfeb8f14f0d38e8d1393cd0d35bf}{%
+           family={Bietti},
+           familyi={B\bibinitperiod},
+           given={Elettra},
+           giveni={E\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{a790bfeb8f14f0d38e8d1393cd0d35bf}
+      \strng{fullhash}{a790bfeb8f14f0d38e8d1393cd0d35bf}
+      \strng{fullhashraw}{a790bfeb8f14f0d38e8d1393cd0d35bf}
+      \strng{bibnamehash}{a790bfeb8f14f0d38e8d1393cd0d35bf}
+      \strng{authorbibnamehash}{a790bfeb8f14f0d38e8d1393cd0d35bf}
+      \strng{authornamehash}{a790bfeb8f14f0d38e8d1393cd0d35bf}
+      \strng{authorfullhash}{a790bfeb8f14f0d38e8d1393cd0d35bf}
+      \strng{authorfullhashraw}{a790bfeb8f14f0d38e8d1393cd0d35bf}
+      \field{sortinit}{B}
+      \field{sortinithash}{d7095fff47cda75ca2589920aae98399}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Philosophy \& Technology}
+      \field{number}{4}
+      \field{title}{From Ethics Washing to Ethics Bashing: A View on Tech Ethics from Within Moral Philosophy}
+      \field{volume}{33}
+      \field{year}{2020}
+      \true{nocite}
+      \field{pages}{541\bibrangedash 559}
+      \range{pages}{19}
+      \verb{doi}
+      \verb 10.1007/s13347-020-00405-1
+      \endverb
+      \verb{urlraw}
+      \verb https://doi.org/10.1007/s13347-020-00405-1
+      \endverb
+      \verb{url}
+      \verb https://doi.org/10.1007/s13347-020-00405-1
+      \endverb
+    \endentry
+    \entry{associationforcomputingmachinery_2018_acm}{misc}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=a466783782bbb246d1f4a999cbdf9865}{%
+           family={Computing\bibnamedelima Machinery},
+           familyi={C\bibinitperiod\bibinitdelim M\bibinitperiod},
+           given={Association},
+           giveni={A\bibinitperiod},
+           givenun=0,
+           prefix={for},
+           prefixi={f\bibinitperiod},
+           prefixun=0}}%
+      }
+      \list{organization}{1}{%
+        {Association for Computing Machinery}%
+      }
+      \strng{namehash}{a466783782bbb246d1f4a999cbdf9865}
+      \strng{fullhash}{a466783782bbb246d1f4a999cbdf9865}
+      \strng{fullhashraw}{a466783782bbb246d1f4a999cbdf9865}
+      \strng{bibnamehash}{a466783782bbb246d1f4a999cbdf9865}
+      \strng{authorbibnamehash}{a466783782bbb246d1f4a999cbdf9865}
+      \strng{authornamehash}{a466783782bbb246d1f4a999cbdf9865}
+      \strng{authorfullhash}{a466783782bbb246d1f4a999cbdf9865}
+      \strng{authorfullhashraw}{a466783782bbb246d1f4a999cbdf9865}
+      \field{sortinit}{C}
+      \field{sortinithash}{4d103a86280481745c9c897c925753c0}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{month}{06}
+      \field{title}{ACM Code of Ethics and professional conduct}
+      \field{urlday}{30}
+      \field{urlmonth}{3}
+      \field{urlyear}{2025}
+      \field{year}{2018}
+      \field{urldateera}{ce}
+      \true{nocite}
+      \verb{urlraw}
+      \verb https://www.acm.org/code-of-ethics
+      \endverb
+      \verb{url}
+      \verb https://www.acm.org/code-of-ethics
+      \endverb
+    \endentry
+    \entry{cornacchia2023counterfactualreasoningbiasevaluation}{misc}{}{}
+      \name{author}{5}{}{%
+        {{un=0,uniquepart=base,hash=b499ab6491cf31f675037a0a3d0936c7}{%
+           family={Cornacchia},
+           familyi={C\bibinitperiod},
+           given={Giandomenico},
+           giveni={G\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=eb93d39ec7ed3d7e8534c7e1864f17c9}{%
+           family={Anelli},
+           familyi={A\bibinitperiod},
+           given={Vito\bibnamedelima Walter},
+           giveni={V\bibinitperiod\bibinitdelim W\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=3f2cc121698b08c5aed6b5afb48bc5f0}{%
+           family={Narducci},
+           familyi={N\bibinitperiod},
+           given={Fedelucio},
+           giveni={F\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=9541729372557fccd7dc58e8c2234837}{%
+           family={Ragone},
+           familyi={R\bibinitperiod},
+           given={Azzurra},
+           giveni={A\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=054ad1b7a3d0448029b577630c7b160a}{%
+           family={Sciascio},
+           familyi={S\bibinitperiod},
+           given={Eugenio\bibnamedelima Di},
+           giveni={E\bibinitperiod\bibinitdelim D\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{1fb9a4758dbef5414ead2bb5dd7824c0}
+      \strng{fullhash}{5c7526267d4839cd22d2675ecf46546d}
+      \strng{fullhashraw}{5c7526267d4839cd22d2675ecf46546d}
+      \strng{bibnamehash}{1fb9a4758dbef5414ead2bb5dd7824c0}
+      \strng{authorbibnamehash}{1fb9a4758dbef5414ead2bb5dd7824c0}
+      \strng{authornamehash}{1fb9a4758dbef5414ead2bb5dd7824c0}
+      \strng{authorfullhash}{5c7526267d4839cd22d2675ecf46546d}
+      \strng{authorfullhashraw}{5c7526267d4839cd22d2675ecf46546d}
+      \field{sortinit}{C}
+      \field{sortinithash}{4d103a86280481745c9c897c925753c0}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{eprintclass}{cs.LG}
+      \field{eprinttype}{arXiv}
+      \field{title}{Counterfactual Reasoning for Bias Evaluation and Detection in a Fairness under Unawareness setting}
+      \field{year}{2023}
+      \true{nocite}
+      \verb{eprint}
+      \verb 2302.08204
+      \endverb
+      \verb{urlraw}
+      \verb https://arxiv.org/abs/2302.08204
+      \endverb
+      \verb{url}
+      \verb https://arxiv.org/abs/2302.08204
+      \endverb
+    \endentry
+    \entry{daniels2020reflective}{misc}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=b4df3f1a844de317684033359c560631}{%
+           family={Daniels},
+           familyi={D\bibinitperiod},
+           given={Norman},
+           giveni={N\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{b4df3f1a844de317684033359c560631}
+      \strng{fullhash}{b4df3f1a844de317684033359c560631}
+      \strng{fullhashraw}{b4df3f1a844de317684033359c560631}
+      \strng{bibnamehash}{b4df3f1a844de317684033359c560631}
+      \strng{authorbibnamehash}{b4df3f1a844de317684033359c560631}
+      \strng{authornamehash}{b4df3f1a844de317684033359c560631}
+      \strng{authorfullhash}{b4df3f1a844de317684033359c560631}
+      \strng{authorfullhashraw}{b4df3f1a844de317684033359c560631}
+      \field{sortinit}{D}
+      \field{sortinithash}{6f385f66841fb5e82009dc833c761848}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{howpublished}{\url{https://plato.stanford.edu/archives/sum2020/entries/reflective-equilibrium/}}
+      \field{note}{Stanford Encyclopedia of Philosophy, Summer 2020 Edition, edited by Edward N. Zalta}
+      \field{title}{Reflective Equilibrium}
+      \field{year}{2020}
+      \true{nocite}
+    \endentry
+    \entry{doshi2017towards}{article}{}{}
+      \name{author}{2}{}{%
+        {{un=0,uniquepart=base,hash=b01a5e92cd39a5551d74ab2393c7b9fd}{%
+           family={Doshi-Velez},
+           familyi={D\bibinithyphendelim V\bibinitperiod},
+           given={Finale},
+           giveni={F\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=a11a6718c039f3e3f3f31167e5094c10}{%
+           family={Kim},
+           familyi={K\bibinitperiod},
+           given={Been},
+           giveni={B\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{66c38242b4ecdd0e74f6a1fb48199a21}
+      \strng{fullhash}{66c38242b4ecdd0e74f6a1fb48199a21}
+      \strng{fullhashraw}{66c38242b4ecdd0e74f6a1fb48199a21}
+      \strng{bibnamehash}{66c38242b4ecdd0e74f6a1fb48199a21}
+      \strng{authorbibnamehash}{66c38242b4ecdd0e74f6a1fb48199a21}
+      \strng{authornamehash}{66c38242b4ecdd0e74f6a1fb48199a21}
+      \strng{authorfullhash}{66c38242b4ecdd0e74f6a1fb48199a21}
+      \strng{authorfullhashraw}{66c38242b4ecdd0e74f6a1fb48199a21}
+      \field{sortinit}{D}
+      \field{sortinithash}{6f385f66841fb5e82009dc833c761848}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{arXiv preprint arXiv:1702.08608}
+      \field{title}{Towards a rigorous science of interpretable machine learning}
+      \field{year}{2017}
+      \true{nocite}
+      \verb{urlraw}
+      \verb https://arxiv.org/abs/1702.08608
+      \endverb
+      \verb{url}
+      \verb https://arxiv.org/abs/1702.08608
+      \endverb
+    \endentry
+    \entry{formosa2021principlist}{article}{}{}
+      \name{author}{3}{}{%
+        {{un=0,uniquepart=base,hash=8b0238c1db6d5705d13746dd34d1b149}{%
+           family={Formosa},
+           familyi={F\bibinitperiod},
+           given={Paul},
+           giveni={P\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=787fc08539979052119961b89b38f29f}{%
+           family={Wilson},
+           familyi={W\bibinitperiod},
+           given={Michael},
+           giveni={M\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=e1fac803f29c1826202cf0f2a5cb6e46}{%
+           family={Richards},
+           familyi={R\bibinitperiod},
+           given={Deborah},
+           giveni={D\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {Elsevier}%
+      }
+      \strng{namehash}{a343f06e966ad0855c2ffa5d44891a79}
+      \strng{fullhash}{a343f06e966ad0855c2ffa5d44891a79}
+      \strng{fullhashraw}{a343f06e966ad0855c2ffa5d44891a79}
+      \strng{bibnamehash}{a343f06e966ad0855c2ffa5d44891a79}
+      \strng{authorbibnamehash}{a343f06e966ad0855c2ffa5d44891a79}
+      \strng{authornamehash}{a343f06e966ad0855c2ffa5d44891a79}
+      \strng{authorfullhash}{a343f06e966ad0855c2ffa5d44891a79}
+      \strng{authorfullhashraw}{a343f06e966ad0855c2ffa5d44891a79}
+      \field{sortinit}{F}
+      \field{sortinithash}{2638baaa20439f1b5a8f80c6c08a13b4}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Computers \& Security}
+      \field{title}{A Principlist Framework for Cybersecurity Ethics}
+      \field{volume}{105}
+      \field{year}{2021}
+      \true{nocite}
+      \field{pages}{102226}
+      \range{pages}{1}
+      \verb{doi}
+      \verb 10.1016/j.cose.2021.102226
+      \endverb
+    \endentry
+    \entry{10.1145/3433949}{article}{}{}
+      \name{author}{3}{}{%
+        {{un=0,uniquepart=base,hash=b2b40e7a0fdfbdbcf9af2da7c8e59417}{%
+           family={Friedler},
+           familyi={F\bibinitperiod},
+           given={Sorelle\bibnamedelima A.},
+           giveni={S\bibinitperiod\bibinitdelim A\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=de216a4cef9daa2d1fce563e8b498941}{%
+           family={Scheidegger},
+           familyi={S\bibinitperiod},
+           given={Carlos},
+           giveni={C\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=aaeb9142f2e1590450061f637edb6845}{%
+           family={Venkatasubramanian},
+           familyi={V\bibinitperiod},
+           given={Suresh},
+           giveni={S\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{location}{1}{%
+        {New York, NY, USA}%
+      }
+      \list{publisher}{1}{%
+        {Association for Computing Machinery}%
+      }
+      \strng{namehash}{30f27f57e53234a6efe926f76d25fdfe}
+      \strng{fullhash}{30f27f57e53234a6efe926f76d25fdfe}
+      \strng{fullhashraw}{30f27f57e53234a6efe926f76d25fdfe}
+      \strng{bibnamehash}{30f27f57e53234a6efe926f76d25fdfe}
+      \strng{authorbibnamehash}{30f27f57e53234a6efe926f76d25fdfe}
+      \strng{authornamehash}{30f27f57e53234a6efe926f76d25fdfe}
+      \strng{authorfullhash}{30f27f57e53234a6efe926f76d25fdfe}
+      \strng{authorfullhashraw}{30f27f57e53234a6efe926f76d25fdfe}
+      \field{sortinit}{F}
+      \field{sortinithash}{2638baaa20439f1b5a8f80c6c08a13b4}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{What does it mean to be fair?}
+      \field{issn}{0001-0782}
+      \field{journaltitle}{Commun. ACM}
+      \field{month}{3}
+      \field{number}{4}
+      \field{title}{The (Im)possibility of fairness: different value systems require different mechanisms for fair decision making}
+      \field{volume}{64}
+      \field{year}{2021}
+      \true{nocite}
+      \field{pages}{136\bibrangedash 143}
+      \range{pages}{8}
+      \verb{doi}
+      \verb 10.1145/3433949
+      \endverb
+      \verb{urlraw}
+      \verb https://doi.org/10.1145/3433949
+      \endverb
+      \verb{url}
+      \verb https://doi.org/10.1145/3433949
+      \endverb
+    \endentry
+    \entry{Friedman1996}{article}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=3fee56e105a4b69cdce8287e5d3839d9}{%
+           family={Friedman},
+           familyi={F\bibinitperiod},
+           given={B.},
+           giveni={B\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{3fee56e105a4b69cdce8287e5d3839d9}
+      \strng{fullhash}{3fee56e105a4b69cdce8287e5d3839d9}
+      \strng{fullhashraw}{3fee56e105a4b69cdce8287e5d3839d9}
+      \strng{bibnamehash}{3fee56e105a4b69cdce8287e5d3839d9}
+      \strng{authorbibnamehash}{3fee56e105a4b69cdce8287e5d3839d9}
+      \strng{authornamehash}{3fee56e105a4b69cdce8287e5d3839d9}
+      \strng{authorfullhash}{3fee56e105a4b69cdce8287e5d3839d9}
+      \strng{authorfullhashraw}{3fee56e105a4b69cdce8287e5d3839d9}
+      \field{sortinit}{F}
+      \field{sortinithash}{2638baaa20439f1b5a8f80c6c08a13b4}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{interactions}
+      \field{number}{6}
+      \field{title}{Value-sensitive design}
+      \field{volume}{3}
+      \field{year}{1996}
+      \true{nocite}
+      \field{pages}{16\bibrangedash 23}
+      \range{pages}{8}
+    \endentry
+    \entry{gabriel2021challenge}{article}{}{}
+      \name{author}{2}{}{%
+        {{un=0,uniquepart=base,hash=3ad7c871a8b76a593a771adfdf0dbe40}{%
+           family={Gabriel},
+           familyi={G\bibinitperiod},
+           given={Iason},
+           giveni={I\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=22f85d68b1e1ca6a0eb8c1283b79ce8a}{%
+           family={Ghazavi},
+           familyi={G\bibinitperiod},
+           given={Vafa},
+           giveni={V\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {Springer}%
+      }
+      \strng{namehash}{c45327a4089bcbabad34329f3ad6215d}
+      \strng{fullhash}{c45327a4089bcbabad34329f3ad6215d}
+      \strng{fullhashraw}{c45327a4089bcbabad34329f3ad6215d}
+      \strng{bibnamehash}{c45327a4089bcbabad34329f3ad6215d}
+      \strng{authorbibnamehash}{c45327a4089bcbabad34329f3ad6215d}
+      \strng{authornamehash}{c45327a4089bcbabad34329f3ad6215d}
+      \strng{authorfullhash}{c45327a4089bcbabad34329f3ad6215d}
+      \strng{authorfullhashraw}{c45327a4089bcbabad34329f3ad6215d}
+      \field{sortinit}{G}
+      \field{sortinithash}{32d67eca0634bf53703493fb1090a2e8}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Minds and Machines}
+      \field{number}{4}
+      \field{title}{The Challenge of Value Alignment: From Fairer Algorithms to AI Safety}
+      \field{volume}{31}
+      \field{year}{2021}
+      \true{nocite}
+      \field{pages}{629\bibrangedash 653}
+      \range{pages}{25}
+      \verb{doi}
+      \verb 10.1007/s11023-021-09563-0
+      \endverb
+    \endentry
+    \entry{macnish2020ethics}{article}{}{}
+      \name{author}{2}{}{%
+        {{un=0,uniquepart=base,hash=3b30216202dd601dedae7c23739756dc}{%
+           family={Macnish},
+           familyi={M\bibinitperiod},
+           given={Kevin},
+           giveni={K\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=91c0cc2e77677d71fb080c42709f7aa4}{%
+           family={Ham},
+           familyi={H\bibinitperiod},
+           given={Jeroen},
+           giveni={J\bibinitperiod},
+           givenun=0,
+           prefix={van\bibnamedelima der},
+           prefixi={v\bibinitperiod\bibinitdelim d\bibinitperiod},
+           prefixun=0}}%
+      }
+      \list{publisher}{1}{%
+        {Elsevier}%
+      }
+      \strng{namehash}{e1d51362672d20291603ec14285fcaa9}
+      \strng{fullhash}{e1d51362672d20291603ec14285fcaa9}
+      \strng{fullhashraw}{e1d51362672d20291603ec14285fcaa9}
+      \strng{bibnamehash}{e1d51362672d20291603ec14285fcaa9}
+      \strng{authorbibnamehash}{e1d51362672d20291603ec14285fcaa9}
+      \strng{authornamehash}{e1d51362672d20291603ec14285fcaa9}
+      \strng{authorfullhash}{e1d51362672d20291603ec14285fcaa9}
+      \strng{authorfullhashraw}{e1d51362672d20291603ec14285fcaa9}
+      \field{sortinit}{M}
+      \field{sortinithash}{4625c616857f13d17ce56f7d4f97d451}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Technology in Society}
+      \field{title}{Ethics in Cybersecurity Research and Practice}
+      \field{volume}{63}
+      \field{year}{2020}
+      \true{nocite}
+      \field{pages}{101382}
+      \range{pages}{1}
+      \verb{doi}
+      \verb 10.1016/j.techsoc.2020.101382
+      \endverb
+    \endentry
+    \entry{malizia2023xai}{article}{}{}
+      \name{author}{2}{}{%
+        {{un=0,uniquepart=base,hash=a5b4735be11498db0a98f1841f8a6799}{%
+           family={Malizia},
+           familyi={M\bibinitperiod},
+           given={Alessio},
+           giveni={A\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=d46c05bcdd85b7a2f87702f6f71e8f38}{%
+           family={Paternò},
+           familyi={P\bibinitperiod},
+           given={Fabio},
+           giveni={F\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {ACM}%
+      }
+      \strng{namehash}{2d32ce43e1ea2f8eada71b6761f3482a}
+      \strng{fullhash}{2d32ce43e1ea2f8eada71b6761f3482a}
+      \strng{fullhashraw}{2d32ce43e1ea2f8eada71b6761f3482a}
+      \strng{bibnamehash}{2d32ce43e1ea2f8eada71b6761f3482a}
+      \strng{authorbibnamehash}{2d32ce43e1ea2f8eada71b6761f3482a}
+      \strng{authornamehash}{2d32ce43e1ea2f8eada71b6761f3482a}
+      \strng{authorfullhash}{2d32ce43e1ea2f8eada71b6761f3482a}
+      \strng{authorfullhashraw}{2d32ce43e1ea2f8eada71b6761f3482a}
+      \field{sortinit}{M}
+      \field{sortinithash}{4625c616857f13d17ce56f7d4f97d451}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Communications of the ACM}
+      \field{number}{12}
+      \field{title}{Why Is the Current XAI Not Meeting the Expectations?}
+      \field{volume}{66}
+      \field{year}{2023}
+      \true{nocite}
+      \field{pages}{20\bibrangedash 22}
+      \range{pages}{3}
+      \verb{doi}
+      \verb 10.1145/3588313
+      \endverb
+    \endentry
+    \entry{munn2023uselessness}{article}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=37c01b8932666a2f2275bc41a46bc126}{%
+           family={Munn},
+           familyi={M\bibinitperiod},
+           given={Luke},
+           giveni={L\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {Springer}%
+      }
+      \strng{namehash}{37c01b8932666a2f2275bc41a46bc126}
+      \strng{fullhash}{37c01b8932666a2f2275bc41a46bc126}
+      \strng{fullhashraw}{37c01b8932666a2f2275bc41a46bc126}
+      \strng{bibnamehash}{37c01b8932666a2f2275bc41a46bc126}
+      \strng{authorbibnamehash}{37c01b8932666a2f2275bc41a46bc126}
+      \strng{authornamehash}{37c01b8932666a2f2275bc41a46bc126}
+      \strng{authorfullhash}{37c01b8932666a2f2275bc41a46bc126}
+      \strng{authorfullhashraw}{37c01b8932666a2f2275bc41a46bc126}
+      \field{sortinit}{M}
+      \field{sortinithash}{4625c616857f13d17ce56f7d4f97d451}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{AI and Society}
+      \field{title}{The Uselessness of AI Ethics}
+      \field{year}{2023}
+      \true{nocite}
+      \verb{doi}
+      \verb 10.1007/s00146-023-01673-z
+      \endverb
+    \endentry
+    \entry{iep_metaethics}{misc}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=8c05e4f4fc9ef68b9978cb8a4b2ee669}{%
+           family={Sayre-McCord},
+           familyi={S\bibinithyphendelim M\bibinitperiod},
+           given={Geoffrey},
+           giveni={G\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{8c05e4f4fc9ef68b9978cb8a4b2ee669}
+      \strng{fullhash}{8c05e4f4fc9ef68b9978cb8a4b2ee669}
+      \strng{fullhashraw}{8c05e4f4fc9ef68b9978cb8a4b2ee669}
+      \strng{bibnamehash}{8c05e4f4fc9ef68b9978cb8a4b2ee669}
+      \strng{authorbibnamehash}{8c05e4f4fc9ef68b9978cb8a4b2ee669}
+      \strng{authornamehash}{8c05e4f4fc9ef68b9978cb8a4b2ee669}
+      \strng{authorfullhash}{8c05e4f4fc9ef68b9978cb8a4b2ee669}
+      \strng{authorfullhashraw}{8c05e4f4fc9ef68b9978cb8a4b2ee669}
+      \field{sortinit}{S}
+      \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
+      \field{labeldatesource}{nodate}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{howpublished}{\url{https://iep.utm.edu/metaethi/}}
+      \field{note}{Internet Encyclopedia of Philosophy}
+      \field{title}{Metaethics}
+      \true{nocite}
+    \endentry
+    \entry{sequoiahgrayson_unsatisfiable_triade}{unpublished}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=a572bc709345d921855b1c85f994ce7f}{%
+           family={Sequoiah-Grayson},
+           familyi={S\bibinithyphendelim G\bibinitperiod},
+           given={Sebastian},
+           giveni={S\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{a572bc709345d921855b1c85f994ce7f}
+      \strng{fullhash}{a572bc709345d921855b1c85f994ce7f}
+      \strng{fullhashraw}{a572bc709345d921855b1c85f994ce7f}
+      \strng{bibnamehash}{a572bc709345d921855b1c85f994ce7f}
+      \strng{authorbibnamehash}{a572bc709345d921855b1c85f994ce7f}
+      \strng{authornamehash}{a572bc709345d921855b1c85f994ce7f}
+      \strng{authorfullhash}{a572bc709345d921855b1c85f994ce7f}
+      \strng{authorfullhashraw}{a572bc709345d921855b1c85f994ce7f}
+      \field{sortinit}{S}
+      \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{howpublished}{Manuscript in preparation}
+      \field{note}{Unpublished manuscript}
+      \field{title}{The Unsatisfiable Triad: A Problem for Automated Decision Making}
+      \field{year}{2025}
+      \true{nocite}
+      \verb{urlraw}
+      \verb https://logicalrockpools.com/
+      \endverb
+      \verb{url}
+      \verb https://logicalrockpools.com/
+      \endverb
+    \endentry
+    \entry{Shneiderman2020}{inproceedings}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=8e89956c17f13bcda5591c1537b38051}{%
+           family={Shneiderman},
+           familyi={S\bibinitperiod},
+           given={B.},
+           giveni={B\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{8e89956c17f13bcda5591c1537b38051}
+      \strng{fullhash}{8e89956c17f13bcda5591c1537b38051}
+      \strng{fullhashraw}{8e89956c17f13bcda5591c1537b38051}
+      \strng{bibnamehash}{8e89956c17f13bcda5591c1537b38051}
+      \strng{authorbibnamehash}{8e89956c17f13bcda5591c1537b38051}
+      \strng{authornamehash}{8e89956c17f13bcda5591c1537b38051}
+      \strng{authorfullhash}{8e89956c17f13bcda5591c1537b38051}
+      \strng{authorfullhashraw}{8e89956c17f13bcda5591c1537b38051}
+      \field{sortinit}{S}
+      \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{AIS Transactions on Human-Computer Interaction}
+      \field{number}{3}
+      \field{title}{Human-Centered Artificial Intelligence: Three Fresh Ideas}
+      \field{volume}{12}
+      \field{year}{2020}
+      \true{nocite}
+      \field{pages}{109\bibrangedash 124}
+      \range{pages}{16}
+    \endentry
+    \entry{taddeo2022moral}{article}{}{}
+      \name{author}{2}{}{%
+        {{un=0,uniquepart=base,hash=f08ea3007f7a869b5d904302bb81a37c}{%
+           family={Taddeo},
+           familyi={T\bibinitperiod},
+           given={Mariarosaria},
+           giveni={M\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=b28def992b4ead80062b3183ee4a344c}{%
+           family={Blanchard},
+           familyi={B\bibinitperiod},
+           given={Alexander},
+           giveni={A\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {Springer}%
+      }
+      \strng{namehash}{a93c2494302eb9d255154b27769c60c0}
+      \strng{fullhash}{a93c2494302eb9d255154b27769c60c0}
+      \strng{fullhashraw}{a93c2494302eb9d255154b27769c60c0}
+      \strng{bibnamehash}{a93c2494302eb9d255154b27769c60c0}
+      \strng{authorbibnamehash}{a93c2494302eb9d255154b27769c60c0}
+      \strng{authornamehash}{a93c2494302eb9d255154b27769c60c0}
+      \strng{authorfullhash}{a93c2494302eb9d255154b27769c60c0}
+      \strng{authorfullhashraw}{a93c2494302eb9d255154b27769c60c0}
+      \field{sortinit}{T}
+      \field{sortinithash}{9af77f0292593c26bde9a56e688eaee9}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Philosophy \& Technology}
+      \field{number}{3}
+      \field{title}{Accepting Moral Responsibility for the Actions of Autonomous Weapons Systems—a Moral Gambit}
+      \field{volume}{35}
+      \field{year}{2022}
+      \true{nocite}
+      \field{pages}{1\bibrangedash 24}
+      \range{pages}{24}
+      \verb{doi}
+      \verb 10.1007/s13347-022-00571-x
+      \endverb
+    \endentry
+  \enddatalist
+\endrefsection
+\endinput
+

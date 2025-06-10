@@ -1,0 +1,141 @@
+\DocumentMetadata{}
+\documentclass{scrartcl}
+
+\usepackage{luatexja}
+\usepackage{tikz}
+\usepackage{csquotes}
+\usepackage{subcaption}
+\usepackage{multicol}
+\usepackage{fancyhdr}
+\usepackage{graphicx}
+\usepackage[skip=10pt, indent=40pt]{parskip}
+\usepackage{titlesec}
+\usepackage{xcolor}
+\usepackage{amsmath}
+\usepackage{microtype}
+\usepackage{tcolorbox}
+\usepackage{setspace}
+\usepackage[colorlinks=true]{hyperref}
+\usepackage[top=20mm,bottom=20mm,left=20mm,right=20mm]{geometry}
+\usepackage[backend=biber,style=authoryear]{biblatex}
+\addbibresource{ref.bib}
+
+\input{preamble.tex}
+
+\graphicspath{{./img/}}
+
+\begin{document}
+
+\input{title}
+
+\tableofcontents
+
+\newpage
+\section{Question}
+\begin{tcolorbox}[colback=white,colframe=purple,sharp corners]
+Expound and assess rule-based/Kantian ethics. Analyse the extent to
+which such an ethics might be used to design an automated ethics as per
+the readings in section 1.2 below. What do you think that the risks and
+opportunities of such an automated ethics might be? Why? Justify your
+answer with explicit, detailed, expositional reference to at least one of the
+suggested readings in section 1.2 below.
+\end{tcolorbox}
+
+\section{Figures}
+
+\subsection{Umbrella}
+\begin{figure}[ht]
+  \centering
+\begin{tikzpicture}[font=\large]
+
+  % -- 1) Place Nodes in a Row --
+  \node (t1) at (1,0) {Util};
+  \node (t2) at (5,0) {KE};
+  \node (t3) at (9,0) {VE};
+  \node (m) at (5,3) {NE};
+
+  % -- 2) Arcs That Mimic the Original “Umbrella” --
+  % Arcs from each node’s "north" to next node’s "north," with out=60 and in=120
+  \draw (t2.north) to[out=60, in=120] coordinate (a) (t3.north);
+  \draw (t1.north) to[out=60, in=120] coordinate (b) (t2.north);
+  \draw[bend right] (a.north) to (m);
+  \draw[bend left] (b.north) to (m);
+
+  % Optionally, draw arcs from interior nodes to m so they “bend” inward or outward
+  \draw[bend left] (t1.north) to (m);
+  \draw[bend right] (t3.north) to (m);
+
+  % -- 3) Small “Handle” Beneath That Midpoint --
+  % Move slightly below m, then draw a tiny arc
+  \draw (m) -- ++(0,-5) arc (360:150:5pt);
+
+\end{tikzpicture}
+\caption{\scriptsize NE=Normative Ethics; Util = Utilitarianism; KE = Kantian Ethics; VE = Virtue Ethics}
+\label{fig:umbrella}
+\end{figure}
+\subsection{Disjoint Sets}
+\begin{figure}[ht]
+  \centering
+
+\begin{tikzpicture}[scale=1.5]
+  \draw[rounded corners=10, thick] (0.5,0) rectangle (6.5,4.5) node[above left] {Universal Set $U$};
+  \draw[blue!20!black,fill=blue!20,rounded corners=10,thick]
+     (1,0.2) rectangle (6,2);
+  \draw[blue!20!black,fill=blue!20,rounded corners=10,thick]
+     (1,2.3) rectangle (6,4)
+     node[above left] {Amoral Actions};
+  \begin{scope}[shift={(0.35,0.05)}]
+    \node[right] at (1,3.5) {Moral Actions};
+    \node[right] at (1,0.5) {Immoral Actions};
+    \draw[blue!20!black,fill=blue!70!black!70,rounded corners=10,thick,shift={(0.15,0.15)},scale=0.90]
+      (1,1) rectangle (2,3)
+       node[above left] {Util};
+    \draw[blue!20!black,fill=blue!70!black!70,rounded corners=10,thick,shift={(0.30,0.45)},scale=0.90]
+      (2.5,0.8) rectangle (3.5,2.5)
+       node[left=-10pt,above left] {DL=KE};
+    \draw[blue!20!black,fill=blue!70!black!70,rounded corners=10,thick,shift={(0.50,0.30)},scale=0.90]
+      (4,1) rectangle (5,3)
+       node[above left] {VE};
+  \end{scope}
+\end{tikzpicture}
+\caption{\scriptsize DE=Deontological Ethics; Util = Utilitarianism; KE = Kantian Ethics; VE = Virtue Ethics}
+\label{fig:space}
+\end{figure}
+
+\newpage
+\section{Essay}
+\doublespacing
+It is unnecessary to implement Kantian ethics as an automated ethics, because it is insufficient. Rule based / Kantian ethics may be used in a \emph{disjoint extent} to design an automated ethics because the existence of a Kantian Artificial Moral Agent (AMA) violates its own existence at least four ways \parencite{Tonkens2009}. Additionally, given the high stakes and involvement of AI in contemporary society \parencite{Fjeld2020}, we cannot tolerate machines whose existence is predicated on a paradoxical existence \parencite{EC_HLEG_AI}. Despite this, I agree with \cite{BentzenLindner2018}, and believe that the point of Machine Ethics is \enquote{not to get close to a correct interpretation of Kant, but to show that our interpretation of Kant's ideas can contribute to the development of machine ethics}. In this essay, I begin with a formal description of Kantian ethics, biased towards a dissolution of unnecessary pragmatism. Next, I review the risks and opportunities by scrutinising the in/feasibility of a real-world AGI (Artificial General Intelligence) as a Kantian AMA with reference to the recommended readings. Ultimately, I end with an optimistic outlook on \emph{bottom-up} automated ethics; positing that (at least) a \enquote{strong artificial intelligence}\parencite{searle1996} can be facillitated by our era of deep-learning.
+
+\subsection{Describe \& Explain}
+In my opinion, the first thing to realise about Kantian Ethics is that it is an \mbox{anthropocentric} ethics, i.e. it is intended for \emph{humans}. As such if we choose to automate these ethics verbatim, there is no doubt we will struggle with Kant's abstract, sapien-specific ideals of \textbf{freedom} and \textbf{dignity}.
+
+Disclaimer aside, next comes the framework within which Kantian Ethics resides \ref{fig:umbrella}; it is a child node of Deontological Ethics which stipulates that actions are either right or wrong\footnote{``there is no such thing as right or wrong, only thinking makes it so''-Hamlet} based on duty and obligation of the \emph{actions} themselves, and not the consequences they produce. From this parent node of DE (Deontological Ethics), we have siblings of Consequentialism and Virtue Ethics, both of which prove to be computationally intractable \parencite{Manna2021, Powers2006}. Finally, the umbrella of Normative Ethics ties together its three children; and by definition is the ethical theory (distinct from meta-ethics), that investigates questions about how one \emph{ought to act}.
+
+Moving beyond this \emph{ethical orientation}, Kant provides moral instruction on how to act\footnote{though, after further investigation will prove not to be physically actionable} via his formulations of the Categorical Imperative:
+
+\begin{enumerate}
+\item Act only on those maxims whereby you can at the same time will that they should become universal laws.\parencite{Kant1785p49}\label{CI1}
+\item So act as to treat humanity [i.e. moral agency], whether in your own person or in that of any other, in every case as an end in itself, and never merely as a means.\parencite{Kant1785p58}\label{CI2}
+\end{enumerate}
+
+These are worth quickly distinguishing from the \textbf{Hypothetical} Imperative which is contigent on something else: \enquote{Take your umbrella \emph{if you want to stay dry}}. Clearly this only applies \emph{if you want to stay dry}, however a \textbf{Categorical Imperative} will always be true: \emph{Do not steal}; where this \underline{moral requirement} is a categorical imperative \parencite{Bennett2015-ch4to6}.
+
+For us, the significance of \ref{CI1} and \ref{CI2} do not lie so much in their humanities interpretation, but rather in their computational feasibility --- their time and space complexities and paradoxical existences.
+
+\subsection{Risks \& Opportunities}
+For the sake of brevity I shall opt to cite where possible to increase the surface area of my argument. Principally, it was a parody of the mathematical ``necessary and sufficient condition'', whereby I am arguing that \emph{because} the automation of Kantian Ethics is insufficient it is not necessary.
+
+I shall begin first with a counter-argument: consider \ref{fig:space} and the section of Kantian Ethics that is capable of determining Moral actions. Clearly, a removal of this space leaves less Moral actions undiscovered and thus we are at a deficit\footnote{as engineers of an ethical agent}. Whilst this line of argument is true, the actual creation of the \(KE\) set is suspect due to \cite{Tonkens2009} and \cite{Nath2021}, who posit that \enquote{although it is often asked whether a given moral framework can be implemented into machines, it is never asked whether it should be}, and both authors, over a decade apart, come to the same conclusions: \enquote{in the end, the development of Kantian artificial moral machines is found to be anti-Kantian}!
+
+Jab stepping in the sand once more, we go back to the work of Thomas M. Powers, and remind ourselves of the terrific programmability of Kant's Ethics and his FUL (Formula of Universal Law \(\equiv\) \ref{CI1}). Recently (2022), Lavanya Singh did a good job to parade her robust DDL (Dyadic Deontic Logic) implementation which generated ethically sound actions (even solving Murderer at the Door!) with the help of of Isabelle/HOL theorem prover in her paper \cite{Singh2022}. This shows us, beyond just theorising, that Kantian ethics \emph{is} a theory amenable to formalisation. Her appendices on Consequentialism and Virtue Ethics explain concisely the inability for other ethical theories to (at least presently) be automated. Thus, the opportunities are ethical agents that can \emph{correctly} and \emph{quickly} choose actions amongst a universal set, however, we must doubt the construction of the \(KE\) set in fear of producing AMA's and eventually AGI's that may come to realise their own existence as being \enquote{morally abhorrent}, leading them to states of \enquote{moral paralysis or existential alienation}, and even \enquote{heroic suicide}\parencite{Tonkens2009}.
+
+\subsection{Conclusion \& Further Work}
+Overall, I believe we require a new rule-based theory of Deontological Ethics, which builds upon the computational tractibility of Kant, but is also able to encode (in some very high dimensional space), ideas of dignity and freedom which have not been realised by the literature as yet. Furthermore, I believe that (beyond Singh's cursory mention of Delphi and Deep Learning), my research has not ruled out the possibility of building a bottom-up (but unexplainable) AI that can learn to emulate human decision-making in the form of a ``strong AI''. As such, I posit that the oasis of Kant has dried up in our now non-anthropocentric universe, and implementations of Kantian AMA's are welcome, but not necessary to build the next maximally moral agent.
+
+
+\newpage
+\section{References}
+\printbibliography[heading=none]
+
+\end{document}

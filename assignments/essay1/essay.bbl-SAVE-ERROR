@@ -1,0 +1,417 @@
+% $ biblatex auxiliary file $
+% $ biblatex bbl format version 3.2 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated by
+% biber as required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+
+\refsection{0}
+  \datalist[entry]{nyt/global//global/global}
+    \entry{EC_HLEG_AI}{report}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=28f7fbd2e2e480db800519dfa63844f3}{%
+           family={Artificial\bibnamedelima Intelligence},
+           familyi={A\bibinitperiod\bibinitdelim I\bibinitperiod},
+           given={European\bibnamedelimb Commission’s\bibnamedelimb High-Level\bibnamedelimb Expert\bibnamedelima Group},
+           giveni={E\bibinitperiod\bibinitdelim C\bibinitperiod\bibinitdelim H\bibinithyphendelim L\bibinitperiod\bibinitdelim E\bibinitperiod\bibinitdelim G\bibinitperiod},
+           givenun=0,
+           prefix={on},
+           prefixi={o\bibinitperiod},
+           prefixun=0}}%
+      }
+      \list{institution}{1}{%
+        {European Commission}%
+      }
+      \strng{namehash}{28f7fbd2e2e480db800519dfa63844f3}
+      \strng{fullhash}{28f7fbd2e2e480db800519dfa63844f3}
+      \strng{bibnamehash}{28f7fbd2e2e480db800519dfa63844f3}
+      \strng{authorbibnamehash}{28f7fbd2e2e480db800519dfa63844f3}
+      \strng{authornamehash}{28f7fbd2e2e480db800519dfa63844f3}
+      \strng{authorfullhash}{28f7fbd2e2e480db800519dfa63844f3}
+      \field{sortinit}{A}
+      \field{sortinithash}{2f401846e2029bad6b3ecc16d50031e2}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{p. 17}
+      \field{number}{6}
+      \field{title}{Ethics Guidelines for Trustworthy Artificial Intelligence}
+      \field{type}{techreport}
+      \field{year}{2019}
+    \endentry
+    \entry{BentzenLindner2018}{misc}{}
+      \name{author}{2}{}{%
+        {{un=0,uniquepart=base,hash=da00e85a758075ff6cba746a6c47723b}{%
+           family={Bentzen},
+           familyi={B\bibinitperiod},
+           given={M.\bibnamedelimi M.},
+           giveni={M\bibinitperiod\bibinitdelim M\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=bf660378ab04b17dfe8c1a6d28deb9ed}{%
+           family={Lindner},
+           familyi={L\bibinitperiod},
+           given={F.},
+           giveni={F\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{96c7487c0c6742e2954c57536a840746}
+      \strng{fullhash}{96c7487c0c6742e2954c57536a840746}
+      \strng{bibnamehash}{96c7487c0c6742e2954c57536a840746}
+      \strng{authorbibnamehash}{96c7487c0c6742e2954c57536a840746}
+      \strng{authornamehash}{96c7487c0c6742e2954c57536a840746}
+      \strng{authorfullhash}{96c7487c0c6742e2954c57536a840746}
+      \field{sortinit}{B}
+      \field{sortinithash}{d7095fff47cda75ca2589920aae98399}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{eprinttype}{arXiv}
+      \field{note}{CoRR abs/1801.03160}
+      \field{title}{A Formalization of Kant's Second Formulation of the Categorical Imperative}
+      \field{year}{2018}
+      \verb{eprint}
+      \verb 1801.03160
+      \endverb
+      \verb{urlraw}
+      \verb http://arxiv.org/abs/1801.03160
+      \endverb
+      \verb{url}
+      \verb http://arxiv.org/abs/1801.03160
+      \endverb
+    \endentry
+    \entry{Fjeld2020}{article}{}
+      \name{author}{5}{}{%
+        {{un=0,uniquepart=base,hash=8e219843601bce29a329f1eb1af6e6fb}{%
+           family={Fjeld},
+           familyi={F\bibinitperiod},
+           given={J.},
+           giveni={J\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=cef75e0f4720cf133ea19ddffe8df12a}{%
+           family={Achten},
+           familyi={A\bibinitperiod},
+           given={N.},
+           giveni={N\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=d41a16a3684b659e7f9e172d86cfb54a}{%
+           family={Hilligoss},
+           familyi={H\bibinitperiod},
+           given={H.},
+           giveni={H\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=4a40ac1ae7dd263cdfe12e13a85f42b3}{%
+           family={Nagy},
+           familyi={N\bibinitperiod},
+           given={A.\bibnamedelimi C.},
+           giveni={A\bibinitperiod\bibinitdelim C\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=680984ebfee0942cd87578fc123031da}{%
+           family={Srikumar},
+           familyi={S\bibinitperiod},
+           given={M.},
+           giveni={M\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{f4321b0cf92efdda7f2a4f7b1c319e0b}
+      \strng{fullhash}{9ff92e7f6a338d6e9e92854988195fd9}
+      \strng{bibnamehash}{f4321b0cf92efdda7f2a4f7b1c319e0b}
+      \strng{authorbibnamehash}{f4321b0cf92efdda7f2a4f7b1c319e0b}
+      \strng{authornamehash}{f4321b0cf92efdda7f2a4f7b1c319e0b}
+      \strng{authorfullhash}{9ff92e7f6a338d6e9e92854988195fd9}
+      \field{sortinit}{F}
+      \field{sortinithash}{2638baaa20439f1b5a8f80c6c08a13b4}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{arXiv preprint arXiv:2009.06350}
+      \field{title}{Principled Artificial Intelligence: Mapping Consensus in Ethical and Rights-Based Approaches to Principles for AI}
+      \field{year}{2020}
+    \endentry
+    \entry{Kant1785p49}{book}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=e1e09a59acd7633f469747be85d5edc0}{%
+           family={Kant},
+           familyi={K\bibinitperiod},
+           given={Immanuel},
+           giveni={I\bibinitperiod},
+           givenun=0}}%
+      }
+      \name{translator}{1}{}{%
+        {{hash=5a2a8c194a91f70b4fc9f49442082555}{%
+           family={Abbott},
+           familyi={A\bibinitperiod},
+           given={Thomas\bibnamedelima Kingsmill},
+           giveni={T\bibinitperiod\bibinitdelim K\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {New York}%
+      }
+      \list{publisher}{1}{%
+        {Prometheus Books}%
+      }
+      \strng{namehash}{e1e09a59acd7633f469747be85d5edc0}
+      \strng{fullhash}{e1e09a59acd7633f469747be85d5edc0}
+      \strng{bibnamehash}{e1e09a59acd7633f469747be85d5edc0}
+      \strng{authorbibnamehash}{e1e09a59acd7633f469747be85d5edc0}
+      \strng{authornamehash}{e1e09a59acd7633f469747be85d5edc0}
+      \strng{authorfullhash}{e1e09a59acd7633f469747be85d5edc0}
+      \strng{translatorbibnamehash}{5a2a8c194a91f70b4fc9f49442082555}
+      \strng{translatornamehash}{5a2a8c194a91f70b4fc9f49442082555}
+      \strng{translatorfullhash}{5a2a8c194a91f70b4fc9f49442082555}
+      \field{extraname}{1}
+      \field{sortinit}{K}
+      \field{sortinithash}{c02bf6bff1c488450c352b40f5d853ab}
+      \field{extradate}{1}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Fundamental Principles of the Metaphysic of Morals}
+      \field{year}{1785/1988}
+      \field{pages}{49}
+      \range{pages}{1}
+    \endentry
+    \entry{Kant1785p58}{book}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=e1e09a59acd7633f469747be85d5edc0}{%
+           family={Kant},
+           familyi={K\bibinitperiod},
+           given={Immanuel},
+           giveni={I\bibinitperiod},
+           givenun=0}}%
+      }
+      \name{translator}{1}{}{%
+        {{hash=5a2a8c194a91f70b4fc9f49442082555}{%
+           family={Abbott},
+           familyi={A\bibinitperiod},
+           given={Thomas\bibnamedelima Kingsmill},
+           giveni={T\bibinitperiod\bibinitdelim K\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {New York}%
+      }
+      \list{publisher}{1}{%
+        {Prometheus Books}%
+      }
+      \strng{namehash}{e1e09a59acd7633f469747be85d5edc0}
+      \strng{fullhash}{e1e09a59acd7633f469747be85d5edc0}
+      \strng{bibnamehash}{e1e09a59acd7633f469747be85d5edc0}
+      \strng{authorbibnamehash}{e1e09a59acd7633f469747be85d5edc0}
+      \strng{authornamehash}{e1e09a59acd7633f469747be85d5edc0}
+      \strng{authorfullhash}{e1e09a59acd7633f469747be85d5edc0}
+      \strng{translatorbibnamehash}{5a2a8c194a91f70b4fc9f49442082555}
+      \strng{translatornamehash}{5a2a8c194a91f70b4fc9f49442082555}
+      \strng{translatorfullhash}{5a2a8c194a91f70b4fc9f49442082555}
+      \field{extraname}{2}
+      \field{sortinit}{K}
+      \field{sortinithash}{c02bf6bff1c488450c352b40f5d853ab}
+      \field{extradate}{2}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Fundamental Principles of the Metaphysic of Morals}
+      \field{year}{1785/1988}
+      \field{pages}{58}
+      \range{pages}{1}
+    \endentry
+    \entry{Manna2021}{article}{}
+      \name{author}{2}{}{%
+        {{un=0,uniquepart=base,hash=ec300d0aa3fcd5cabab624ce6444de1e}{%
+           family={Manna},
+           familyi={M\bibinitperiod},
+           given={R.},
+           giveni={R\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=1c2600923aec6161f6fbaec7cfdde2ef}{%
+           family={Nath},
+           familyi={N\bibinitperiod},
+           given={R.},
+           giveni={R\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{8a703f9062bbc8c338170dffa050270c}
+      \strng{fullhash}{8a703f9062bbc8c338170dffa050270c}
+      \strng{bibnamehash}{8a703f9062bbc8c338170dffa050270c}
+      \strng{authorbibnamehash}{8a703f9062bbc8c338170dffa050270c}
+      \strng{authornamehash}{8a703f9062bbc8c338170dffa050270c}
+      \strng{authorfullhash}{8a703f9062bbc8c338170dffa050270c}
+      \field{sortinit}{M}
+      \field{sortinithash}{4625c616857f13d17ce56f7d4f97d451}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Problemos}
+      \field{title}{Kantian Moral Agency and the Ethics of Artificial Intelligence}
+      \field{volume}{100}
+      \field{year}{2021}
+      \field{pages}{139\bibrangedash 151}
+      \range{pages}{13}
+    \endentry
+    \entry{Nath2021}{article}{}
+      \name{author}{2}{}{%
+        {{un=0,uniquepart=base,hash=1c2600923aec6161f6fbaec7cfdde2ef}{%
+           family={Nath},
+           familyi={N\bibinitperiod},
+           given={R.},
+           giveni={R\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=3b78d6ee65b0dcb4144300480877bcb8}{%
+           family={Sahu},
+           familyi={S\bibinitperiod},
+           given={V.},
+           giveni={V\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{c0681da29df10a264294bd0c607def49}
+      \strng{fullhash}{c0681da29df10a264294bd0c607def49}
+      \strng{bibnamehash}{c0681da29df10a264294bd0c607def49}
+      \strng{authorbibnamehash}{c0681da29df10a264294bd0c607def49}
+      \strng{authornamehash}{c0681da29df10a264294bd0c607def49}
+      \strng{authorfullhash}{c0681da29df10a264294bd0c607def49}
+      \field{sortinit}{N}
+      \field{sortinithash}{22369a73d5f88983a108b63f07f37084}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{AI \& Society}
+      \field{title}{The problem of machine ethics in artificial intelligence}
+      \field{volume}{35}
+      \field{year}{2021}
+      \field{pages}{103\bibrangedash 111}
+      \range{pages}{9}
+    \endentry
+    \entry{Powers2006}{article}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=46e2a40867d57db7bdd43fd7e3e734a4}{%
+           family={Powers},
+           familyi={P\bibinitperiod},
+           given={Tom\bibnamedelima M.},
+           giveni={T\bibinitperiod\bibinitdelim M\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{46e2a40867d57db7bdd43fd7e3e734a4}
+      \strng{fullhash}{46e2a40867d57db7bdd43fd7e3e734a4}
+      \strng{bibnamehash}{46e2a40867d57db7bdd43fd7e3e734a4}
+      \strng{authorbibnamehash}{46e2a40867d57db7bdd43fd7e3e734a4}
+      \strng{authornamehash}{46e2a40867d57db7bdd43fd7e3e734a4}
+      \strng{authorfullhash}{46e2a40867d57db7bdd43fd7e3e734a4}
+      \field{sortinit}{P}
+      \field{sortinithash}{ff3bcf24f47321b42cb156c2cc8a8422}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{{IEEE} Intelligent Systems}
+      \field{number}{4}
+      \field{title}{Prospects for a {K}antian Machine}
+      \field{volume}{21}
+      \field{year}{2006}
+      \field{pages}{46\bibrangedash 51}
+      \range{pages}{6}
+    \endentry
+    \entry{searle1996}{book}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=932676a29fb955b21e5599a8c1c5e6ca}{%
+           family={Searle},
+           familyi={S\bibinitperiod},
+           given={John\bibnamedelima R.},
+           giveni={J\bibinitperiod\bibinitdelim R\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{location}{1}{%
+        {Cambridge}%
+      }
+      \list{publisher}{1}{%
+        {Harvard University Press}%
+      }
+      \strng{namehash}{932676a29fb955b21e5599a8c1c5e6ca}
+      \strng{fullhash}{932676a29fb955b21e5599a8c1c5e6ca}
+      \strng{bibnamehash}{932676a29fb955b21e5599a8c1c5e6ca}
+      \strng{authorbibnamehash}{932676a29fb955b21e5599a8c1c5e6ca}
+      \strng{authornamehash}{932676a29fb955b21e5599a8c1c5e6ca}
+      \strng{authorfullhash}{932676a29fb955b21e5599a8c1c5e6ca}
+      \field{sortinit}{S}
+      \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{See p. 41}
+      \field{title}{Minds, Brains, and Science}
+      \field{year}{1996}
+    \endentry
+    \entry{Singh2022}{misc}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=2a8b158ca276c00e1441b56c1e3fa039}{%
+           family={Singh},
+           familyi={S\bibinitperiod},
+           given={L.},
+           giveni={L\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{2a8b158ca276c00e1441b56c1e3fa039}
+      \strng{fullhash}{2a8b158ca276c00e1441b56c1e3fa039}
+      \strng{bibnamehash}{2a8b158ca276c00e1441b56c1e3fa039}
+      \strng{authorbibnamehash}{2a8b158ca276c00e1441b56c1e3fa039}
+      \strng{authornamehash}{2a8b158ca276c00e1441b56c1e3fa039}
+      \strng{authorfullhash}{2a8b158ca276c00e1441b56c1e3fa039}
+      \field{sortinit}{S}
+      \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{Online at \url{https://github.com/lsingh123/automatedkantianethics}}
+      \field{title}{Automated Kantian Ethics: A Faithful Implementation}
+      \field{year}{2022}
+    \endentry
+    \entry{Tonkens2009}{article}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=64730940a79bdb5df7c9bdb8973b7b0a}{%
+           family={Tonkens},
+           familyi={T\bibinitperiod},
+           given={R.},
+           giveni={R\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{64730940a79bdb5df7c9bdb8973b7b0a}
+      \strng{fullhash}{64730940a79bdb5df7c9bdb8973b7b0a}
+      \strng{bibnamehash}{64730940a79bdb5df7c9bdb8973b7b0a}
+      \strng{authorbibnamehash}{64730940a79bdb5df7c9bdb8973b7b0a}
+      \strng{authornamehash}{64730940a79bdb5df7c9bdb8973b7b0a}
+      \strng{authorfullhash}{64730940a79bdb5df7c9bdb8973b7b0a}
+      \field{sortinit}{T}
+      \field{sortinithash}{9af77f0292593c26bde9a56e688eaee9}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Minds \& Machines}
+      \field{title}{A Challenge for Machine Ethics}
+      \field{volume}{19}
+      \field{year}{2009}
+      \field{pages}{421\bibrangedash 438}
+      \range{pages}{18}
+    \endentry
+  \enddatalist
+\endrefsection
+\endinput
+

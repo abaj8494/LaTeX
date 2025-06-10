@@ -1,0 +1,61 @@
+\DocumentMetadata{}
+\documentclass{scrartcl}
+
+\usepackage{tikz}
+\usepackage{csquotes}
+\usepackage{enumitem}
+\usepackage{multicol}
+\usepackage{fancyhdr}
+\usepackage{graphicx}
+\usepackage[skip=10pt, indent=0pt]{parskip}
+\usepackage{titlesec}
+\usepackage{xcolor}
+\usepackage{microtype}
+\usepackage{tcolorbox}
+\usepackage{setspace}
+\usepackage{longtable}
+\usepackage{tabularx}
+\usepackage{spverbatim}
+\usepackage{listings}
+\usepackage{soul}
+\usepackage{footmisc}
+\usepackage[colorlinks=true]{hyperref}
+\usepackage[top=20mm,bottom=20mm,left=20mm,right=20mm]{geometry}
+\usepackage[backend=biber,style=authoryear]{biblatex}
+\addbibresource{ref.bib}
+\usepackage{eso-pic}
+
+\AddToShipoutPictureBG*{%  % Note the asterisk (*) - this is important!
+  \AtPageCenter{%
+    \makebox(0,0){%
+      \rotatebox{45}{\textcolor{gray!30}{\fontsize{200}{120}\selectfont FINAL}}%
+    }%
+  }%
+}
+
+\input{preamble.tex}
+
+\graphicspath{{./img/}}
+
+\begin{document}
+
+\input{title}
+
+\tableofcontents
+
+\doublespacing
+
+\include{00-intro}
+\include{01-stakeholders}
+\include{02-vsd}
+\include{03-comparative}
+\include{04-findings}
+\include{05-conclusion}
+
+\newpage
+\section{References}
+
+\nocite{*}
+\printbibliography[heading=none]
+
+\end{document}
