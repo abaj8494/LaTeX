@@ -1,8 +1,0 @@
-\fancyhf{}
-\fancyfoot[C]{Page \thepage\
-		of \pageref{LastPage}}
-
-\titleformat{\section}{\normalfont\Large\bfseries}{{\color{purple}\S}}{0.5em}{}
-\titleformat{\subsection}{\normalfont\bfseries}{{\color{purple}\S\S}}{0.5em}{}
-\titleformat{\subsubsection}{\normalfont\small\bfseries}{{\color{purple}\S\S\S}}{0.5em}{}
-\newcommand{\aj}{A\hspace{-0.25em}\raisebox{-.35em}J}
