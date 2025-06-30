@@ -1,0 +1,242 @@
+\DocumentMetadata{}
+\documentclass[dvipsnames,12pt]{exam}
+% compiles with
+% latexmk -pdflatex=lualatex -pdf ans.tex
+
+
+\usepackage[top = 2cm, bottom = 3cm, left=1.5cm, right=1.5cm]{geometry}
+\usepackage{microtype}
+\usepackage{fontspec}
+\usepackage{amssymb}
+\usepackage{titlesec}
+\usepackage{multicol}
+\usepackage{braket}
+\usepackage{graphicx}
+\graphicspath{{./img/}}
+\usepackage{xcolor}
+\usepackage{cancel}
+\newcommand\Ccancel[2][black]{\renewcommand\CancelColor{\color{#1}}\cancel{#2}}
+\usepackage{amsmath}
+\usepackage{hyperref}
+\usepackage{eso-pic}
+\runningfooter{}{}{\thepage}
+\runningheader{}{}{\scriptsize Aayush Bajaj | z5362216}
+
+\hypersetup{
+     colorlinks   = true,
+     linkcolor    = RedViolet,
+     citecolor    = gray
+}
+
+\titleformat{\section}{\normalfont\Large\bfseries}{{\color{RedViolet}\S}}{0.5em}{}
+\titleformat{\subsection}{\normalfont\large\bfseries}{{\large \color{RedViolet}\S\S}}{0.5em}{}
+\titleformat{\subsubsection}{\normalfont\bfseries}{{\color{RedViolet}\S\S\S}}{0.5em}{}
+
+\parindent 0pt
+%%% defs courtesy of Denis:
+\newcommand{\N}{{\mathbb{N}}}
+\newcommand{\C}{{\mathbb{C}}}
+\newcommand{\D}{{\mathbb{D}}}
+\newcommand{\F}{{\mathcal{F}}}
+\renewcommand{\P}{{\mathcal{P}}} %careful with this, it redefines the usual P!
+\newcommand{\R}{{\mathbb{R}}}
+\newcommand{\Q}{{\mathbb{Q}}}
+\newcommand{\T}{{\mathbb{T}}}
+\newcommand{\Z}{{\mathbb{Z}}}
+\newcommand{\ds}{\displaystyle}
+\newcommand{\st}{\,:\,}
+\renewcommand{\a}{{\mathbf a}}
+\newcommand{\x}{{\mathbf x}}
+\newcommand{\y}{{\mathbf y}}
+\newcommand{\norm}[1]{\Vert #1 \Vert}
+\renewcommand{\mod}[1]{\vert #1 \vert}
+\newcommand\vecx{\boldsymbol{x}}
+\newcommand\vecy{\boldsymbol{y}}
+\newcommand{\zero}{\boldsymbol{0}}
+\newcommand{\Arg}{\mathop{\mathrm{Arg}}}
+\newcommand{\cl}{\mathop{\mathrm{cl}}}
+\renewcommand{\Re}{\mathop{\mathrm{Re}}}
+%%% end defs
+
+\AddToShipoutPictureBG*{%  % Note the asterisk (*) - this is important!
+  \AtPageCenter{%
+    \makebox(0,0){%
+      \rotatebox{45}{\textcolor{gray!30}{\fontsize{200}{120}\selectfont FINAL}}%
+    }%
+  }%
+}
+
+\author{Aayush Bajaj | z5362216}
+\date{\today}
+\title{MATH3611 | Assignment 1}
+
+\begin{document}
+
+\maketitle
+\dotfill
+\tableofcontents
+\vspace{1cm}
+\begin{center}
+\includegraphics[width=0.2\textwidth]{logo.png}
+\end{center}
+\vspace{1cm}
+\hrule
+
+\newpage
+
+\section{Question 1} \label{question1}
+Prove that a non-empty set $S$ is infinite if and only if $|S| \geq |\N|$.
+
+\subsection{Proof}
+$[\implies]$ Assume $S$ is non-empty and infinite. Show that $|S| \geq |\N|$.\\
+
+Since $S$ is infinite and non-empty we can choose an element $a_0 \in S \st S_1 = S \backslash \{a_0\}$. Note that $S_1$ is also non-empty because $S$ is not finite (its finiteness would contradict our assumption). We continue inductively with this reasoning:\\
+
+\begin{centering}choose $a_1 \in S_1 \st S_2 = S_1 \backslash \{a_1\}$ (which is equal to $S\backslash\{a_0, a_1\}$)\\
+    $$\vdots$$
+\end{centering}
+
+Generalising this \emph{Natural Number} to \emph{Set} mapping, we construct the following injective map $f: \N \to S$:
+
+\begin{equation}
+    f(n) = a_n \in S\backslash\{a_0,\ldots, a_{n-1}\}, \qquad \forall n \in \N
+\end{equation}
+
+Thus by construction, each $a_n$ is reached by a unique $n \in \N$ and $$\N \hookrightarrow S \iff |\N| \leq |S| \iff |S| \geq |\N|$$
+
+(by definitions 1.4.2 of cardinality in the course notes). $\square$
+
+\bigskip
+
+$[\impliedby]$ Assume $|S| \geq |\N|$. Show that $S$ is infinite.\\
+
+By our assumption we have $f: \N \hookrightarrow S$\footnote{definitions 1.4.2 and slide 25 ch1}.\\
+
+Now suppose for contradiction that $S$ \emph{is finite} such that $S = \{s_0, ...,s_n\}$. Then our map must take each natural number and map it to an element of the finite set $S$; $f(i)\, \forall i \in \N$. However, this is clearly impossible since if $S$ had $n$ elements, then any injection $f: \N \to S$ would assign infinitely many $n \in \N$ to only $n$ elements of $S$, contradicting injectivity. 
+
+Thus, no such injection can exist. Our assumption must have been false, and $S$ is indeed \emph{infinite}. $\square$
+
+\newpage
+\section{Question 2}
+Prove that a set $S$ is Dedekind finite if and only if there exists some $n \in \N$ such that $S \sim \{0,1,\ldots,n\}$.
+
+\subsection{Dedekind Infinite Definition:}
+A set $S$ is Dedekind-infinite if there is a \textbf{bijection} from $S$ to a proper subset of itself. Otherwise it is Dedekind-finite.
+
+\subsection{Proof}
+$[\impliedby]$ Assume $S \sim \{0,1,\ldots,n\}, n\in\N$. Show that $S$ is Dedekind finite.\\
+
+Suppose for contradiction that there is a bijection from $S$ to a proper subset of itself:
+\begin{equation}
+    f: \set{0,\ldots, n} \to \set{0,\ldots,m}, \qquad(n > m \text{ by the proper subset construction})
+\end{equation}
+Then $\underbrace{f(0),f(1),\ldots,f(n)}_{\text{n+1 elements}}$ which is more than the $m+1$ elements in the co-domain, and so by the Pigeonhole-principle our function cannot be injective. Thus, this voids our bijective assumption, and indeed no such mapping exists $\implies S$  is Dedekind finite. $\square$
+
+\bigskip
+
+$[\implies]$ Assume $S$ is Dedekind finite. Show that $S \sim \set{0, \ldots, n}$.\\
+
+\textbf{Contrapositive:} If $S$ is infinite, then $S$ is Dedekind infinite.\\
+
+Assume $S$ is infinite. Show that $S$ is Dedekind infinite.\\
+
+Since $S$ is infinite we can inductively construct an injective map $f: \N \to S$ as we did in \hyperref[question1]{Question 1}:
+$$f(n) = a_n \in S \backslash \set{a_0,\ldots,a_{n-1}}$$
+
+Then we construct a bijective map $g:S \to S \backslash \set{a_0}$:
+\begin{align}
+    g(a_n) &= a_{n+1}\quad \forall n \in \N\\
+    g(x) &= x, \quad x \in S \backslash \set{a_n: n\in \N}
+\end{align}
+
+Which is \textbf{injective} as $a_n = f(n)$ is injective $\forall n\in \N$ and our map is identical everywhere else.\\
+
+Furthermore, this map is \textbf{surjective} since every element in the co-domain $S\backslash \set{a_0}$ is either
+\begin{itemize}
+    \item $a_{n+1}$, which has a image $a_n$; or,
+    \item not in the sequence and thus fixed by $g$
+\end{itemize}
+
+Hence $g$ is a \textbf{bijection} from $S$ to a proper subset of itself $S \setminus \{s_0\} $, proving the \emph{contrapositive}, and therefore if \( S \) is Dedekind-finite, it must be finite. \square
+
+\newpage
+\section{Question 3}
+Recall that $\P(S)$ denotes the power set of the set $S$.
+\subsection{a)}\label{part3a}
+Prove that the map $f: \P(\N) \to [0,1]$ given by
+    \begin{equation}
+        f(S) = \sum_{j\in S} 10^{-j-1},\qquad S \in \P(\N)
+    \end{equation}
+is well-defined and injective.
+
+\subsubsection{Proof}
+\textbf{An Equivalence}: For the remainder of this question we work with the equivalent summation from $j=[1,\infty)$:
+\begin{equation}\label{notation}
+    \begin{split}
+    \sum_{j\in S}10^{-j-1} = \sum_{j=1}^\infty a_j 10^{-j}, \quad S \in \P(\N)\\
+    \text{where } a_j = \begin{cases}
+        1 & \text{if } j \in S\\
+        0 & \text{otherwise}
+    \end{cases}
+\end{split}
+\end{equation}
+\textbf{Well-defined:} 
+Since $j\in \N$, $j \geq 1 \implies 10^{-j} \leq 10^{-1}$. Furthermore, if we allow each $a_j$ to ``fire'' to obtain the maximum value of the summation then we get the geometric series:
+\begin{align}
+    \sum_{j=1}^\infty 10^{-j} &= \frac{1}{10} + \frac{1}{10^2} + \cdots \\
+                              &= \frac{\frac{1}{10}}{1-\frac{1}{10}} \qquad(\text{by } S_\infty = \frac{a}{1-r}) \\
+                              &= \frac{1}{9}
+\end{align}
+
+Thus, for any $S\subseteq \N$, the sum $\sum_{j\in S} 10^{-j}$ is bounded above by $\frac{1}{9}$ and $[0,\frac{1}{9}] \subseteq [0,1]$.
+
+\bigskip
+\textbf{Injectivity:} Assume $f(S) = f(T)$. Show that $S = T$.
+
+In our \hyperref[notation]{notation}, we assume that: 
+\begin{equation}
+    \sum_{j=1}^\infty a_j 10^{-j} = \sum_{j=1}^\infty b_j 10^{-j}
+\end{equation}
+
+and then wish to show that $a_j = b_j \,\forall j \in \N$ which encode the sets $S$ and $T$ respectively.
+
+\textbf{Suppose not;} i.e. that there exists at least one $j$ such that $a_j \neq b_j$.
+
+Letting $j_0$ be the smallest such index we can have either $a_{j_0} = 1$ and $b_{j_0} = 0$ or vice-versa. But because this problem is symmetric, we shall just opt for this former choice.
+
+Then:
+\begin{align}
+    \sum_{j=1}^{j_0 - 1} a_j 10^{-j} + a_{j_0} 10^{-j_0} + \sum_{j=j_0 + 1}^\infty a_j 10^{-j} &= \sum_{j=1}^{j_0 - 1} b_j 10^{-j} + b_{j_0} 10^{-j_0} + \sum_{j=j_0 + 1}^\infty b_j 10^{-j}\\
+    \implies \sum_{j=1}^{j_0 - 1} a_j 10^{-j} + {\color{RedViolet}{10^{-j_0}}} + \sum_{j=j_0 + 1}^\infty a_j 10^{-j} &= \sum_{j=1}^{j_0 - 1} b_j 10^{-j} + {\color{RedViolet}{0}} + \sum_{j=j_0 + 1}^\infty b_j 10^{-j}\\
+    \implies \Ccancel[RedViolet]{\sum_{j=1}^{j_0 - 1} a_j 10^{-j}} + {\color{RedViolet}{10^{-j_0}}} + \sum_{j=j_0 + 1}^\infty a_j 10^{-j} &= \Ccancel[RedViolet]{\sum_{j=1}^{j_0 - 1} b_j 10^{-j}} + \sum_{j=j_0 + 1}^\infty b_j 10^{-j}\\
+\end{align}
+
+Here we simply substituted the differing values for $a_{j_0}$, $b_{j_0}$ and canceled the equivalent sums which are the $j$'s leading up to the first differing $j_0$.
+
+Thus we are left with:
+\begin{equation}
+    10^{-j_0} + \sum_{j=j_0 +1}^\infty a_j 10^{-j} = \sum_{j=j_0+1}^\infty b_j 10^{-j}
+\end{equation}
+
+But this can never hold true because at best the right-hand-side $=10^{-j_0 -1} + 10^{-j_0 -2} + \cdots = \frac{10^{-j_0}}{9}$ (by $S_\infty = \frac{a}{1-r}$), and the left-hand-side $\geq 10^{-j_0}$ ($\sum_{j=j_0+1}^\infty a_j 10^{-j} \geq 0$). Thus our assumption was false and there does not exist even one $j\in \N$ such that $a_j \neq b_j$.\\
+
+To conclude, by producing a contradiction of the negation we have proved the original statement. $\square$
+
+\newpage
+\subsection{b)}
+Use \ref{part3a}, or otherwise, to prove that $\N \not\sim [0,1]$.
+
+\subsubsection{Proof}
+By Cantor's Theorem\footnote{ch1, slide 23}: $S \not\sim \P(S)$ for any set. So $\N \not\sim \P(\N)$ and $|\P(\N)| > |\N|$, because we can inject $\N$ into $\P(\N)$ by $x \mapsto \set{x}$.\\
+
+Hence
+\begin{equation}
+    |\N| < |\P(\N)| \leq |[0,1]|, \quad\text{by the injectivity of $\P(\N)$ to $[0,1]$ in \ref{part3a}}
+\end{equation}
+
+And thus $N \not\sim [0,1]$. $\square$
+
+\newpage
+
+
+\end{document}

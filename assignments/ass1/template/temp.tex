@@ -1,0 +1,101 @@
+\documentclass[12pt]{article}
+%
+%   Sample template for MATH3611 assignment
+%
+%  These are some standard packages to load. Leave them here
+%  unless you have a good reason to delete them.
+%
+\usepackage{amsmath} \usepackage{amsfonts} \usepackage{amssymb,amsthm,array,verbatim,graphicx,tikz}
+\usepackage[top=2.5cm, bottom=2.5cm, left=2.5cm, right=2.5cm]{geometry}
+%
+%  You can make your life easier by defining shortcuts (macros) for special
+%  symbols that you use a lotm like \R for the symbol for the real line.
+%
+\newcommand{\N}{{\mathbb{N}}}
+\newcommand{\C}{{\mathbb{C}}}
+\newcommand{\D}{{\mathbb{D}}}
+\newcommand{\F}{{\mathcal{F}}}
+\newcommand{\R}{{\mathbb{R}}}
+\newcommand{\Q}{{\mathbb{Q}}}
+\newcommand{\T}{{\mathbb{T}}}
+\newcommand{\Z}{{\mathbb{Z}}}
+\newcommand{\ds}{\displaystyle}
+\newcommand{\st}{\,:\,}
+\renewcommand{\a}{{\mathbf a}}
+\newcommand{\x}{{\mathbf x}}
+\newcommand{\y}{{\mathbf y}}
+\newcommand{\norm}[1]{\Vert #1 \Vert}
+\renewcommand{\mod}[1]{\vert #1 \vert}
+\newcommand\vecx{\boldsymbol{x}}
+\newcommand\vecy{\boldsymbol{y}}
+\newcommand{\zero}{\boldsymbol{0}}
+\newcommand{\Arg}{\mathop{\mathrm{Arg}}}
+\newcommand{\cl}{\mathop{\mathrm{cl}}}
+\renewcommand{\Re}{\mathop{\mathrm{Re}}}
+
+
+\parindent 0pt
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%  The actual document starts here.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+\hfill John Chan (z123456)
+
+
+\begin{center}
+ \begin{LARGE}MATH3611/5705 Higher Analysis\\[1ex]
+             Term 2, 2022\\[1ex]
+              Assignment 1
+ \end{LARGE}
+\end{center}
+
+
+\bigskip \hrule \bigskip
+
+\textbf{Question 3.} Give the negation of
+   \[ \forall q< 0\ \exists r > 7\ \forall t > 3, \ |t^2 - q^3| > r.\]
+
+\textbf{Solution.} The negation of the statement is
+  \[ \forall q > 0\ \exists r < 7\ \forall t \in (2,3), \ |t^2 - q^3| > r. \]
+
+
+\bigskip
+
+\textbf{Question 5.} Show that every Cauchy sequence is convergent.
+
+\medskip
+
+\textbf{Solution.}
+If $b_n = \sqrt{b_{n-1}+5}$ then pigs might fly and so, by Corollary~2.3.4, $\{b_n\}$ is a Cauchy sequence. It follows that
+  \[ n_k = \begin{cases}
+           k,   & \text{if $k$ is prime,} \\
+           k^{k^k},  & \text{otherwise.}
+           \end{cases}
+   \]
+Thus every $x \in \R$ is quasi-obatlative. Blah, blah, etc.
+
+By taking the subjunctive isomorphism of $\psi$, we see that
+  \begin{align*}
+  \int_0^x \cos(t^2) \, dt 
+     &= \frac{2\pi}{\rho^2} \ln(4x) \\
+     &= \sum_{j=1}^\infty B_j(x,u) J(x,u).
+  \end{align*}
+The conclusion then follows by a short induction proof.
+\bigskip
+
+\hrule
+
+\bigskip
+
+I confirm that apart from the assistance acknowledged below this assignment is all my own work
+\begin{itemize}
+\item	I discussed the general ideas behind solving Question 3 with Mary Smith and Chun Li.
+\item	My solution to Question 5 is based on one I found on page 199 of Spivak’s Calculus.
+\end{itemize}
+
+
+
+
+
+\end{document} 
