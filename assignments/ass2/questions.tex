@@ -1,0 +1,66 @@
+\documentclass{article}
+
+\usepackage[top=2cm, bottom=3cm, left=1.5cm, right=1.5cm]{geometry}
+\usepackage{microtype}
+\usepackage{fontspec}
+\usepackage{titlesec}
+\usepackage{multicol}
+\usepackage{braket}
+\usepackage{graphicx}
+\graphicspath{{./img/}}
+\usepackage{xcolor}
+\usepackage{cancel}
+\usepackage{amssymb}
+\usepackage{amsmath} % Added for math symbols and \mathrm
+\newcommand{\N}{{\mathbb{N}}}
+\newcommand{\C}{{\mathbb{C}}}
+\newcommand{\D}{{\mathbb{D}}}
+\newcommand{\F}{{\mathcal{F}}}
+\renewcommand{\P}{{\mathcal{P}}} %careful with this, it redefines the usual P!
+\newcommand{\R}{{\mathbb{R}}}
+\newcommand{\Q}{{\mathbb{Q}}}
+\newcommand{\T}{{\mathbb{T}}}
+\newcommand{\Z}{{\mathbb{Z}}}
+\newcommand{\ds}{\displaystyle}
+\newcommand{\st}{\,:\,}
+\renewcommand{\a}{{\mathbf a}}
+\newcommand{\x}{{\mathbf x}}
+\newcommand{\y}{{\mathbf y}}
+\newcommand{\norm}[1]{\Vert #1 \Vert}
+\newcommand\vecx{\boldsymbol{x}}
+\newcommand\vecy{\boldsymbol{y}}
+\newcommand{\zero}{\boldsymbol{0}}
+\newcommand{\Arg}{\mathop{\mathrm{Arg}}}
+\newcommand{\cl}{\mathop{\mathrm{cl}}}
+\renewcommand{\Re}{\mathop{\mathrm{Re}}}
+
+\begin{document}
+
+\section{Questions}
+
+\textbf{Q1:} Let $\{f_n\}_{n=2}^\infty \subset C[0,1]$ be a sequence of piecewise linear functions, where $n\in\mathbb{N}$ and $n\geq 2$, and each function $f_n$ is defined by:
+\[
+f_n(x) = \begin{cases}
+    1, & \text{for } x \in \left[0, \frac{1}{2} - \frac{1}{n} \right], \\
+    \text{linear}, & \text{for } x \in \left[ \frac{1}{2} - \frac{1}{n}, \frac{1}{2} + \frac{1}{n} \right], \\
+    0, & \text{for } x \in \left[ \frac{1}{2} + \frac{1}{n}, 1 \right]
+\end{cases}
+\]
+
+\begin{itemize}
+    \item Show that the sequence $\{f_n\}_{n=2}^\infty$ is Cauchy in the $d_2$ metric, where
+    \[
+    d_2(f,g) = \left( \int_0^1 |f(x) - g(x)|^2 \, \mathrm{d}x \right)^{1/2}, \quad f, g \in C[0,1].
+    \]
+    \item Show that the sequence $\{f_n\}_{n=2}^\infty$ is not Cauchy in the $d_\infty$ metric, where
+    \[
+    d_\infty(f,g) = \sup_{x \in [0,1]} |f(x) - g(x)|, \quad f, g \in C[0,1].
+    \]
+\end{itemize}
+
+\textbf{Q2:} Show that $\ell^2$ is a vector space; that is, if $x, y \in \ell^2$, then $x + y \in \ell^2$ and $\lambda x \in \ell^2$ for any $\lambda \in \mathbb{R}$. You may assume, without proof, the triangle inequality for the norm $\| \cdot \|_2$ on $\R^n$ for any $n\in \N$.
+
+\textbf{Q3:} Show that the subset $c_{00}$ is dense in the metric space $\ell^2$.
+
+\end{document}
+
