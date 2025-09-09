@@ -1,0 +1,88 @@
+\documentclass[dvipsnames]{article}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{tikz}
+\usepackage{parskip}
+\usepackage{emoji}
+\hypersetup{
+     colorlinks   = true,
+     linkcolor    = green,
+     citecolor    = green
+}
+
+\pagestyle{empty}
+\usepackage{geometry,fontspec,tikz}
+\geometry{a6paper,landscape,hmargin={1cm,1cm},vmargin={0.5cm,0.5cm}}
+\setmainfont[Ligatures=TeX]{Adobe Garamond Pro}
+\usetikzlibrary{fadings}
+\tikzfading[name=fade right,
+left color=transparent!0,
+right color=transparent!100]
+\setlength\parindent{0pt}
+\setlength{\parskip}{1.8pt}
+\begin{document}
+\begin{tikzpicture}[overlay,remember picture]
+  \node[anchor=east,inner sep=0pt] (pic) at (current page.east)
+    {\includegraphics[height=1\pageheight]{map}};
+  \fill[white,path fading=fade right] (pic.north west) rectangle (pic.south east);
+  \coordinate (pin) at (8.9,-4.2);
+  \filldraw[ultra thick,draw=red,fill=red!50] (pin) -- ++(70:.5) arc (-20:200:.18) -- cycle;
+  \path (pin) -- ++(0,.5) node[draw,fill,red,circle,inner sep=1pt] {};
+\end{tikzpicture}%
+\obeylines%
+{\addfontfeatures{Scale=3,LetterSpace=10} PARTY TIME}
+
+\bigbreak
+\textit{%
+    Dear friends,\\
+
+
+    It is time for a party. \\
+
+
+
+    Kiyomi turns 25 and our lease has been renewed \emoji{leaves}\\
+
+
+    - A. B
+}
+
+\bigskip
+
+{\addfontfeatures{Scale=1.4,LetterSpace=5}\scshape when?}
+\textit{%
+  Sunday October 5\/\rlap{,}\textsuperscript{th} 2025
+  12\kern.5pt:\kern.5pt30 pm
+}
+\medbreak
+{\addfontfeatures{Scale=1.4,LetterSpace=5}\scshape where?}
+\textit{%
+  80 Anzac Avenue,
+  West Ryde,
+  NSW
+}
+
+\newpage
+\enlargethispage{1cm}
+\section*{raison d'être}
+
+An excuse to summon the illest mfs in town. But apart from that K. Sano has never had a Birthday Party!
+
+Beatrice Portinari died at 25 and so did \href{https://abaj.ai/blog/mia/}{Mia}. Alas, we will be celebrating life; \href{https://frizzande.io/articles/thirty_three/}{another lap around the sun}, on Sunday the 5\textsuperscript{th}. The following day is a public holiday\footnote{Labour Day}, so you all may exhale away the ethanol in leisure \emoji{salt}.
+
+A note on the \emph{debauchery}: there will be drink and smoke, choose your own adventure/s --- there will be no snakes -- we have cats. Dress fly, but not too fly --- we have cats.
+
+Pending the weather, which one month out looks bleak; we will (optimistically) have table tennis going, music, a fire, the oven and a cake at Midnight. Crashes are first come first served. \mbox{Plus 1's welcome.}
+
+Regarding presents, please don't feel obligated. Nonetheless, Kiyomi is a creative soul; she is musical and artistic. She asked for a guitar strap so you can get one of those. We also need a spare Nintendo Switch remote if someone is balling. I'll get her some stamps that she wants.
+
+Booze is always a shout and so is your damn companionship.
+
+I will be shopping at Costco for savoury stuff, and then the oven will cook the marinated meats. We have finite fridge space, so be wary of bringing too much food.
+
+We look forward to catching up with y'all. 
+
+Stay Savvy,
+-AJ
+
+\end{document}
