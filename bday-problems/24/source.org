@@ -1,0 +1,3191 @@
++++
+title = "Problems"
+displayTitle = "24 Birthday Problems"
+tikzajax = "true"
+releaseDate = "2025-01-01T00:00:00"
+mathjax = "true"
++++
+
+#+OPTIONS: todo:nil
+
+#+begin_export html
+<aside class="custom-toc">
+<nav>
+<p class="sidebar__heading">Table Of Contents</p>
+#+end_export
+
+#+toc: headlines 2
+
+#+begin_export html
+</nav></aside>
+#+end_export
+
+{{< collapse folded="false" >}}
+
+** DONE Q1
+:PROPERTIES:
+:CUSTOM_ID: q1
+:CLOSED: [2025-12-14 Sun 12:43]
+:note: - State "DONE" from "TODO" [2025-12-14 Sun 12:43]
+:END:
+
+{{< m2prob marks="4" >}}
+
+Given that \(A\) and \(B\) are sets like so:
+
+
+<div style="text-align: center;">
+<p style="font-style: italic; margin-bottom: 0.5rem;">$A$ and $B$ are non-empty sets</p>
+{{< tikztwo >}}
+\begin{document}
+\begin{tikzpicture}[scale=1.5, transform shape]
+  % Define natural colors
+  \definecolor{AColor}{RGB}{120, 180, 140}
+  \definecolor{BColor}{RGB}{200, 160, 120}
+  
+  % Draw rectangle border
+  \draw[thick, rounded corners=8pt] (-3.2,-2.2) rectangle (3.2,2.2);
+  
+  % Draw A - B (left crescent)
+  \begin{scope}
+    \clip (-1,0) circle (1.6cm);
+    \fill[AColor] (-1,0) circle (1.6cm);
+    \fill[white] (1,0) circle (1.6cm);
+  \end{scope}
+  
+  % Draw B - A (right crescent)
+  \begin{scope}
+=    \clip (1,0) circle (1.6cm);
+    \fill[BColor] (1,0) circle (1.6cm);
+    \fill[white] (-1,0) circle (1.6cm);
+  \end{scope}
+  
+  % Draw circle borders
+  \draw[thick] (-1,0) circle (1.6cm);
+  \draw[thick] (1,0) circle (1.6cm);
+  
+  % Labels
+  \node at (-1,0) {\(A\)};
+  \node at (1,0) {\(B\)};
+  
+\end{tikzpicture}
+\end{document}
+{{< /tikztwo >}}
+</div>
+
+{{< m2subprob id="q1a" marks="1" >}}
+
+Give an expression for the conditional probability \(P(A|B)\)
+
+{{< m2subsol >}}
+\begin{equation}\label{eq:11}P(A|B) = \frac{P(A\cap B)}{P(B)}\end{equation}
+{{< /m2subsol >}}
+
+{{< /m2subprob >}}
+
+
+{{< m2subprob id="q1b" marks="1" >}}
+
+Hence or otherwise derive Bayes' (first) rule for conditional probability:
+
+\[P(A|B) = P(B|A) \times \frac{P(A)}{P(B)}\]
+
+{{< m2subsol >}}
+
+\begin{align*}
+P(A|B) &= \frac{P(A\cap B)}{P(B)} \qquad\text{ as }\eqref{eq:11}\\
+P(B|A) &= \frac{P(A\cap B)}{P(A)}\\
+&\implies P(B|A) \cdot P(A) = P(A|B) \cdot P(B)\\
+&\implies P(A|B) = P(B|A)\times \frac{P(A)}{P(B)}
+\end{align*}
+
+{{< /m2subsol >}}
+
+{{< /m2subprob >}}
+
+{{< m2subprob id="q1c" marks="2" >}}
+
+Prove that the symmetric difference \(A\Delta B = (A - B) \cup (B - A)\) is the same as \((A\cup B) - (A\cap B)\).
+
+{{< m2subsol >}}
+
+Let \(x\in A \Delta B\).<br><br>
+
+Then:
+<ul>
+<li>\(x\in A-B \implies x\in A\) and \(x\not\in B\)</li>
+</ul>
+
+OR:
+<ul>
+<li>\(x\in B-A \implies x\in B\) and \(x\not\in A\)</li>
+</ul>
+
+So:
+<ul>
+<li>\(x\in A\) or \(x \in B \implies x\in (A\cup B)\)</li>
+<li>\(x \not \in (A\cap B) \implies x\in (A\cap B)^c\)</li>
+</ul>
+
+Therefore:
+\[x\in(A\cup B) \cap (A\cap B)^c
+=(A\cup B)- (A\cap B)\]
+
+{{< /m2subsol >}}
+
+{{< /m2subprob >}}
+
+{{< /m2prob >}}
+
+** DONE Q2
+:PROPERTIES:
+:CUSTOM_ID: q2
+:CLOSED: [2025-12-15 Mon 14:26]
+:note: - State "DONE" from "TODO" [2025-12-15 Mon 14:26]
+:END:
+
+{{< m2prob marks="7" >}}
+
+<div style="text-align: center;">
+<p style="font-style: italic; margin-bottom: 0.5rem;">The Gamma Function</p>
+{{< tikztwo >}}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.16}
+\begin{document}
+
+% --- Gamma via Lanczos (real x, handles negatives via reflection) ---
+\pgfmathdeclarefunction{gammalanczos}{1}{%
+  \begingroup
+  \pgfmathsetmacro{\z}{#1-1}%
+  % g=7, n=9 coefficients (Numerical Recipes / common Lanczos set)
+  \pgfmathsetmacro{\x}{0.99999999999980993
+    + 676.5203681218851/(\z+1)
+    - 1259.1392167224028/(\z+2)
+    + 771.32342877765313/(\z+3)
+    - 176.61502916214059/(\z+4)
+    + 12.507343278686905/(\z+5)
+    - 0.13857109526572012/(\z+6)
+    + 0.000009984369578019572/(\z+7)
+    + 0.00000015056327351493116/(\z+8)}%
+  \pgfmathsetmacro{\t}{\z+7.5}%
+  \pgfmathparse{sqrt(2*pi) * (\t)^( \z+0.5 ) * exp(-\t) * \x}%
+  \pgfmathsmuggle\pgfmathresult
+  \endgroup
+}
+
+\pgfmathdeclarefunction{Gamma}{1}{%
+  \begingroup
+  % reflection for x < 0.5 : Gamma(x) = pi / (sin(pi x) Gamma(1-x))
+  % NOTE: pgf trig uses degrees, so sin(pi x) = sin(180*x)
+  \pgfmathparse{ifthenelse(#1<0.5,
+    pi/( sin(180*#1) * gammalanczos(1-#1) ),
+    gammalanczos(#1)
+  )}%
+  \pgfmathsmuggle\pgfmathresult
+  \endgroup
+}
+
+\pgfmathdeclarefunction{gammapdf}{3}{%
+  \pgfmathparse{(#3^#2) * (#1)^(#2-1) * exp(-#3*#1) / Gamma(#2)}%
+}
+
+\begin{tikzpicture}[scale=2.1, transform shape]
+\begin{axis}[
+  xmin=-10.2, xmax=10.2,
+  ymin=-6, ymax=6,
+  axis lines=middle,
+  axis line style={-latex},
+  xlabel={$x$}, ylabel={$\Gamma(x)$},
+  smooth,
+  restrict y to domain=-6:6,
+  unbounded coords=jump,
+]
+  % positive side
+  \addplot[red, very thick, domain=0.02:10, samples=400] {Gamma(x)};
+
+  % negative intervals between poles: (-10,-9),...,(-1,0)
+  \foreach \n in {-10,...,-1} {
+    \pgfmathsetmacro{\a}{\n}
+    \pgfmathsetmacro{\b}{\n+1}
+    \addplot[red, very thick, domain=\a+0.02:\b-0.02, samples=260] {Gamma(x)};
+  }
+
+  % vertical asymptotes at non-positive integers
+  \foreach \k in {0,-1,-2,-3,-4,-5,-6,-7,-8,-9,-10} {
+    \addplot[densely dashed, thin, domain=-6:6, samples=2] ({\k}, x);
+  }
+\end{axis}
+
+\end{tikzpicture}
+
+\end{document}
+{{< /tikztwo >}}
+
+</div>
+
+{{< m2subprob id="q2a" marks="1" >}}
+Recall the integral of \begin{equation}\label{eq:1}\int e^{-x}\; \mathrm{d}x\end{equation} 
+{{< m2subsol >}}
+\begin{equation}\label{eq:2}\large\int e^{-x}\; \mathrm{d}x = -e^{-x}\end{equation}
+{{< /m2subsol >}}
+
+{{< /m2subprob >}}
+
+{{< m2subprob id="q2b" marks="2" >}}
+Apply integration by parts on \[\int x e^{-x}\mathrm{d}x.\] Factorise your result.
+{{< m2subsol >}}
+\begin{align*}
+&= -xe^{-x} + \int e^{-x} \mathrm{d}x\\
+&= -e^{-x}(1+x)
+\end{align*}
+{{< /m2subsol >}}
+
+{{< /m2subprob >}}
+
+{{< m2subprob id="q2c" marks="1" >}}
+These above are special cases of $\alpha=1$ and $\alpha=2$.
+More generally we can manipulate the form of the integral \begin{equation}\label{eq:33}\int x^{\alpha-1} e^{-x}\mathrm{d}x.\end{equation} with IBP to produce:
+{{< m2subsol >}}
+\begin{align}
+&= -x^{\alpha-1}e^{-x} + (\alpha-1)\int x^{\alpha-2} e^{-x} \mathrm{d}x\\
+\end{align}
+{{< /m2subsol >}}
+{{< /m2subprob >}}
+
+{{< m2subprob id="q2d" marks="3" >}}
+Fixing the limits of integration leads to the Gamma function, defined by \[\Gamma(\alpha) = \int^\infty_0 x^{\alpha-1}e^{-x} \mathrm{d}x, \quad\text{for }\alpha > 0\]
+Show that with $\eqref{eq:33}$, it follows that \[\Gamma(\alpha) = (\alpha-1)\times\Gamma(\alpha-1).\]
+
+So, for any integral $k$:
+
+\begin{align*}\Gamma(k) &= (k-1)\times(k-2)\times\ldots\times 2\times\Gamma(1)\\&=(k-1)!\end{align*}
+
+with $\Gamma(1) = 1$ $\eqref{eq:1}$, and the factorial function has a recursive structure intimately linked with the number $e$.
+
+
+
+{{< m2subsol >}}
+From \eqref{eq:33}, we have:
+\begin{align*}
+\int x^{\alpha-1} e^{-x}\mathrm{d}x &= -x^{\alpha-1}e^{-x} + (\alpha-1)\int x^{\alpha-2} e^{-x} \mathrm{d}x
+\end{align*}
+
+Evaluating with limits from $0$ to $\infty$:
+\begin{align*}
+\Gamma(\alpha) &= \int^\infty_0 x^{\alpha-1}e^{-x} \mathrm{d}x\\
+&= \left[-x^{\alpha-1}e^{-x}\right]^\infty_0 + (\alpha-1)\int^\infty_0 x^{\alpha-2} e^{-x} \mathrm{d}x
+\end{align*}
+
+For $\alpha > 1$, as $x\to\infty$: $x^{\alpha-1}e^{-x}\to 0$ (exponential dominates polynomial).<br><br>
+
+At $x=0$: $0^{\alpha-1}e^{0} = 0$ for $\alpha > 1$.<br><br>
+
+Therefore:
+\begin{align*}
+\Gamma(\alpha) &= [0-0] + (\alpha-1)\int^\infty_0 x^{\alpha-2} e^{-x} \mathrm{d}x\\
+&= (\alpha-1)\Gamma(\alpha-1)
+\end{align*}
+{{< /m2subsol >}}
+{{< /m2subprob >}}
+
+{{< /m2prob >}}
+
+
+
+** DONE Q3
+:PROPERTIES:
+:CUSTOM_ID: q3
+:CLOSED: [2025-12-15 Mon 14:26]
+:note: - State "DONE" from "TODO" [2025-12-15 Mon 14:26]
+:END:
+
+{{< m2prob marks="5" >}}
+
+Monty Hall Problem:
+
+{{< tikztwo >}}
+\usetikzlibrary{shapes.geometric, positioning}
+
+\begin{document}
+\begin{tikzpicture}[scale=2,transform shape,
+    door/.style={rectangle, draw, minimum width=1.5cm, minimum height=2.5cm, fill=brown!30, thick},
+    label/.style={font=\sffamily\bfseries, yshift=0.5cm}
+]
+    % Door 1: Selected by player
+    \node[door, label=above:Door 1] (d1) at (0,0) {?};
+    \draw[blue, line width=2pt] (d1.south west) rectangle (d1.north east);
+    \node[below=0.1cm of d1, blue] {Selected};
+
+    % Door 2: Closed
+    \node[door, label=above:Door 2] (d2) at (2.5,0) {?};
+
+    % Door 3: Opened by Monty (revealing goat)
+    \node[door, fill=gray!20, label=above:Door 3] (d3) at (5,0) {Goat};
+    \node[below=0.1cm of d3, red] {Opened};
+
+\end{tikzpicture}
+\end{document}
+{{< /tikztwo >}}
+
+{{< m2subprob id="q3a" marks="2" >}}
+Suppose there are three curtains.
+Behind one curtain there is a nice prize, while behind the other two there are worthless prizes (perhaps 1 car and 2 goats).
+A contestant selects one curtain at random, and then Monte Hall opens one of the other two curtains to reveal a worthless prize (goat).
+Hall then expresses the willingness to trade the curtain that the contestant has chosen for the other curtain that has not been opened.
+Should the contestant switch curtains or stick with the one that she has?
+
+{{< m2subsol >}}
+She should <strong>switch</strong>.<br><br>
+
+Let $C$ denote the event "car is behind chosen door" and $S$ denote "car is behind switch door."<br><br>
+
+Initially: $P(C) = \frac{1}{3}$ and $P(S) = \frac{2}{3}$.<br><br>
+
+Monty <strong>knows</strong> where the car is and <strong>always</strong> opens a door with a goat. This action does not change the initial probabilities:
+<ul>
+<li>If the car was behind the contestant's door (prob $\frac{1}{3}$), switching loses.</li>
+<li>If the car was behind one of the other two doors (prob $\frac{2}{3}$), Monty must reveal the goat from the remaining door, so switching wins.</li>
+</ul>
+
+Using Bayes' theorem: Let $M$ be the event "Monty opens door 3 (revealing goat)."
+Assuming the contestant chose door 1:
+
+\begin{align*}
+P(\text{Car at 2}|M) &= \frac{P(M|\text{Car at 2})P(\text{Car at 2})}{P(M)}\\
+&= \frac{1 \cdot \frac{1}{3}}{\frac{1}{2}} = \frac{2}{3}
+\end{align*}
+
+where $P(M) = P(M|\text{Car at 1})P(\text{Car at 1}) + P(M|\text{Car at 2})P(\text{Car at 2}) + P(M|\text{Car at 3})P(\text{Car at 3})$
+$= \frac{1}{2} \cdot \frac{1}{3} + 1 \cdot \frac{1}{3} + 0 \cdot \frac{1}{3} = \frac{1}{2}$<br><br>
+
+Therefore, switching gives probability $\frac{2}{3}$ of winning vs $\frac{1}{3}$ for staying.
+{{< /m2subsol >}}
+
+{{< /m2subprob >}}
+
+{{< m2subprob id="q3b" marks="3" >}}
+Now consider the variant where the host <font color="salmon" size="4px"><span style="font-variant: small-caps;">does not know which door hides the car.</span></font> What is the <strong>posterior</strong> probability of winning the prize / car if our contestant switches?
+{{< m2subsol >}}
+When the host <strong>does not know</strong> where the car is and randomly opens a door, we must carefully condition on observing a goat.
+
+Let contestant choose door 1, host randomly opens door 3 revealing a goat.
+Let $C_i =$ "car behind door $i$", $G_3 =$ "host opens door 3 <em>and</em> reveals goat."
+
+\begin{align*}
+P(C_2|G_3) &= \frac{P(G_3|C_2)P(C_2)}{P(G_3)}
+\end{align*}
+
+Computing the probabilities (host picks uniformly from doors 2 and 3):
+<ul>
+<li>$P(G_3|C_1) = \frac{1}{2}$ (picks door 3 with prob $\frac{1}{2}$, finds goat)</li>
+<li>$P(G_3|C_2) = \frac{1}{2}$ (picks door 3 with prob $\frac{1}{2}$, finds goat)</li>
+<li>$P(G_3|C_3) = 0$ (if picks door 3, finds car, not goat)</li>
+</ul>
+
+Therefore:
+\begin{align*}
+P(G_3) &= P(G_3|C_1)P(C_1) + P(G_3|C_2)P(C_2) + P(G_3|C_3)P(C_3)\\
+&= \frac{1}{2} \cdot \frac{1}{3} + \frac{1}{2} \cdot \frac{1}{3} + 0 \cdot \frac{1}{3}\\
+&= \frac{1}{3}
+\end{align*}
+
+Thus:
+\begin{align*}
+P(C_2|G_3) &= \frac{\frac{1}{2} \cdot \frac{1}{3}}{\frac{1}{3}} = \frac{1}{2}
+\end{align*}
+
+<strong>Answer:</strong> The posterior probability of winning by switching is
+\[
+\boxed{\frac{1}{2}}
+\]
+
+The key insight: when the host doesn't know, revealing a goat provides no information to distinguish between doors 1 and 2, so they become equally likely.
+{{< /m2subsol >}}
+
+{{< /m2subprob >}}
+
+{{< /m2prob >}}
+
+
+** DONE Q4
+:PROPERTIES:
+:CUSTOM_ID: q4
+:MARK: 2
+:CLOSED: [2025-12-15 Mon 14:26]
+:note: - State "DONE" from "TODO" [2025-12-15 Mon 14:26]
+:END:
+
+{{< m2prob marks="7" >}}
+
+{{< m2subprob id="q4a" marks="2" >}}
+Prove that there are equally as many <strong>natural numbers</strong> as there are <strong>integers</strong>, i.e. that \(|\mathbb{Z}| = |\mathbb{N}|\).
+{{< m2subsol >}}
+Infinite sets are equal in cardinality if there is a bijection between both sets:<br><br>
+
+Consider \(f:\mathbb{N}\to \mathbb{Z}\) given by \(f(2n)=n\) and \(f(2n+1)=-(n+1)\). Such a function is injective and surjective. The correspondence is illustrated below.
+
+{{< tikztwo >}}
+\usepackage{amsmath,amssymb}
+\begin{document}
+\usetikzlibrary{intersections,arrows.meta,decorations.pathreplacing}
+   \begin{tikzpicture}[>=Latex, node distance=1.6cm,scale=1.5, transform shape]
+     % top row: N
+     \node (nlabel) at (-1.0,0) {$\mathbb{N}:$};
+     \node (n0) at (0,0) {$0$};
+     \node (n1) at (1.5,0) {$1$};
+     \node (n2) at (3.0,0) {$2$};
+     \node (n3) at (4.5,0) {$3$};
+     \node (n4) at (6.0,0) {$4$};
+     \node (ndots) at (7.5,0) {$\cdots$};
+
+     % bottom row: Z
+     \node (elabel) at (-1.0,-1.6) {$\mathbb{Z}:$};
+     \node (e0) at (0,-1.6) {$0$};
+     \node (e1) at (1.5,-1.6) {$-1$};
+     \node (e2) at (3.0,-1.6) {$1$};
+     \node (e3) at (4.5,-1.6) {$-2$};
+     \node (e4) at (6.0,-1.6) {$2$};
+     \node (edots) at (7.5,-1.6) {$\cdots$};
+
+     % vertical “ladder” arrows (double-lined head via Implies)
+     \draw[-{Implies[length=7pt]}] (n0) -- (e0);
+     \draw[-{Implies[length=7pt]}] (n1) -- (e1);
+     \draw[-{Implies[length=7pt]}] (n2) -- (e2);
+     \draw[-{Implies[length=7pt]}] (n3) -- (e3);
+     \draw[-{Implies[length=7pt]}] (n4) -- (e4);
+
+     % braces for labels
+     \draw[decorate,decoration={brace,amplitude=5pt}] (-0.6,0.5) -- (7.9,0.5)
+       node[midway, yshift=10pt]{top row: domain};
+     \draw[decorate,decoration={brace,mirror,amplitude=5pt}] (-0.6,-2.1) -- (7.9,-2.1)
+       node[midway, yshift=-10pt]{bottom row: codomain};
+   \end{tikzpicture}
+\end{document}
+{{< /tikztwo >}}
+  
+{{< /m2subsol >}}
+
+{{< /m2subprob >}}
+
+
+{{< m2subprob id="q4b" marks="2" >}}
+Prove that there are equally as many <strong>integers</strong> as there are <strong>rational numbers</strong>, i.e. that \(|\mathbb{Z}| = |\mathbb{Q}|\).
+{{< m2subsol >}}
+
+Every rational number \(q\in\mathbb{Q}\) has a unique <strong>reduced</strong> representation
+\[
+q=\frac{a}{b}\quad\text{with }a\in\mathbb{Z},\; b\in\mathbb{N}_{>0},\;\gcd(|a|,b)=1.
+\]
+Define an injection \(\iota:\mathbb{Q}\to \mathbb{Z}\times \mathbb{N}_{>0}\) by
+\[
+\iota(0)=(0,1),\qquad 
+\iota\!\left(\frac{a}{b}\right)=(a,b)\ \ \text{(in lowest terms, }b>0\text{)}.
+\]
+This is injective because the reduced representation is unique.<br><br>
+
+Next, \(\mathbb{Z}\times\mathbb{N}_{>0}\) is countable: let \(g:\mathbb{Z}\to\mathbb{N}\) be the bijection
+\[
+g(z)=\begin{cases}
+2z,& z\ge 0,\\
+-2z-1,& z<0,
+\end{cases}
+\]
+and let \(\pi:\mathbb{N}\times\mathbb{N}\to\mathbb{N}\) be Cantor's pairing function
+\[
+\pi(x,y)=\frac{(x+y)(x+y+1)}{2}+y.
+\]
+Then
+\[
+h:\mathbb{Z}\times\mathbb{N}_{>0}\to\mathbb{N},\qquad h(z,b)=\pi\bigl(g(z),\,b-1\bigr)
+\]
+is a bijection, so \(\mathbb{Z}\times\mathbb{N}_{>0}\) is countable.<br><br>
+
+Since \(\mathbb{Q}\) injects into a countable set, \(\mathbb{Q}\) is countable. Also \(\mathbb{Z}\subseteq\mathbb{Q}\), so \(\mathbb{Q}\) is infinite. Hence \(\mathbb{Q}\) is <strong>countably infinite</strong>, and therefore
+\[
+|\mathbb{Q}|=|\mathbb{N}|=|\mathbb{Z}|.
+\]
+
+{{< /m2subsol >}}
+
+{{< /m2subprob >}}
+
+
+{{< m2subprob id="q4c" marks="3" >}}
+Prove that the <em>real numbers</em> are <em>uncountable</em>; i.e. that \(|\mathbb{R}| \neq |\mathbb{N}|\).
+{{< m2subsol "Cantor's Diagonalisation Argument" >}}
+
+It suffices to show that \([0,1]\subseteq\mathbb{R}\) is uncountable. Suppose for contradiction that \([0,1]\) is countable. Then we can list all its elements as a sequence
+\[
+x_1,\;x_2,\;x_3,\;\dots
+\]
+Write each \(x_n\) in a decimal expansion
+\[
+x_n = 0.a_{n1}a_{n2}a_{n3}\cdots
+\]
+choosing the representation that does <strong>not</strong> end in repeating \(9\)s (so the expansion is unique).<br><br>
+
+Now define a new real number \(y\in[0,1]\) by specifying its digits:
+\[
+y = 0.b_1b_2b_3\cdots,
+\qquad
+b_n =
+\begin{cases}
+1, & a_{nn}\neq 1,\\
+2, & a_{nn}=1.
+\end{cases}
+\]
+By construction, \(b_n\neq a_{nn}\) for every \(n\). Hence \(y\) differs from \(x_n\) in the \(n\)-th decimal place, so \(y\neq x_n\) for all \(n\). This contradicts the assumption that \((x_n)\) lists <strong>all</strong> of \([0,1]\).<br><br>
+
+Therefore \([0,1]\) is uncountable, and since \([0,1]\subseteq\mathbb{R}\), the real numbers are uncountable. In particular,
+\[
+|\mathbb{R}|\neq|\mathbb{N}|.
+\]
+
+{{< tikztwo >}}
+\usepackage{amsmath,amssymb}
+\usetikzlibrary{matrix,fit,arrows.meta,positioning}
+\begin{document}
+\begin{tikzpicture}[>=Latex, font=\small, scale=2, transform shape]
+  \matrix (m) [matrix of math nodes, row sep=5pt, column sep=7pt] {
+    x_1 &=& 0. & a_{11} & a_{12} & a_{13} & a_{14} & \cdots \\
+    x_2 &=& 0. & a_{21} & a_{22} & a_{23} & a_{24} & \cdots \\
+    x_3 &=& 0. & a_{31} & a_{32} & a_{33} & a_{34} & \cdots \\
+    x_4 &=& 0. & a_{41} & a_{42} & a_{43} & a_{44} & \cdots \\
+    \vdots & & & \vdots & \vdots & \vdots & \vdots & \ddots \\
+    y   &=& 0. & b_{1}  & b_{2}  & b_{3}  & b_{4}  & \cdots \\
+  };
+
+  % highlight diagonal digits a_{11}, a_{22}, a_{33}, a_{44}
+  \foreach \i/\j in {1/4,2/5,3/6,4/7}{
+    \node[draw, rounded corners=2pt, inner sep=2pt, fit=(m-\i-\j)] (d\i) {};
+  }
+
+  % arrows from diagonal to the constructed digits b_i
+  \draw[gray!75,->] (m-1-4.south) -- (m-6-4.north);
+  \draw[gray!75,->] (m-2-5.south) -- (m-6-5.north);
+  \draw[gray!75,->] (m-3-6.south) -- (m-6-6.north);
+  \draw[gray!75,->] (m-4-7.south) -- (m-6-7.north);
+
+  \node[align=left] at ([xshift=2.2cm]m-3-8.east)
+    {$b_n\neq a_{nn}$ for all $n$\\so $y\neq x_n$ for all $n$.};
+\end{tikzpicture}
+\end{document}
+{{< /tikztwo >}}
+
+{{< /m2subsol >}}
+
+{{< /m2subprob >}}
+
+{{< /m2prob >}}
+
+** DONE Q5
+:PROPERTIES:
+:CUSTOM_ID: q5
+:CLOSED: [2025-12-15 Mon 14:26]
+:note: - State "DONE" from "TODO" [2025-12-15 Mon 14:26]
+:END:
+
+{{< m2prob marks="4" >}}
+
+{{< m2subprob id="q5a" marks="2" >}}
+What does the series \(1+\tfrac14+\tfrac19+\tfrac1{16}+\ldots\) converge to? (If at all)
+{{< m2subsol >}}
+Write the series as \(\sum_{n=1}^{\infty}\frac{1}{n^2}\).<br><br>
+
+Consider the function \(f(x)=x\) on the interval \((-\pi,\pi)\). It is odd, so its Fourier series contains only sine terms:
+\[
+x \sim \sum_{n=1}^{\infty} b_n \sin(nx),
+\qquad 
+b_n=\frac{1}{\pi}\int_{-\pi}^{\pi} x\sin(nx)\,dx.
+\]
+
+Since the integrand is even, we can write
+\[
+b_n=\frac{2}{\pi}\int_{0}^{\pi} x\sin(nx)\,dx.
+\]
+Integrate by parts with \(u=x\), \(dv=\sin(nx)\,dx\) (so \(du=dx\), \(v=-\cos(nx)/n\)):
+\[
+\int_{0}^{\pi} x\sin(nx)\,dx
+=
+\left[-\frac{x\cos(nx)}{n}\right]_{0}^{\pi}
++
+\frac{1}{n}\int_{0}^{\pi}\cos(nx)\,dx.
+\]
+But \(\int_{0}^{\pi}\cos(nx)\,dx=\left[\frac{\sin(nx)}{n}\right]_{0}^{\pi}=0\). Hence
+\[
+\int_{0}^{\pi} x\sin(nx)\,dx
+=
+-\frac{\pi\cos(n\pi)}{n}
+=
+-\frac{\pi(-1)^n}{n}.
+\]
+Therefore
+\[
+b_n=\frac{2}{\pi}\left(-\frac{\pi(-1)^n}{n}\right)=\frac{2(-1)^{n+1}}{n}.
+\]
+So
+\[
+x \sim 2\sum_{n=1}^{\infty}\frac{(-1)^{n+1}}{n}\sin(nx).
+\]
+
+Now apply <strong>Parseval’s identity</strong>:
+\[
+\frac{1}{\pi}\int_{-\pi}^{\pi} |f(x)|^2\,dx
+=
+\frac{a_0^2}{2}+\sum_{n=1}^{\infty}(a_n^2+b_n^2).
+\]
+For \(f(x)=x\) we have \(a_0=a_n=0\), so
+\[
+\frac{1}{\pi}\int_{-\pi}^{\pi} x^2\,dx
+=
+\sum_{n=1}^{\infty} b_n^2
+=
+\sum_{n=1}^{\infty}\left(\frac{2(-1)^{n+1}}{n}\right)^2
+=
+4\sum_{n=1}^{\infty}\frac{1}{n^2}.
+\]
+Compute the integral:
+\[
+\frac{1}{\pi}\int_{-\pi}^{\pi} x^2\,dx
+=
+\frac{1}{\pi}\cdot 2\int_{0}^{\pi} x^2\,dx
+=
+\frac{1}{\pi}\cdot 2\cdot \frac{\pi^3}{3}
+=
+\frac{2\pi^2}{3}.
+\]
+Thus
+\[
+\frac{2\pi^2}{3}=4\sum_{n=1}^{\infty}\frac{1}{n^2}
+\quad\Longrightarrow\quad
+\sum_{n=1}^{\infty}\frac{1}{n^2}=\frac{\pi^2}{6}.
+\]
+
+Therefore:
+\[
+\boxed{1+\tfrac14+\tfrac19+\tfrac1{16}+\cdots=\frac{\pi^2}{6}}.
+\]
+{{< /m2subsol >}}
+
+{{< /m2subprob >}}
+
+{{< m2subprob id="q5b" marks="2" >}}
+What does the series \(1+\tfrac12+\tfrac13+\tfrac14+\ldots\) converge to? (If at all)
+{{< m2subsol >}}
+This is the harmonic series
+\[
+\sum_{n=1}^{\infty}\frac{1}{n}.
+\]
+Using the integral test:
+\[
+\int_{1}^{\infty}\frac{1}{x}\,dx
+=
+\left[\ln x\right]_{1}^{\infty}
+=
+\infty,
+\]
+so the series <em>diverges</em>.<br><br>
+
+Therefore:
+\[
+\boxed{1+\tfrac12+\tfrac13+\tfrac14+\cdots\ \text{diverges (does not converge to a finite value).}}
+\]
+{{< /m2subsol >}}
+{{< /m2subprob >}}
+
+{{< /m2prob >}}
+
+
+** DONE Q6
+:PROPERTIES:
+:CUSTOM_ID: q6
+:CLOSED: [2025-12-15 Mon 14:26]
+:note: - State "DONE" from "TODO" [2025-12-15 Mon 14:26]
+:END:
+
+{{< m2prob marks="4" >}}
+Which is larger asymptotically as \(n \rightarrow \infty\)? \[2^n \ll n!\] OR \[2^n \gg n!\] Give a proof by induction.
+{{< m2subsol >}}
+We claim that
+\[
+\boxed{2^n \ll n!}
+\]
+for sufficiently large $n$.<br><br>
+
+<strong>Proof by induction:</strong>
+
+We will prove that $n! > 2^n$ for all $n \geq 4$.<br><br>
+
+<em>Base case:</em> $n = 4$
+\[
+4! = 24 > 16 = 2^4
+\]
+
+<em>Inductive step:</em> Assume $k! > 2^k$ for some $k \geq 4$. We must show $(k+1)! > 2^{k+1}$.
+
+\begin{align*}
+(k+1)! &= (k+1) \cdot k!\\
+&> (k+1) \cdot 2^k \qquad\text{(by inductive hypothesis)}\\
+&> 2 \cdot 2^k \qquad\text{(since }k+1 > 2\text{ for }k \geq 4\text{)}\\
+&= 2^{k+1}
+\end{align*}
+
+Therefore, by induction, $n! > 2^n$ for all $n \geq 4$.<br><br>
+
+<strong>Asymptotic analysis:</strong>
+The ratio $\frac{n!}{2^n}$ grows without bound:
+\[
+\frac{n!}{2^n} = \frac{1 \cdot 2 \cdot 3 \cdot 4 \cdots n}{2^n} = \frac{1}{2} \cdot \frac{2}{2} \cdot \frac{3}{2} \cdot \frac{4}{2} \cdots \frac{n}{2}
+\]
+
+For $n \geq 5$, each factor $\frac{k}{2}$ for $k \geq 3$ is $> 1$, and we have infinitely many such factors as $n \to \infty$. Thus $\frac{n!}{2^n} \to \infty$, confirming $n! \gg 2^n$.
+{{< /m2subsol >}}
+
+{{< /m2prob >}}
+
+
+** DONE Q7
+:PROPERTIES:
+:CUSTOM_ID: q7
+:CLOSED: [2025-12-15 Mon 14:26]
+:note: - State "DONE" from "TODO" [2025-12-15 Mon 14:26]
+:END:
+
+{{< m2prob marks="12" >}}
+
+{{< m2subprob id="q7a" marks="4" >}}
+Find the eigenspaces of the following matrices:
+
+<ol type="a">
+<li>\begin{bmatrix}1&0\\1&1\end{bmatrix}</li>
+<li>\begin{bmatrix}-2&2\\2&1\end{bmatrix}</li>
+<li>\begin{bmatrix}2&3&0\\1&4&3\\0&0&1\end{bmatrix}</li>
+<li>\begin{bmatrix}1&1&0&0\\0&0&0&0\\0&0&0&0\\0&0&0&0\end{bmatrix}</li>
+</ol>
+{{< m2subsol >}}
+<strong>(a)</strong> $A = \begin{bmatrix}1&0\\1&1\end{bmatrix}$<br><br>
+
+Characteristic polynomial: $\det(A - \lambda I) = (1-\lambda)^2 = 0$<br><br>
+
+Eigenvalue: $\lambda = 1$ (multiplicity 2)<br><br>
+
+Eigenspace for $\lambda = 1$: Solve $(A - I)\mathbf{v} = 0$:
+\[
+\begin{bmatrix}0&0\\1&0\end{bmatrix}\begin{bmatrix}x\\y\end{bmatrix} = 0 \implies x = 0
+\]
+Eigenspace: $E_1 = \text{span}\left\{\begin{bmatrix}0\\1\end{bmatrix}\right\}$<br><br>
+
+<strong>(b)</strong> $B = \begin{bmatrix}-2&2\\2&1\end{bmatrix}$<br><br>
+
+Characteristic polynomial: $\det(B - \lambda I) = (-2-\lambda)(1-\lambda) - 4 = \lambda^2 + \lambda - 6 = (\lambda+3)(\lambda-2) = 0$<br><br>
+
+Eigenvalues: $\lambda_1 = -3$, $\lambda_2 = 2$<br><br>
+
+For $\lambda_1 = -3$: $(B + 3I)\mathbf{v} = 0$:
+\[
+\begin{bmatrix}1&2\\2&4\end{bmatrix}\begin{bmatrix}x\\y\end{bmatrix} = 0 \implies x + 2y = 0
+\]
+$E_{-3} = \text{span}\left\{\begin{bmatrix}2\\-1\end{bmatrix}\right\}$<br><br>
+
+For $\lambda_2 = 2$: $(B - 2I)\mathbf{v} = 0$:
+\[
+\begin{bmatrix}-4&2\\2&-1\end{bmatrix}\begin{bmatrix}x\\y\end{bmatrix} = 0 \implies -4x + 2y = 0
+\]
+$E_2 = \text{span}\left\{\begin{bmatrix}1\\2\end{bmatrix}\right\}$<br><br>
+
+<strong>(c)</strong> $C = \begin{bmatrix}2&3&0\\1&4&3\\0&0&1\end{bmatrix}$<br><br>
+
+Characteristic polynomial: \begin{gather*}\det(C - \lambda I) = (1-\lambda)[(2-\lambda)(4-\lambda) - 3] \\= (1-\lambda)(\lambda^2 - 6\lambda + 5) \\= (1-\lambda)(\lambda-1)(\lambda-5) \\= 0\end{gather*}<br><br>
+
+Eigenvalues: $\lambda_1 = 1$ (multiplicity 2), $\lambda_2 = 5$<br><br>
+
+For $\lambda = 1$: $(C - I)\mathbf{v} = 0$:
+\[
+\begin{bmatrix}1&3&0\\1&3&3\\0&0&0\end{bmatrix}\begin{bmatrix}x\\y\\z\end{bmatrix} = 0
+\]
+From row 1: $x + 3y = 0$, from row 2: $x + 3y + 3z = 0 \implies z = 0$<br><br>
+
+$E_1 = \text{span}\left\{\begin{bmatrix}-3\\1\\0\end{bmatrix}\right\}$<br><br>
+
+For $\lambda = 5$: $(C - 5I)\mathbf{v} = 0$:
+\[
+\begin{bmatrix}-3&3&0\\1&-1&3\\0&0&-4\end{bmatrix}\begin{bmatrix}x\\y\\z\end{bmatrix} = 0
+\]
+From row 3: $z = 0$, from row 1: $-3x + 3y = 0 \implies x = y$<br><br>
+
+$E_5 = \text{span}\left\{\begin{bmatrix}1\\1\\0\end{bmatrix}\right\}$<br><br>
+
+
+<strong>(d)</strong> $D = \begin{bmatrix}1&1&0&0\\0&0&0&0\\0&0&0&0\\0&0&0&0\end{bmatrix}$<br><br>
+
+Characteristic polynomial: Since $D$ is upper triangular, its eigenvalues are the diagonal entries. Thus
+\[
+\chi_D(\lambda) = (1-\lambda)(-\lambda)^3 = 0
+\]
+Eigenvalues: $\lambda_1 = 1$ (multiplicity 1), $\lambda_2 = 0$ (multiplicity 3)<br><br>
+
+For $\lambda = 0$: Solve $D\mathbf{v} = 0$:
+\[
+\begin{bmatrix}1&1&0&0\\0&0&0&0\\0&0&0&0\\0&0&0&0\end{bmatrix}
+\begin{bmatrix}x\\y\\z\\w\end{bmatrix}
+= 0
+\;\implies\; x+y = 0
+\]
+So $y=-x$ and $z,w$ are free:
+\[
+E_0 = \text{span}\left\{
+\begin{bmatrix}1\\-1\\0\\0\end{bmatrix},
+\begin{bmatrix}0\\0\\1\\0\end{bmatrix},
+\begin{bmatrix}0\\0\\0\\1\end{bmatrix}
+\right\}\]
+ 
+For $\lambda = 1$: Solve $(D-I)\mathbf{v} = 0$:
+\[
+\left(
+\begin{bmatrix}1&1&0&0\\0&0&0&0\\0&0&0&0\\0&0&0&0\end{bmatrix}
+-
+\begin{bmatrix}1&0&0&0\\0&1&0&0\\0&0&1&0\\0&0&0&1\end{bmatrix}
+\right)
+\begin{bmatrix}x\\y\\z\\w\end{bmatrix}
+=
+\begin{bmatrix}0&1&0&0\\0&-1&0&0\\0&0&-1&0\\0&0&0&-1\end{bmatrix}
+\begin{bmatrix}x\\y\\z\\w\end{bmatrix}
+= 0
+\]
+This gives/block-implies $y=0$, $z=0$, $w=0$, with $x$ free:
+\[
+E_1 = \text{span}\left\{\begin{bmatrix}1\\0\\0\\0\end{bmatrix}\right\}\]
+
+{{< /m2subsol >}}
+
+{{< /m2subprob >}}
+
+{{< m2subprob id="q7b" marks="8" >}}
+Determine if the following matrices are diagonalisable. If so, determine their diagonal form and a basis with respect to which the transformation matrices are diagonal.<br><br>
+
+If they are not diagonal, give reasons why not.
+
+<ol type="a">
+<li>\begin{bmatrix}0&1\\-8&4\end{bmatrix}</li>
+<li>\begin{bmatrix}1&1&1\\1&1&1\\1&1&1\end{bmatrix}</li>
+<li>\begin{bmatrix}5&-6&-6\\-1&4&2\\3&-6&-4\end{bmatrix}</li>
+<li>\begin{bmatrix}5&4&2&1\\0&1&-1&-1\\-1&-1&3&0\\1&1&-1&2\end{bmatrix}</li>
+</ol>
+{{< m2subsol >}}
+<strong>(a)</strong> $A = \begin{bmatrix}0&1\\-8&4\end{bmatrix}$<br><br>
+
+Characteristic polynomial: $\det(A - \lambda I) = -\lambda(4-\lambda) + 8 = \lambda^2 - 4\lambda + 8 = 0$<br><br>
+
+$\lambda = \frac{4 \pm \sqrt{16-32}}{2} = \frac{4 \pm 4i}{2} = 2 \pm 2i$<br><br>
+
+<strong>Not diagonalisable over $\mathbb{R}$</strong> (complex eigenvalues). However, it is diagonalisable over $\mathbb{C}$.<br><br>
+
+For $\lambda_1 = 2 + 2i$: $(A - \lambda_1 I)\mathbf{v} = 0$:
+\[
+\begin{bmatrix}-2-2i&1\\-8&2-2i\end{bmatrix}\mathbf{v} = 0
+\]
+Eigenvector: $\mathbf{v}_1 = \begin{bmatrix}1\\2+2i\end{bmatrix}$<br><br>
+
+For $\lambda_2 = 2 - 2i$: $\mathbf{v}_2 = \begin{bmatrix}1\\2-2i\end{bmatrix}$<br><br>
+
+Over $\mathbb{C}$: $D = \begin{bmatrix}2+2i&0\\0&2-2i\end{bmatrix}$, $P = \begin{bmatrix}1&1\\2+2i&2-2i\end{bmatrix}$<br><br>
+
+<strong>(b)</strong> $B = \begin{bmatrix}1&1&1\\1&1&1\\1&1&1\end{bmatrix}$<br><br>
+
+Characteristic polynomial: Notice $\text{rank}(B) = 1$, so $\lambda = 0$ has multiplicity at least 2.
+$\text{tr}(B) = 3$, so eigenvalues sum to 3.<br><br>
+
+Eigenvalues: $\lambda_1 = 3$, $\lambda_2 = \lambda_3 = 0$<br><br>
+
+For $\lambda = 3$: $(B - 3I)\mathbf{v} = 0$:
+\[
+\begin{bmatrix}-2&1&1\\1&-2&1\\1&1&-2\end{bmatrix}\mathbf{v} = 0
+\]
+All rows are equivalent to $x + y + z = 0$ after reduction.
+Eigenvector: $\mathbf{v}_1 = \begin{bmatrix}1\\1\\1\end{bmatrix}$<br><br>
+
+For $\lambda = 0$: $B\mathbf{v} = 0 \implies x + y + z = 0$
+Eigenspace: $E_0 = \text{span}\left\{\begin{bmatrix}1\\-1\\0\end{bmatrix}, \begin{bmatrix}1\\0\\-1\end{bmatrix}\right\}$ (dimension 2)<br><br>
+
+<strong>Diagonalisable:</strong> $D = \begin{bmatrix}3&0&0\\0&0&0\\0&0&0\end{bmatrix}$<br><br>
+
+Basis: $P = \begin{bmatrix}1&1&1\\1&-1&0\\1&0&-1\end{bmatrix}$<br><br>
+
+<strong>(c)</strong> $C = \begin{bmatrix}5&-6&-6\\-1&4&2\\3&-6&-4\end{bmatrix}$<br><br>
+
+Characteristic polynomial (expanding along suitable row/column):
+$\det(C - \lambda I) = -\lambda^3 + 5\lambda^2 - 8\lambda + 4 = -(\lambda - 1)(\lambda - 2)^2 = 0$<br><br>
+
+Eigenvalues: $\lambda_1 = 1$, $\lambda_2 = 2$ (multiplicity 2)<br><br>
+
+For $\lambda = 1$: $(C - I)\mathbf{v} = 0$:
+\[
+\begin{bmatrix}4&-6&-6\\-1&3&2\\3&-6&-5\end{bmatrix}\mathbf{v} = 0
+\]
+Solving: $\mathbf{v}_1 = \begin{bmatrix}3\\1\\1\end{bmatrix}$<br><br>
+
+For $\lambda = 2$: $(C - 2I)\mathbf{v} = 0$:
+\[
+\begin{bmatrix}3&-6&-6\\-1&2&2\\3&-6&-6\end{bmatrix}\mathbf{v} = 0
+\]
+Row reduces to: $x - 2y - 2z = 0$
+Eigenspace: $\dim(E_2) = 2$, spanned by $\begin{bmatrix}2\\1\\0\end{bmatrix}, \begin{bmatrix}2\\0\\1\end{bmatrix}$<br><br>
+
+<strong>Diagonalisable:</strong> $D = \begin{bmatrix}1&0&0\\0&2&0\\0&0&2\end{bmatrix}$<br><br>
+
+Basis: $P = \begin{bmatrix}3&2&2\\1&1&0\\1&0&1\end{bmatrix}$<br><br>
+
+
+<strong>(d)</strong> $D = \begin{bmatrix}5&4&2&1\\0&1&-1&-1\\-1&-1&3&0\\1&1&-1&2\end{bmatrix}$<br><br>
+
+Characteristic polynomial:
+\[
+\det(D-\lambda I)=\lambda^4-11\lambda^3+42\lambda^2-64\lambda+32
+=(\lambda-4)^2(\lambda-2)(\lambda-1)
+\]
+Eigenvalues: $\lambda=4$ (multiplicity 2), $\lambda=2$, $\lambda=1$<br><br>
+
+Compute the eigenspace for the repeated eigenvalue $\lambda=4$:
+\[
+(D-4I)=
+\begin{bmatrix}
+1&4&2&1\\
+0&-3&-1&-1\\
+-1&-1&-1&0\\
+1&1&-1&-2
+\end{bmatrix}
+\sim
+\begin{bmatrix}
+1&0&0&-1\\
+0&1&0&0\\
+0&0&1&1\\
+0&0&0&0
+\end{bmatrix}
+\]
+So $x-w=0$, $y=0$, $z+w=0$, hence
+\[
+E_4=\text{span}\left\{\begin{bmatrix}1\\0\\-1\\1\end{bmatrix}\right\}
+\quad\text{(dimension 1)}
+\]
+But the algebraic multiplicity of $\lambda=4$ is $2$ while $\dim(E_4)=1$, so there are not enough linearly independent eigenvectors to form a basis.<br><br>
+
+<strong>Not diagonalisable</strong> (geometric multiplicity $< $ algebraic multiplicity for $\lambda=4$).<br><br>
+
+
+
+{{< /m2subsol >}}
+
+{{< /m2subprob >}}
+
+{{< /m2prob >}}
+
+** DONE Q8
+:PROPERTIES:
+:CUSTOM_ID: q8
+:CLOSED: [2025-12-15 Mon 14:26]
+:note: - State "DONE" from "TODO" [2025-12-15 Mon 14:26]
+:END:
+
+{{< m2prob marks="4" >}}
+
+Consider the following bivariate distribution $p(x,y)$ of two discrete random variables $X$ and $Y$.<br><br>
+
+{{< tikztwo >}}
+\begin{document}
+\begin{tikzpicture}[scale=2]
+    % Draw grid
+    \draw[thick, green!60!black] (0,0) grid (5,3);
+    
+    % Draw outer border
+    \draw[thick, green!60!black] (0,0) rectangle (5,3);
+    
+    % Fill cells with values
+    \node at (0.5,2.5) {0.01};
+    \node at (1.5,2.5) {0.02};
+    \node at (2.5,2.5) {0.03};
+    \node at (3.5,2.5) {0.1};
+    \node at (4.5,2.5) {0.1};
+    
+    \node at (0.5,1.5) {0.05};
+    \node at (1.5,1.5) {0.1};
+    \node at (2.5,1.5) {0.05};
+    \node at (3.5,1.5) {0.07};
+    \node at (4.5,1.5) {0.2};
+    
+    \node at (0.5,0.5) {0.1};
+    \node at (1.5,0.5) {0.05};
+    \node at (2.5,0.5) {0.03};
+    \node at (3.5,0.5) {0.05};
+    \node at (4.5,0.5) {0.04};
+    
+    % Y labels
+    \node at (-0.5,2.5) {$y_1$};
+    \node at (-0.5,1.5) {$y_2$};
+    \node at (-0.5,0.5) {$y_3$};
+    \node at (-1.2,1.5) {$Y$};
+    
+    % X labels
+    \node at (0.5,-0.5) {$x_1$};
+    \node at (1.5,-0.5) {$x_2$};
+    \node at (2.5,-0.5) {$x_3$};
+    \node at (3.5,-0.5) {$x_4$};
+    \node at (4.5,-0.5) {$x_5$};
+    \node at (2.5,-1.0) {$X$};
+\end{tikzpicture}
+\end{document}
+{{< /tikztwo >}}
+
+{{< m2subprob id="q8a" marks="2" >}}
+Compute the marginal distributions $p(x)$ and $p(y)$.
+{{< m2subsol >}}
+<strong>Marginal distribution $p(x)$:</strong> Sum over all values of $y$:
+
+\begin{align*}
+p(x_1) &= 0.01 + 0.05 + 0.10 = 0.16\\
+p(x_2) &= 0.02 + 0.10 + 0.05 = 0.17\\
+p(x_3) &= 0.03 + 0.05 + 0.03 = 0.11\\
+p(x_4) &= 0.10 + 0.07 + 0.05 = 0.22\\
+p(x_5) &= 0.10 + 0.20 + 0.04 = 0.34
+\end{align*}
+
+Therefore: $p(x) = (0.16, 0.17, 0.11, 0.22, 0.34)$<br><br>
+
+<strong>Marginal distribution $p(y)$:</strong> Sum over all values of $x$:
+
+\begin{align*}
+p(y_1) &= 0.01 + 0.02 + 0.03 + 0.10 + 0.10 = 0.26\\
+p(y_2) &= 0.05 + 0.10 + 0.05 + 0.07 + 0.20 = 0.47\\
+p(y_3) &= 0.10 + 0.05 + 0.03 + 0.05 + 0.04 = 0.27
+\end{align*}
+
+Therefore: $p(y) = (0.26, 0.47, 0.27)$<br><br>
+
+Verification: $\sum p(x) = \sum p(y) = 1.00$
+{{< /m2subsol >}}
+{{< /m2subprob >}}
+
+{{< m2subprob id="q8b" marks="2" >}}
+Compute the conditional distributions $p(x|Y = y_1)$ and $p(y|X = x_3)$.
+{{< m2subsol >}}
+<strong>Conditional distribution $p(x|Y = y_1)$:</strong><br><br>
+
+Using $p(x|y) = \frac{p(x,y)}{p(y)}$, with $p(y_1) = 0.26$:
+
+\begin{align*}
+p(x_1|y_1) &= \frac{0.01}{0.26} \approx 0.0385\\
+p(x_2|y_1) &= \frac{0.02}{0.26} \approx 0.0769\\
+p(x_3|y_1) &= \frac{0.03}{0.26} \approx 0.1154\\
+p(x_4|y_1) &= \frac{0.10}{0.26} \approx 0.3846\\
+p(x_5|y_1) &= \frac{0.10}{0.26} \approx 0.3846
+\end{align*}
+
+Or exactly: $p(x|y_1) = \left(\frac{1}{26}, \frac{2}{26}, \frac{3}{26}, \frac{10}{26}, \frac{10}{26}\right)$<br><br>
+
+<strong>Conditional distribution $p(y|X = x_3)$:</strong><br><br>
+
+Using $p(y|x) = \frac{p(x,y)}{p(x)}$, with $p(x_3) = 0.11$:
+
+\begin{align*}
+p(y_1|x_3) &= \frac{0.03}{0.11} = \frac{3}{11} \approx 0.2727\\
+p(y_2|x_3) &= \frac{0.05}{0.11} = \frac{5}{11} \approx 0.4545\\
+p(y_3|x_3) &= \frac{0.03}{0.11} = \frac{3}{11} \approx 0.2727
+\end{align*}
+
+Therefore: $p(y|x_3) = \left(\frac{3}{11}, \frac{5}{11}, \frac{3}{11}\right)$
+{{< /m2subsol >}}
+{{< /m2subprob >}}
+
+{{< /m2prob >}}
+
+
+** DONE Q9
+:PROPERTIES:
+:CUSTOM_ID: q9
+:CLOSED: [2025-12-15 Mon 14:26]
+:note: - State "DONE" from "TODO" [2025-12-15 Mon 14:26]
+:END:
+
+{{< m2prob name="Law of Iterated Expectations" marks="3">}}
+Consider two random variables, $x$, $y$  with joint distribution $p(x,y)$. Show that
+\[\mathbb{E}_X[x] = \mathbb{E}_Y[\mathbb{E}_X[x|y]]\]
+Here, $\mathbb{E}_X[x|y]$ denotes the expected value of $x$ under the conditional distribution $p(x|y)$.
+{{< m2subsol >}}
+<strong>Discrete case:</strong><br><br>
+
+Starting with the right-hand side:
+\begin{align*}
+\mathbb{E}_Y[\mathbb{E}_X[x|y]] &= \sum_y p(y) \mathbb{E}_X[x|y]\\
+&= \sum_y p(y) \sum_x x \cdot p(x|y)\\
+&= \sum_y \sum_x x \cdot p(x|y) \cdot p(y)\\
+&= \sum_y \sum_x x \cdot p(x,y) \qquad\text{(since }p(x,y) = p(x|y)p(y)\text{)}\\
+&= \sum_x x \sum_y p(x,y)\\
+&= \sum_x x \cdot p(x)\\
+&= \mathbb{E}_X[x]
+\end{align*}
+
+<strong>Continuous case:</strong>
+
+\begin{align*}
+\mathbb{E}_Y[\mathbb{E}_X[x|y]] &= \int_{-\infty}^\infty \mathbb{E}_X[x|y] \cdot p(y) \, \mathrm{d}y\\
+&= \int_{-\infty}^\infty \left(\int_{-\infty}^\infty x \cdot p(x|y) \, \mathrm{d}x\right) p(y) \, \mathrm{d}y\\
+&= \int_{-\infty}^\infty \int_{-\infty}^\infty x \cdot p(x|y) \cdot p(y) \, \mathrm{d}x \, \mathrm{d}y\\
+&= \int_{-\infty}^\infty \int_{-\infty}^\infty x \cdot p(x,y) \, \mathrm{d}x \, \mathrm{d}y\\
+&= \int_{-\infty}^\infty x \left(\int_{-\infty}^\infty p(x,y) \, \mathrm{d}y\right) \mathrm{d}x\\
+&= \int_{-\infty}^\infty x \cdot p(x) \, \mathrm{d}x\\
+&= \mathbb{E}_X[x]
+\end{align*}
+
+Therefore, $\mathbb{E}_X[x] = \mathbb{E}_Y[\mathbb{E}_X[x|y]]$. $\quad\square$
+{{< /m2subsol >}}
+
+{{< /m2prob >}}
+
+** DONE Q10
+:PROPERTIES:
+:CUSTOM_ID: q10
+:CLOSED: [2025-12-15 Mon 14:26]
+:note: - State "DONE" from "TODO" [2025-12-15 Mon 14:26]
+:END:
+
+{{< m2prob marks="7" >}}
+
+<a href="/projects/bday-problems/23rd#q12">Last year</a> we qualitatively described a number of Probability Distributions, this year we shall discover more results. <br><br>
+
+To begin, find the Probability Mass/Density Functions for the following distributions:
+
+<ol type="a">
+<li>Bernoulli</li>
+<li>Binomial</li>
+<li>Geometric</li>
+<li>Poisson</li>
+<li>Exponential</li>
+<li>Gamma</li>
+<li>Normal</li>
+</ol>
+
+{{< m2subsol >}}
+<strong>(a) Bernoulli:</strong> $X \sim \text{Ber}(p)$, where $p \in [0,1]$
+\[
+P(X = k) = p^k (1-p)^{1-k}, \quad k \in \{0, 1\}
+\]
+Equivalently: \begin{gather*}P(X=1) = p\\P(X=0) = 1-p\end{gather*}<br><br>
+
+<strong>(b) Binomial:</strong> $X \sim \text{Bin}(n, p)$, where $n \in \mathbb{N}$, $p \in [0,1]$
+\[
+P(X = k) = \binom{n}{k} p^k (1-p)^{n-k}, \quad k = 0, 1, \ldots, n
+\]
+
+<strong>(c) Geometric:</strong> $X \sim \text{Geo}(p)$, where $p \in (0,1]$
+\[
+P(X = k) = (1-p)^{k-1} p, \quad k = 1, 2, 3, \ldots
+\]
+(Number of trials until first success)<br><br>
+
+Alternative parameterisation (number of failures before first success):
+\[
+P(X = k) = (1-p)^k p, \quad k = 0, 1, 2, \ldots
+\]
+
+<strong>(d) Poisson:</strong> $X \sim \text{Pois}(\lambda)$, where $\lambda > 0$
+\[
+P(X = k) = \frac{\lambda^k e^{-\lambda}}{k!}, \quad k = 0, 1, 2, \ldots
+\]
+
+<strong>(e) Exponential:</strong> $X \sim \text{Exp}(\lambda)$, where $\lambda > 0$
+\[
+f(x) = \lambda e^{-\lambda x}, \quad x \geq 0
+\]
+
+<strong>(f) Gamma:</strong> $X \sim \text{Gamma}(\alpha, \beta)$, where $\alpha, \beta > 0$
+\[
+f(x) = \frac{\beta^\alpha}{\Gamma(\alpha)} x^{\alpha-1} e^{-\beta x}, \quad x > 0
+\]
+where $\Gamma(\alpha) = \int_0^\infty t^{\alpha-1} e^{-t} \, \mathrm{d}t$<br><br>
+
+<strong>(g) Normal (Gaussian):</strong> $X \sim \mathcal{N}(\mu, \sigma^2)$, where $\mu \in \mathbb{R}$, $\sigma > 0$
+\[
+f(x) = \frac{1}{\sqrt{2\pi\sigma^2}} \exp\left(-\frac{(x-\mu)^2}{2\sigma^2}\right), \quad x \in \mathbb{R}
+\]
+{{< /m2subsol >}}
+  
+{{< /m2prob >}}
+
+
+** DONE Q11
+:PROPERTIES:
+:CUSTOM_ID: q11
+:CLOSED: [2025-12-15 Mon 14:26]
+:note: - State "DONE" from "TODO" [2025-12-15 Mon 14:26]
+:END:
+
+{{< m2prob marks="23" >}}
+
+{{< m2subprob id="q11a" marks="2" >}}
+What is the formula for the Moment Generating Function? What about the \(k\textup{th}\) (central) MGF?<br><br>
+
+<details>
+<summary></summary>
+{{< m2hint >}}
+\[\large\varphi_X (s) = \mathbb{E}\left( ? \right) = \int ? \]
+{{< /m2hint >}}
+</details>
+{{< m2subsol >}}
+\begin{align}\large\varphi_X (s) &= \mathbb{E}\left( e^{sX} \right)\\ &= \int^\infty_{-\infty} \mathrm{d}F_X(x)\\
+\varphi_X^{(k)}(0) &= \mathbb{E}(X^k)
+\end{align}
+
+{{< /m2subsol >}}
+
+{{< /m2subprob >}}
+
+{{< m2subprob id="q11b" marks="21" >}}
+Hence, or otherwise derive the <strong>Expectation</strong>, <strong>Variance</strong> and <strong>Moment Generating Function</strong> for all 7 distributions in <a href="#q10">Q10</a>. Show minimal working.
+
+{{< m2subsol >}}
+<strong>1. Bernoulli</strong> $X \sim \text{Ber}(p)$:
+<ul>
+<li>$\mathbb{E}[X] = p$</li>
+<li>$\text{Var}(X) = p(1-p)$</li>
+<li>$M_X(t) = pe^t + (1-p)$</li>
+</ul>
+
+<em>Derivation:</em> $$\mathbb{E}[X] = 0 \cdot (1-p) + 1 \cdot p = p.$$ $$\mathbb{E}[X^2] = p,$$ so $$\text{Var}(X) = p - p^2 = p(1-p).$$  $$M_X(t) = \mathbb{E}[e^{tX}] = (1-p)e^{0} + pe^t.$$
+
+<strong>2. Binomial</strong> $X \sim \text{Bin}(n,p)$:
+<ul>
+<li>$\mathbb{E}[X] = np$</li>
+<li>$\text{Var}(X) = np(1-p)$</li>
+<li>$M_X(t) = (pe^t + (1-p))^n$</li>
+</ul>
+
+<em>Derivation:</em> $$X = \sum_{i=1}^n X_i$$ where $$X_i \sim \text{Ber}(p)$$ are independent. By linearity:
+$$\mathbb{E}[X] = \sum \mathbb{E}[X_i] = np,$$ $$\text{Var}(X) = \sum \text{Var}(X_i) = np(1-p).$$ For MGF: $$M_X(t) = \prod_{i=1}^n M_{X_i}(t) = (pe^t + 1-p)^n.$$
+
+<strong>3. Geometric</strong> $X \sim \text{Geo}(p)$ (trials until first success):
+<ul>
+<li>$\mathbb{E}[X] = \frac{1}{p}$</li>
+<li>$\mathrm{Var}(X) = \frac{1-p}{p^2}$</li>
+<li>$M_X(t) = \dfrac{pe^t}{1-(1-p)e^t}$ for $t < -\ln(1-p)$</li>
+</ul>
+
+<em>Derivation:</em>
+For this parameterisation,
+\[
+\mathbb{P}(X=k)=(1-p)^{k-1}p,\qquad k=1,2,3,\dots
+\]
+Let $q:=1-p$.<br><br>
+
+<strong>MGF.</strong>
+\begin{align*}
+M_X(t)
+&= \mathbb{E}[e^{tX}]
+ = \sum_{k=1}^\infty e^{tk}\,q^{k-1}p
+ = pe^t\sum_{k=1}^\infty (qe^t)^{k-1}\\
+&= pe^t\cdot \frac{1}{1-qe^t}
+= \frac{pe^t}{1-(1-p)e^t},
+\end{align*}
+which converges when $|qe^t|<1$, i.e. $t<-\ln(1-p)$.<br><br>
+
+<strong>Mean and variance.</strong> Using $M_X'(0)=\mathbb{E}[X]$ and $M_X''(0)=\mathbb{E}[X^2]$:
+\[
+M_X(t)=\frac{pe^t}{1-qe^t}.
+\]
+Differentiate:
+\[
+M_X'(t)=\frac{pe^t}{(1-qe^t)^2},\qquad
+M_X''(t)=\frac{pe^t(1+qe^t)}{(1-qe^t)^3}.
+\]
+Evaluate at $t=0$ (noting $1-q=p$):
+\[
+\mathbb{E}[X]=M_X'(0)=\frac{p}{(1-q)^2}=\frac{p}{p^2}=\frac{1}{p},
+\]
+\[
+\mathbb{E}[X^2]=M_X''(0)=\frac{p(1+q)}{(1-q)^3}
+=\frac{p(2-p)}{p^3}=\frac{2-p}{p^2}.
+\]
+Hence
+\[
+\mathrm{Var}(X)=\mathbb{E}[X^2]-\mathbb{E}[X]^2
+=\frac{2-p}{p^2}-\frac{1}{p^2}
+=\frac{1-p}{p^2}.
+\]
+
+
+<strong>4. Poisson</strong> $X \sim \text{Pois}(\lambda)$:
+<ul>
+<li>$\mathbb{E}[X] = \lambda$</li>
+<li>$\text{Var}(X) = \lambda$</li>
+<li>$M_X(t) = e^{\lambda(e^t - 1)}$</li>
+</ul>
+
+<em>Derivation:</em>
+\begin{align*}
+\mathbb{E}[X] &= \sum_{k=0}^\infty k \frac{\lambda^k e^{-\lambda}}{k!} = \lambda e^{-\lambda} \sum_{k=1}^\infty \frac{\lambda^{k-1}}{(k-1)!} = \lambda\\
+M_X(t) &= \sum_{k=0}^\infty e^{tk} \frac{\lambda^k e^{-\lambda}}{k!} = e^{-\lambda} \sum_{k=0}^\infty \frac{(\lambda e^t)^k}{k!} = e^{\lambda(e^t-1)}
+\end{align*}
+For variance: $\mathbb{E}[X^2] = \mathbb{E}[X(X-1)] + \mathbb{E}[X] = \lambda^2 + \lambda$, so $\text{Var}(X) = \lambda^2 + \lambda - \lambda^2 = \lambda$.<br><br>
+
+<strong>5. Exponential</strong> $X \sim \text{Exp}(\lambda)$:
+<ul>
+<li>$\mathbb{E}[X] = \frac{1}{\lambda}$</li>
+<li>$\mathrm{Var}(X) = \frac{1}{\lambda^2}$</li>
+<li>$M_X(t) = \dfrac{\lambda}{\lambda - t}$ for $t < \lambda$</li>
+</ul>
+
+<em>Derivation:</em>
+For $X\sim\mathrm{Exp}(\lambda)$ the pdf is $f(x)=\lambda e^{-\lambda x}$ for $x\ge 0$.
+
+<strong>Mean.</strong>
+\begin{align*}
+\mathbb{E}[X]
+&= \int_0^\infty x\,\lambda e^{-\lambda x}\,\mathrm{d}x
+\quad\text{(integration by parts: }u=x,\ \mathrm{d}v=\lambda e^{-\lambda x}\mathrm{d}x\text{)}\\
+&= \left[-x e^{-\lambda x}\right]_{0}^{\infty} + \int_0^\infty e^{-\lambda x}\,\mathrm{d}x
+= 0 + \frac{1}{\lambda}.
+\end{align*}
+
+<strong>MGF.</strong>
+\begin{align*}
+M_X(t)
+&= \mathbb{E}[e^{tX}]
+= \int_0^\infty e^{tx}\,\lambda e^{-\lambda x}\,\mathrm{d}x
+= \lambda \int_0^\infty e^{-(\lambda-t)x}\,\mathrm{d}x\\
+&= \lambda \left[\frac{1}{\lambda-t}\right]
+= \frac{\lambda}{\lambda-t},
+\qquad t<\lambda.
+\end{align*}
+
+<strong>Variance.</strong> Using $M_X'(0)=\mathbb{E}[X]$ and $M_X''(0)=\mathbb{E}[X^2]$:
+\[
+M_X(t)=\frac{\lambda}{\lambda-t}=(1-\tfrac{t}{\lambda})^{-1},
+\quad
+M_X'(t)=\frac{\lambda}{(\lambda-t)^2},
+\quad
+M_X''(t)=\frac{2\lambda}{(\lambda-t)^3}.
+\]
+Hence
+\[
+\mathbb{E}[X^2]=M_X''(0)=\frac{2\lambda}{\lambda^3}=\frac{2}{\lambda^2},
+\]
+and therefore
+\[
+\mathrm{Var}(X)=\mathbb{E}[X^2]-\mathbb{E}[X]^2
+=\frac{2}{\lambda^2}-\left(\frac{1}{\lambda}\right)^2
+=\frac{1}{\lambda^2}.
+\]
+
+<strong>6. Gamma</strong> $X \sim \text{Gamma}(\alpha, \beta)$:
+<ul>
+<li>$\mathbb{E}[X] = \frac{\alpha}{\beta}$</li>
+<li>$\mathrm{Var}(X) = \frac{\alpha}{\beta^2}$</li>
+<li>$M_X(t) = \left(\frac{\beta}{\beta-t}\right)^\alpha$ for $t < \beta$</li>
+</ul>
+
+<em>Derivation:</em>
+(Shape $\alpha>0$, rate $\beta>0$.) The pdf is
+\[
+f(x)=\frac{\beta^\alpha}{\Gamma(\alpha)}x^{\alpha-1}e^{-\beta x},\qquad x>0.
+\]
+Use the Gamma-function identity $\Gamma(\alpha+1)=\alpha\Gamma(\alpha)$.
+
+<strong>MGF.</strong>
+\begin{align*}
+M_X(t)
+&=\mathbb{E}[e^{tX}]
+=\int_0^\infty e^{tx}\frac{\beta^\alpha}{\Gamma(\alpha)}x^{\alpha-1}e^{-\beta x}\,\mathrm{d}x\\
+&=\frac{\beta^\alpha}{\Gamma(\alpha)}\int_0^\infty x^{\alpha-1}e^{-(\beta-t)x}\,\mathrm{d}x
+=\frac{\beta^\alpha}{\Gamma(\alpha)}\cdot \frac{\Gamma(\alpha)}{(\beta-t)^\alpha}\\
+&=\left(\frac{\beta}{\beta-t}\right)^\alpha,\qquad t<\beta.
+\end{align*}
+
+<strong>Mean and variance.</strong> Using $M_X'(0)=\mathbb{E}[X]$ and $M_X''(0)=\mathbb{E}[X^2]$:
+\[
+M_X(t)=\beta^\alpha(\beta-t)^{-\alpha}.
+\]
+Differentiate:
+\[
+M_X'(t)=\alpha\,\beta^\alpha(\beta-t)^{-\alpha-1},\qquad
+M_X''(t)=\alpha(\alpha+1)\,\beta^\alpha(\beta-t)^{-\alpha-2}.
+\]
+Evaluate at $t=0$:
+\[
+\mathbb{E}[X]=M_X'(0)=\alpha\,\beta^\alpha\beta^{-\alpha-1}=\frac{\alpha}{\beta},
+\]
+\[
+\mathbb{E}[X^2]=M_X''(0)=\alpha(\alpha+1)\,\beta^\alpha\beta^{-\alpha-2}
+=\frac{\alpha(\alpha+1)}{\beta^2}.
+\]
+Hence
+\[
+\mathrm{Var}(X)=\mathbb{E}[X^2]-\mathbb{E}[X]^2
+=\frac{\alpha(\alpha+1)}{\beta^2}-\left(\frac{\alpha}{\beta}\right)^2
+=\frac{\alpha}{\beta^2}.
+\]
+
+<strong>7. Normal</strong> $X \sim \mathcal{N}(\mu, \sigma^2)$:
+<ul>
+<li>$\mathbb{E}[X] = \mu$</li>
+<li>$\mathrm{Var}(X) = \sigma^2$</li>
+<li>$M_X(t) = e^{\mu t + \frac{1}{2}\sigma^2 t^2}$</li>
+</ul>
+
+<em>Derivation:</em>
+Let $Z\sim\mathcal{N}(0,1)$ and write $X=\mu+\sigma Z$.
+
+<strong>MGF of $Z$.</strong> Complete the square:
+\[
+tz-\frac{z^2}{2}
+=-\frac{1}{2}\left(z^2-2tz\right)
+=-\frac{1}{2}(z-t)^2+\frac{t^2}{2}.
+\]
+Then
+\begin{align*}
+M_Z(t)
+&=\mathbb{E}[e^{tZ}]
+=\frac{1}{\sqrt{2\pi}}\int_{-\infty}^{\infty} e^{tz}e^{-z^2/2}\,\mathrm{d}z\\
+&=\frac{1}{\sqrt{2\pi}}\int_{-\infty}^{\infty} \exp\!\left(-\frac{(z-t)^2}{2}\right)\mathrm{d}z\; \exp\!\left(\frac{t^2}{2}\right)
+= e^{t^2/2}.
+\end{align*}
+
+<strong>MGF of $X$.</strong>
+\[
+M_X(t)=\mathbb{E}\!\left[e^{t(\mu+\sigma Z)}\right]
+=e^{\mu t}\, \mathbb{E}[e^{(\sigma t)Z}]
+=e^{\mu t}M_Z(\sigma t)
+= e^{\mu t+\frac{1}{2}\sigma^2 t^2}.
+\]
+
+<strong>Mean and variance.</strong> From $M_X'(0)=\mathbb{E}[X]$ and $M_X''(0)=\mathbb{E}[X^2]$:
+\[
+M_X'(t)=(\mu+\sigma^2 t)M_X(t)\ \Rightarrow\ \mathbb{E}[X]=M_X'(0)=\mu,
+\]
+\[
+M_X''(t)=\big(\sigma^2+(\mu+\sigma^2 t)^2\big)M_X(t)\ \Rightarrow\ 
+\mathbb{E}[X^2]=M_X''(0)=\sigma^2+\mu^2.
+\]
+Thus
+\[
+\mathrm{Var}(X)=\mathbb{E}[X^2]-\mathbb{E}[X]^2=(\sigma^2+\mu^2)-\mu^2=\sigma^2.
+\]
+
+{{< /m2subsol >}}
+
+{{< /m2subprob >}}
+
+{{< /m2prob >}}
+
+
+** DONE Q12
+:PROPERTIES:
+:CUSTOM_ID: q12
+:CLOSED: [2025-12-15 Mon 14:26]
+:note: - State "DONE" from "" [2025-12-15 Mon 14:26]
+:END:
+
+{{< m2prob marks="4">}}
+Shortest distance between an arbitrary point $\mathbf{x}_0 \in \mathbb{R}^n$ and a hyperplane given by $\mathbf{w}^T \mathbf{x} + b = 0$
+{{< m2subsol >}}
+Let $\mathbf{x}_0 \in \mathbb{R}^n$ be an arbitrary point, and consider the hyperplane $H = \{\mathbf{x} : \mathbf{w}^T\mathbf{x} + b = 0\}$ where $\mathbf{w} \neq \mathbf{0}$.<br><br>
+
+The shortest distance from $\mathbf{x}_0$ to $H$ is the perpendicular distance.<br><br>
+
+<strong>Derivation:</strong>
+
+<ol>
+<li>The normal vector to the hyperplane is $\mathbf{w}$.</li>
+
+<li>Any point on the hyperplane can be written as $\mathbf{x}_H$ where $\mathbf{w}^T\mathbf{x}_H + b = 0$.</li>
+
+<li>The projection of $\mathbf{x}_0$ onto the hyperplane is found by moving in the direction of $-\mathbf{w}$ (toward the hyperplane):
+\[
+\mathbf{x}_{\text{proj}} = \mathbf{x}_0 - \alpha \mathbf{w}
+\]
+where $\alpha$ is chosen so that $\mathbf{x}_{\text{proj}} \in H$:
+\[
+\mathbf{w}^T(\mathbf{x}_0 - \alpha \mathbf{w}) + b = 0 \implies \mathbf{w}^T\mathbf{x}_0 - \alpha \|\mathbf{w}\|^2 + b = 0
+\]
+\[
+\alpha = \frac{\mathbf{w}^T\mathbf{x}_0 + b}{\|\mathbf{w}\|^2}
+\]
+</li>
+
+<li>The distance is:
+\[
+d(\mathbf{x}_0, H) = \|\mathbf{x}_0 - \mathbf{x}_{\text{proj}}\| = \|\alpha \mathbf{w}\| = |\alpha| \|\mathbf{w}\| = \frac{|\mathbf{w}^T\mathbf{x}_0 + b|}{\|\mathbf{w}\|}
+\]
+</li>
+</ol>
+
+<strong>Answer:</strong>
+\[
+\boxed{d(\mathbf{x}_0, H) = \frac{|\mathbf{w}^T\mathbf{x}_0 + b|}{\|\mathbf{w}\|}}
+\]
+
+{{< /m2subsol >}}
+
+{{< /m2prob >}}
+
+
+
+** DONE Q13
+:PROPERTIES:
+:CUSTOM_ID: q13
+:CLOSED: [2025-12-15 Mon 14:26]
+:note: - State "DONE" from "" [2025-12-15 Mon 14:26]
+:END:
+
+{{< m2prob marks="4" >}}
+
+Consider minimising the strictly convex quadratic function<br><br>
+
+\[
+q(\mathbf{x}) = \frac{1}{2}\mathbf{x}^T\mathbf{G}\mathbf{x} + \mathbf{d}^T\mathbf{x} + c
+\]
+
+
+on $\mathbb{R}^n$, where $n > 1$, $\mathbf{d}$ is a constant $n \times 1$ vector, $\mathbf{G}$ is a constant $n \times n$ symmetric positive definite matrix and $c$ is a scalar. Let $\mathbf{x}^* \in \mathbb{R}^n$ be the global minimiser for $q(\mathbf{x})$, $\mathbf{x}^{(1)} \in \mathbb{R}^n$ and $\mathbf{x}^{(1)} \neq \mathbf{x}^*$.<br><br>
+
+Consider applying <strong>Newton's method</strong> to $q(\mathbf{x})$ starting at $\mathbf{x}^{(1)}$
+
+{{< m2subprob id="q13a" marks="2" >}}
+Write down the Newton direction at $\mathbf{x}^{(1)}$ and show that it is a descent direction.
+{{< m2subsol >}}
+For the quadratic $q(\mathbf{x}) = \frac{1}{2}\mathbf{x}^T\mathbf{G}\mathbf{x} + \mathbf{d}^T\mathbf{x} + c$:<br><br>
+
+<strong>Gradient:</strong> $\nabla q(\mathbf{x}) = \mathbf{G}\mathbf{x} + \mathbf{d}$<br><br>
+
+<strong>Hessian:</strong> $\nabla^2 q(\mathbf{x}) = \mathbf{G}$<br><br>
+
+The <strong>Newton direction</strong> at $\mathbf{x}^{(1)}$ is:
+\[
+\mathbf{p}^{(1)} = -[\nabla^2 q(\mathbf{x}^{(1)})]^{-1} \nabla q(\mathbf{x}^{(1)}) = -\mathbf{G}^{-1}(\mathbf{G}\mathbf{x}^{(1)} + \mathbf{d})
+\]
+
+<strong>Showing it's a descent direction:</strong><br><br>
+
+A direction $\mathbf{p}$ is a descent direction if $\nabla q(\mathbf{x}^{(1)})^T \mathbf{p} < 0$.<br><br>
+
+\begin{align*}
+\nabla q(\mathbf{x}^{(1)})^T \mathbf{p}^{(1)} &= (\mathbf{G}\mathbf{x}^{(1)} + \mathbf{d})^T \left[-\mathbf{G}^{-1}(\mathbf{G}\mathbf{x}^{(1)} + \mathbf{d})\right]\\
+&= -(\mathbf{G}\mathbf{x}^{(1)} + \mathbf{d})^T \mathbf{G}^{-1} (\mathbf{G}\mathbf{x}^{(1)} + \mathbf{d})\\
+&= -\|\nabla q(\mathbf{x}^{(1)})\|_{\mathbf{G}^{-1}}^2
+\end{align*}
+
+Since $\mathbf{G}$ is positive definite, $\mathbf{G}^{-1}$ is also positive definite. Therefore, the quadratic form $\mathbf{v}^T\mathbf{G}^{-1}\mathbf{v} > 0$ for all $\mathbf{v} \neq \mathbf{0}$.<br><br>
+
+Since $\mathbf{x}^{(1)} \neq \mathbf{x}^*$, we have $\nabla q(\mathbf{x}^{(1)}) \neq \mathbf{0}$ (as $\mathbf{x}^*$ is the unique stationary point).<br><br>
+
+Thus: $\nabla q(\mathbf{x}^{(1)})^T \mathbf{p}^{(1)} < 0$, confirming $\mathbf{p}^{(1)}$ is a descent direction.
+{{< /m2subsol >}}
+{{< /m2subprob >}}
+
+{{< m2subprob id="q13b" marks="2" >}}
+How many iteration(s) will Newton's method take to reach the minimiser $\mathbf{x}^*$ of $q(\mathbf{x})$. Give reasons for your answer.
+{{< m2subsol >}}
+<strong>Exactly 1 iteration.</strong>
+<br><br>
+Newton's method update is:
+\[
+\mathbf{x}^{(2)} = \mathbf{x}^{(1)} + \mathbf{p}^{(1)} = \mathbf{x}^{(1)} - \mathbf{G}^{-1}(\mathbf{G}\mathbf{x}^{(1)} + \mathbf{d})
+\]
+
+The minimiser $\mathbf{x}^*$ satisfies the first-order optimality condition:
+\[
+\nabla q(\mathbf{x}^*) = \mathbf{0} \implies \mathbf{G}\mathbf{x}^* + \mathbf{d} = \mathbf{0} \implies \mathbf{x}^* = -\mathbf{G}^{-1}\mathbf{d}
+\]
+
+Substituting into the Newton update:
+\begin{align*}
+\mathbf{x}^{(2)} &= \mathbf{x}^{(1)} - \mathbf{G}^{-1}\mathbf{G}\mathbf{x}^{(1)} - \mathbf{G}^{-1}\mathbf{d}\\
+&= \mathbf{x}^{(1)} - \mathbf{x}^{(1)} - \mathbf{G}^{-1}\mathbf{d}\\
+&= -\mathbf{G}^{-1}\mathbf{d}\\
+&= \mathbf{x}^*
+\end{align*}
+
+Therefore, Newton's method reaches the minimiser in <strong>exactly 1 iteration</strong> for any quadratic function, regardless of the starting point $\mathbf{x}^{(1)}$.<br><br>
+
+This is because the Hessian of a quadratic is constant, and Newton's method is <em>exact</em> for quadratic functions—it finds the point where the quadratic approximation (which is the function itself) is minimised.
+{{< /m2subsol >}}
+{{< /m2subprob >}}
+
+{{< /m2prob >}}
+
+
+
+** DONE Q14
+:PROPERTIES:
+:CUSTOM_ID: q14
+:CLOSED: [2025-12-15 Mon 14:26]
+:note: - State "DONE" from "TODO" [2025-12-15 Mon 14:26]
+:END:
+
+{{< m2prob marks="15" >}}
+
+Consider the following inequality constrained optimisation problem
+\begin{align}
+\text{(IP)} \quad \underset{\mathbf{x}\in\mathbb{R}^n}{\text{minimise}} \quad & \mathbf{a}^T\mathbf{x}\notag \\
+\text{subject to} \quad & \mathbf{x}^TQ\mathbf{x} - 1 \leq 0,
+\label{eq:ip}
+\end{align}
+
+where $n\ge 1$, $Q$ is a symmetric and <strong>positive definite</strong> $n\times n$ matrix, $\mathbf{a}\in\mathbb{R}^n, \mathbf{a} \neq \mathbf{0}$ and the constraint function $\mathbf{c}(\mathbf{x}) = \mathbf{x}^TQ\mathbf{x} -1$.
+
+{{< m2subprob id="q14a" marks="2" >}}
+Write down the gradient $\nabla c(\mathbf{x})$ and the Hessian $\nabla^2 c(\mathbf{x})$.
+{{< m2subsol >}}
+For $c(\mathbf{x}) = \mathbf{x}^TQ\mathbf{x} - 1$:
+<br><br>
+<strong>Gradient:</strong>
+\[
+\nabla c(\mathbf{x}) = 2Q\mathbf{x}
+\]
+
+(Since $Q$ is symmetric: $\nabla(\mathbf{x}^TQ\mathbf{x}) = (Q + Q^T)\mathbf{x} = 2Q\mathbf{x}$)
+<br><br>
+<strong>Hessian:</strong>
+\[
+\nabla^2 c(\mathbf{x}) = 2Q
+\]
+{{< /m2subsol >}}
+
+{{< /m2subprob >}}
+
+{{< m2subprob id="q14b" marks="2" >}}
+Show that $c(\mathbf{x})$ is a convex function.
+{{< m2subsol >}}
+A twice-differentiable function $c: \mathbb{R}^n \to \mathbb{R}$ is convex if and only if its Hessian is positive semidefinite everywhere.<br><br>
+
+From part (a): $\nabla^2 c(\mathbf{x}) = 2Q$<br><br>
+
+Since $Q$ is given to be <strong>positive definite</strong>, we have for all $\mathbf{v} \neq \mathbf{0}$:
+\[
+\mathbf{v}^T Q \mathbf{v} > 0
+\]
+
+Therefore:
+\[
+\mathbf{v}^T (\nabla^2 c(\mathbf{x})) \mathbf{v} = 2\mathbf{v}^T Q \mathbf{v} > 0 \quad \forall \mathbf{v} \neq \mathbf{0}
+\]
+
+Thus $\nabla^2 c(\mathbf{x})$ is positive definite (hence positive semidefinite), which implies $c(\mathbf{x})$ is <strong>strictly convex</strong>.
+{{< /m2subsol >}}
+
+{{< /m2subprob >}}
+
+{{< m2subprob id="q14c" marks="2" >}}
+Show that the problem (IP) is a convex optimisation problem.
+{{< m2subsol >}}
+A problem is a <strong>convex optimisation problem</strong> if:
+<ol>
+<li>The objective function is convex</li>
+<li>The feasible region is convex (i.e., all inequality constraints $g_i(\mathbf{x}) \leq 0$ have convex $g_i$)</li>
+</ol>
+
+<strong>1. Objective function:</strong> $f(\mathbf{x}) = \mathbf{a}^T\mathbf{x}$ is linear, hence convex.<br><br>
+
+<strong>2. Constraint:</strong> $c(\mathbf{x}) = \mathbf{x}^TQ\mathbf{x} - 1 \leq 0$<br><br>
+
+From part (b), $c(\mathbf{x})$ is (strictly) convex.<br><br>
+
+The feasible region is $\Omega = \{\mathbf{x} : \mathbf{x}^TQ\mathbf{x} \leq 1\}$, which is a convex set (it's a sublevel set of a convex function).<br><br>
+
+Alternatively: for $\mathbf{x}_1, \mathbf{x}_2 \in \Omega$ and $\lambda \in [0,1]$:
+\begin{align*}
+c(\lambda \mathbf{x}_1 + (1-\lambda)\mathbf{x}_2) &\leq \lambda c(\mathbf{x}_1) + (1-\lambda) c(\mathbf{x}_2) \quad\text{(by convexity of }c\text{)}\\
+&\leq \lambda \cdot 0 + (1-\lambda) \cdot 0 = 0
+\end{align*}
+So $\lambda \mathbf{x}_1 + (1-\lambda)\mathbf{x}_2 \in \Omega$, confirming $\Omega$ is convex.<br><br>
+
+Therefore, (IP) is a <strong>convex optimisation problem</strong>.
+{{< /m2subsol >}}
+
+{{< /m2subprob >}}
+
+{{< m2subprob id="q14d" marks="3" >}}
+Show that \(\large \mathbf{x}^* = \frac{-Q^{-1}\mathbf{a}}{\sqrt{\mathbf{a}^TQ^{-1}\mathbf{a}}}\) is a constrained stationary point for the problem (IP).
+{{< m2subsol >}}
+A point $\mathbf{x}^*$ is a constrained stationary point if it satisfies the <strong>KKT conditions</strong>:
+
+<ol>
+<li><strong>Feasibility:</strong> $c(\mathbf{x}^*) \leq 0$</li>
+<li><strong>Stationarity:</strong> $\nabla f(\mathbf{x}^*) + \mu \nabla c(\mathbf{x}^*) = \mathbf{0}$ for some $\mu$</li>
+<li><strong>Complementarity:</strong> $\mu c(\mathbf{x}^*) = 0$</li>
+<li><strong>Dual feasibility:</strong> $\mu \geq 0$</li>
+</ol>
+
+Let's verify:
+<br><br>
+<strong>1. Feasibility:</strong>
+\begin{align*}
+c(\mathbf{x}^*) &= (\mathbf{x}^*)^T Q \mathbf{x}^* - 1\\
+&= \frac{(-Q^{-1}\mathbf{a})^T Q (-Q^{-1}\mathbf{a})}{\mathbf{a}^TQ^{-1}\mathbf{a}} - 1\\
+&= \frac{\mathbf{a}^T Q^{-1} Q Q^{-1} \mathbf{a}}{\mathbf{a}^TQ^{-1}\mathbf{a}} - 1\\
+&= \frac{\mathbf{a}^T Q^{-1} \mathbf{a}}{\mathbf{a}^TQ^{-1}\mathbf{a}} - 1 = 0
+\end{align*}
+So $\mathbf{x}^*$ lies on the boundary of the constraint (constraint is active).<br><br>
+
+<strong>2. Stationarity:</strong> We need $\mathbf{a} + \mu \cdot 2Q\mathbf{x}^* = \mathbf{0}$ for some $\mu > 0$.
+<br><br>
+\begin{align*}
+\mathbf{a} + 2\mu Q\mathbf{x}^* &= \mathbf{a} + 2\mu Q \cdot \frac{-Q^{-1}\mathbf{a}}{\sqrt{\mathbf{a}^TQ^{-1}\mathbf{a}}}\\
+&= \mathbf{a} - \frac{2\mu \mathbf{a}}{\sqrt{\mathbf{a}^TQ^{-1}\mathbf{a}}}
+\end{align*}
+
+Setting this to $\mathbf{0}$:
+\[
+\mathbf{a}\left(1 - \frac{2\mu}{\sqrt{\mathbf{a}^TQ^{-1}\mathbf{a}}}\right) = \mathbf{0}
+\]
+
+Since $\mathbf{a} \neq \mathbf{0}$, we need:
+\[
+\mu = \frac{\sqrt{\mathbf{a}^TQ^{-1}\mathbf{a}}}{2} > 0
+\]
+
+<strong>3 & 4:</strong> With $\mu > 0$ and $c(\mathbf{x}^*) = 0$, complementarity and dual feasibility are satisfied.<br><br>
+
+Therefore, $\mathbf{x}^*$ is a constrained stationary point.
+{{< /m2subsol >}}
+
+{{< /m2subprob >}}
+
+
+{{< m2subprob id="q14e" marks="2" >}}
+Determine whether \(\large \mathbf{x}^* = \frac{-Q^{-1}\mathbf{a}}{\sqrt{\mathbf{a}^TQ^{-1}\mathbf{a}}}\) is a local minimiser, global minimiser or neither for the problem (IP).
+{{< m2subsol >}}
+<strong>Answer: $\mathbf{x}^*$ is a global minimiser.</strong><br><br>
+
+<strong>Proof:</strong><br><br>
+
+Since (IP) is a convex optimisation problem (from part c) with:
+<ul>
+<li>Convex objective function $f(\mathbf{x}) = \mathbf{a}^T\mathbf{x}$</li>
+<li>Convex feasible region $\Omega$</li>
+</ul>
+
+Any local minimiser is also a <strong>global minimiser</strong> for convex problems.<br><br>
+
+We showed in part (d) that $\mathbf{x}^*$ satisfies the KKT conditions. For convex problems, the KKT conditions are <strong>sufficient</strong> for global optimality.
+<br><br>
+<strong>Alternative geometric argument:</strong><br><br>
+
+The problem minimises a linear function over an ellipsoid. The minimum occurs where the level set $\{\mathbf{x} : \mathbf{a}^T\mathbf{x} = t\}$ (a hyperplane orthogonal to $\mathbf{a}$) is tangent to the ellipsoid $\{\mathbf{x} : \mathbf{x}^TQ\mathbf{x} \leq 1\}$.<br><br>
+
+This tangency occurs at:
+\[
+\mathbf{x}^* = \frac{-Q^{-1}\mathbf{a}}{\sqrt{\mathbf{a}^TQ^{-1}\mathbf{a}}}
+\]
+
+The direction $-Q^{-1}\mathbf{a}$ points from the origin toward decreasing values of $\mathbf{a}^T\mathbf{x}$, and we scale to hit the boundary of the ellipsoid.<br><br>
+
+<strong>Verification:</strong> The objective value at $\mathbf{x}^*$ is:
+\[
+f(\mathbf{x}^*) = \mathbf{a}^T\mathbf{x}^* = -\frac{\mathbf{a}^TQ^{-1}\mathbf{a}}{\sqrt{\mathbf{a}^TQ^{-1}\mathbf{a}}} = -\sqrt{\mathbf{a}^TQ^{-1}\mathbf{a}}
+\]
+
+This is the <strong>minimum</strong> value over the feasible region.<br><br>
+
+Therefore, $\mathbf{x}^*$ is a <strong>global minimiser</strong>.
+{{< /m2subsol >}}
+
+{{< /m2subprob >}}
+
+{{< m2subprob id="q14f" marks="2" >}}
+Write down the Wolfe dual problem for (IP).
+{{< m2subsol >}}
+The <strong>Wolfe dual</strong> for the problem
+\begin{align*}
+\min_{\mathbf{x}} \quad & \mathbf{a}^T\mathbf{x}\\
+\text{s.t.} \quad & \mathbf{x}^TQ\mathbf{x} - 1 \leq 0
+\end{align*}
+
+is constructed from the Lagrangian:
+\[
+L(\mathbf{x}, \mu) = \mathbf{a}^T\mathbf{x} + \mu(\mathbf{x}^TQ\mathbf{x} - 1)
+\]
+
+The Wolfe dual is:
+\begin{align*}
+\text{(WD)} \quad \max_{\mathbf{x}, \mu} \quad & L(\mathbf{x}, \mu) = \mathbf{a}^T\mathbf{x} + \mu(\mathbf{x}^TQ\mathbf{x} - 1)\\
+\text{s.t.} \quad & \nabla_{\mathbf{x}} L(\mathbf{x}, \mu) = \mathbf{a} + 2\mu Q\mathbf{x} = \mathbf{0}\\
+& \mu \geq 0
+\end{align*}
+
+Equivalently, eliminating $\mathbf{x}$ using the stationarity condition $\mathbf{x} = -\frac{1}{2\mu}Q^{-1}\mathbf{a}$:<br><br>
+
+\begin{align*}
+\text{(WD)} \quad \max_{\mu \geq 0} \quad & -\frac{\mathbf{a}^TQ^{-1}\mathbf{a}}{4\mu} - \mu
+\end{align*}
+{{< /m2subsol >}}
+
+{{< /m2subprob >}}
+
+{{< m2subprob id="q14g" marks="2" >}}
+What is the optimal objective value of the Wolfe dual problem in part f)? Give reasons for your answer. You do not need to solve the Wolfe dual problem.
+{{< m2subsol >}}
+The optimal objective value of the Wolfe dual is $-\sqrt{\mathbf{a}^TQ^{-1}\mathbf{a}}$.<br><br>
+
+<br><br>
+For convex optimisation problems with differentiable objective and constraints, <strong>strong duality</strong> holds under Slater's condition (which is satisfied here since the constraint is strictly feasible at the origin if $0 < 1$, or at any interior point).<br><br>
+
+By strong duality:
+\[
+\text{Primal optimal value} = \text{Dual optimal value}
+\]
+
+From part (e), we found that the primal optimal value is:
+\[
+f(\mathbf{x}^*) = \mathbf{a}^T\mathbf{x}^* = -\sqrt{\mathbf{a}^TQ^{-1}\mathbf{a}}
+\]
+
+Therefore, the Wolfe dual optimal value is also:
+\[
+\boxed{-\sqrt{\mathbf{a}^TQ^{-1}\mathbf{a}}}
+\]
+
+<strong>Verification:</strong> At the optimal $\mu^* = \frac{\sqrt{\mathbf{a}^TQ^{-1}\mathbf{a}}}{2}$ from part (d), the dual objective is:
+\begin{align*}
+L(\mathbf{x}^*, \mu^*) &= \mathbf{a}^T\mathbf{x}^* + \mu^* \cdot 0\\
+&= -\sqrt{\mathbf{a}^TQ^{-1}\mathbf{a}}
+\end{align*}
+confirming strong duality with zero duality gap.
+{{< /m2subsol >}}
+
+{{< /m2subprob >}}
+
+{{< /m2prob >}}
+
+
+** DONE Q15
+:PROPERTIES:
+:CUSTOM_ID: q15
+:CLOSED: [2025-12-15 Mon 14:26]
+:note: - State "DONE" from "TODO" [2025-12-15 Mon 14:26]
+:END:
+
+{{< m2prob marks="15" >}}
+
+Consider the following equality constrained optimisation problem<br><br>
+
+\begin{align*}
+\text{(EP)} \quad \min_{\mathbf{x}\in\mathbb{R}^n} \quad & \mathbf{a}^T\mathbf{x} \\
+\text{s.t.} \quad & \mathbf{x}^T\mathbf{x} - 1 = 0,
+\end{align*}
+
+where $n \geq 1$, $\mathbf{a} \in \mathbb{R}^n$, $\mathbf{a} \neq \mathbf{0}$ and $\|\mathbf{a}\|_2 = \sqrt{\mathbf{a}^T\mathbf{a}}$.<br><br>
+Let $\mathbf{z}^* = \frac{-\mathbf{a}}{\|\mathbf{a}\|_2}$.<br><br>
+
+{{< m2subprob id="q15a" marks="2" >}}
+Show that global minima of (EP) must exist.
+{{< m2subsol >}}
+We use the <strong>Extreme Value Theorem</strong>: A continuous function on a compact set attains its minimum.<br><br>
+
+<strong>1. Objective is continuous:</strong> $f(\mathbf{x}) = \mathbf{a}^T\mathbf{x}$ is linear, hence continuous.<br><br>
+
+<strong>2. Feasible region is compact:</strong> The constraint set is $\Omega = \{\mathbf{x} \in \mathbb{R}^n : \mathbf{x}^T\mathbf{x} = 1\}$, which is the unit sphere $S^{n-1}$.<br><br>
+
+The unit sphere is:
+<ul>
+<li><strong>Closed:</strong> It's the preimage of the closed set $\{1\}$ under the continuous function $\mathbf{x} \mapsto \|\mathbf{x}\|^2$</li>
+<li><strong>Bounded:</strong> $\|\mathbf{x}\| = 1$ for all $\mathbf{x} \in \Omega$</li>
+</ul>
+By the Heine-Borel theorem, a subset of $\mathbb{R}^n$ is compact if and only if it is closed and bounded. Therefore $\Omega$ is compact.<br><br>
+
+Since $f$ is continuous and $\Omega$ is compact and non-empty, by the Extreme Value Theorem, $f$ attains its minimum on $\Omega$.<br><br>
+
+Therefore, <strong>global minima of (EP) must exist</strong>.
+{{< /m2subsol >}}
+
+{{< /m2subprob >}}
+
+{{< m2subprob id="q15b" marks="2" >}}
+Show that $\mathbf{z}^*$ is a regular feasible point for (EP).
+{{< m2subsol >}}
+A point is <strong>regular</strong> (satisfies LICQ - Linear Independence Constraint Qualification) if the gradients of the active constraints are linearly independent.<br><br>
+
+For (EP), the constraint is $h(\mathbf{x}) = \mathbf{x}^T\mathbf{x} - 1 = 0$.<br><br>
+
+<strong>Gradient:</strong>
+\[
+\nabla h(\mathbf{x}) = 2\mathbf{x}
+\]
+
+At $\mathbf{z}^* = \frac{-\mathbf{a}}{\|\mathbf{a}\|_2}$:
+\[
+\nabla h(\mathbf{z}^*) = 2\mathbf{z}^* = \frac{-2\mathbf{a}}{\|\mathbf{a}\|_2}
+\]
+
+Since $\mathbf{a} \neq \mathbf{0}$, we have $\nabla h(\mathbf{z}^*) \neq \mathbf{0}$.<br><br>
+
+A single non-zero vector is linearly independent, so the LICQ condition is satisfied.<br><br>
+
+<strong>Verification of feasibility:</strong>
+\[
+(\mathbf{z}^*)^T\mathbf{z}^* = \frac{\mathbf{a}^T\mathbf{a}}{\|\mathbf{a}\|_2^2} = \frac{\|\mathbf{a}\|_2^2}{\|\mathbf{a}\|_2^2} = 1
+\]
+
+Therefore, $\mathbf{z}^*$ is a <strong>regular feasible point</strong> for (EP).
+{{< /m2subsol >}}
+
+{{< /m2subprob >}}
+
+{{< m2subprob id="q15c" marks="2" >}}
+Show rigorously that the feasible region $\Omega = \{\mathbf{x} \in \mathbb{R}^n : \mathbf{x}^T\mathbf{x} - 1 = 0\}$ of (EP) is not a convex set.
+{{< m2subsol >}}
+<strong>Proof by counterexample:</strong><br><br>
+
+Consider $n = 2$. Let $\mathbf{x}_1 = \begin{bmatrix}1\\0\end{bmatrix}$ and $\mathbf{x}_2 = \begin{bmatrix}-1\\0\end{bmatrix}$.<br><br>
+
+Both points are in $\Omega$:
+\[
+\mathbf{x}_1^T\mathbf{x}_1 = 1, \quad \mathbf{x}_2^T\mathbf{x}_2 = 1
+\]
+
+For a convex set, the line segment between any two points must lie entirely in the set. Consider the midpoint with $\lambda = \frac{1}{2}$:
+\[
+\mathbf{x}_{\text{mid}} = \frac{1}{2}\mathbf{x}_1 + \frac{1}{2}\mathbf{x}_2 = \frac{1}{2}\begin{bmatrix}1\\0\end{bmatrix} + \frac{1}{2}\begin{bmatrix}-1\\0\end{bmatrix} = \begin{bmatrix}0\\0\end{bmatrix}
+\]
+
+Check if $\mathbf{x}_{\text{mid}} \in \Omega$:
+\[
+\mathbf{x}_{\text{mid}}^T\mathbf{x}_{\text{mid}} = 0 \neq 1
+\]
+
+Therefore $\mathbf{x}_{\text{mid}} \notin \Omega$.<br><br>
+
+Since we found $\mathbf{x}_1, \mathbf{x}_2 \in \Omega$ but their convex combination $\frac{1}{2}\mathbf{x}_1 + \frac{1}{2}\mathbf{x}_2 \notin \Omega$, the set $\Omega$ is <strong>not convex</strong>.<br><br>
+
+<strong>General argument:</strong> For any $n \geq 1$, the unit sphere $S^{n-1}$ is not convex because it does not contain the line segments between antipodal points (or any pair of distinct points on the sphere).
+{{< /m2subsol >}}
+
+{{< /m2subprob >}}
+
+{{< m2subprob id="q15d" marks="3" >}}
+Verify that $\mathbf{z}^*$ is a constrained stationary point for (EP).
+{{< m2subsol >}}
+For an equality-constrained problem, a point $\mathbf{z}^*$ is a constrained stationary point if there exists a Lagrange multiplier $\lambda$ such that:<br><br>
+
+<strong>Lagrange condition:</strong>
+\[
+\nabla f(\mathbf{z}^*) + \lambda \nabla h(\mathbf{z}^*) = \mathbf{0}
+\]
+
+where $f(\mathbf{x}) = \mathbf{a}^T\mathbf{x}$ and $h(\mathbf{x}) = \mathbf{x}^T\mathbf{x} - 1$.<br><br>
+
+We have:
+<ul>
+<li>$\nabla f(\mathbf{x}) = \mathbf{a}$</li>
+<li>$\nabla h(\mathbf{x}) = 2\mathbf{x}$</li>
+</ul>
+
+At $\mathbf{z}^* = \frac{-\mathbf{a}}{\|\mathbf{a}\|_2}$:
+
+\[
+\nabla h(\mathbf{z}^*) = 2\mathbf{z}^* = \frac{-2\mathbf{a}}{\|\mathbf{a}\|_2}
+\]
+
+The Lagrange condition becomes:
+\[
+\mathbf{a} + \lambda \cdot \frac{-2\mathbf{a}}{\|\mathbf{a}\|_2} = \mathbf{0}
+\]
+
+\[
+\mathbf{a}\left(1 - \frac{2\lambda}{\|\mathbf{a}\|_2}\right) = \mathbf{0}
+\]
+
+Since $\mathbf{a} \neq \mathbf{0}$, we need:
+\[
+1 - \frac{2\lambda}{\|\mathbf{a}\|_2} = 0 \implies \lambda = \frac{\|\mathbf{a}\|_2}{2}
+\]
+
+With this value of $\lambda$, the Lagrange condition is satisfied.<br><br>
+
+Therefore, $\mathbf{z}^*$ is a <strong>constrained stationary point</strong> with Lagrange multiplier $\lambda^* = \frac{\|\mathbf{a}\|_2}{2}$.
+{{< /m2subsol >}}
+
+{{< /m2subprob >}}
+
+{{< m2subprob id="q15e" marks="3" >}}
+Using the second-order sufficient optimality conditions, show that $\mathbf{z}^*$ is a strict local minimiser for (EP).
+{{< m2subsol >}}
+The <strong>second-order sufficient condition</strong> states: If $\mathbf{z}^*$ is a regular stationary point and
+\[
+\mathbf{d}^T \nabla^2_{xx} \mathcal{L}(\mathbf{z}^*, \lambda^*) \mathbf{d} > 0
+\]
+for all $\mathbf{d} \neq \mathbf{0}$ satisfying $\nabla h(\mathbf{z}^*)^T \mathbf{d} = 0$ (tangent to the constraint), then $\mathbf{z}^*$ is a strict local minimiser.<br><br>
+
+The Lagrangian is:
+\[
+\mathcal{L}(\mathbf{x}, \lambda) = \mathbf{a}^T\mathbf{x} + \lambda(\mathbf{x}^T\mathbf{x} - 1)
+\]
+
+The Hessian with respect to $\mathbf{x}$:
+\[
+\nabla^2_{xx} \mathcal{L}(\mathbf{x}, \lambda) = 2\lambda I
+\]
+
+At $\mathbf{z}^*$ with $\lambda^* = \frac{\|\mathbf{a}\|_2}{2} > 0$ (since $\mathbf{a} \neq \mathbf{0}$):
+\[
+\nabla^2_{xx} \mathcal{L}(\mathbf{z}^*, \lambda^*) = 2 \cdot \frac{\|\mathbf{a}\|_2}{2} I = \|\mathbf{a}\|_2 I
+\]
+
+The tangent space at $\mathbf{z}^*$ is:
+\[
+T_{\mathbf{z}^*} = \{\mathbf{d} : \nabla h(\mathbf{z}^*)^T \mathbf{d} = 0\} = \{\mathbf{d} : 2(\mathbf{z}^*)^T \mathbf{d} = 0\} = \{\mathbf{d} : \mathbf{d} \perp \mathbf{z}^*\}
+\]
+
+For any $\mathbf{d} \in T_{\mathbf{z}^*}$ with $\mathbf{d} \neq \mathbf{0}$:
+\[
+\mathbf{d}^T \nabla^2_{xx} \mathcal{L}(\mathbf{z}^*, \lambda^*) \mathbf{d} = \mathbf{d}^T (\|\mathbf{a}\|_2 I) \mathbf{d} = \|\mathbf{a}\|_2 \|\mathbf{d}\|^2 > 0
+\]
+
+Since the second-order sufficient condition is satisfied, $\mathbf{z}^*$ is a <strong>strict local minimiser</strong> for (EP).
+{{< /m2subsol >}}
+
+{{< /m2subprob >}}
+
+{{< m2subprob id="q15f" marks="3" >}}
+Show that $\mathbf{z}^*$ is a global minimiser for (EP).
+{{< m2subsol >}}
+We'll show that $f(\mathbf{z}^*) \leq f(\mathbf{x})$ for all feasible $\mathbf{x}$.<br><br>
+
+For any $\mathbf{x} \in \Omega$ (i.e., $\|\mathbf{x}\| = 1$), by the <strong>Cauchy-Schwarz inequality</strong>:
+\[
+\mathbf{a}^T\mathbf{x} \geq -|\mathbf{a}^T\mathbf{x}| \geq -\|\mathbf{a}\|_2 \|\mathbf{x}\|_2 = -\|\mathbf{a}\|_2
+\]
+
+Equality holds when $\mathbf{x}$ and $\mathbf{a}$ point in opposite directions:
+\[
+\mathbf{x} = \frac{-\mathbf{a}}{\|\mathbf{a}\|_2} = \mathbf{z}^*
+\]
+
+At $\mathbf{z}^*$:
+\[
+f(\mathbf{z}^*) = \mathbf{a}^T\mathbf{z}^* = \mathbf{a}^T \cdot \frac{-\mathbf{a}}{\|\mathbf{a}\|_2} = -\frac{\|\mathbf{a}\|_2^2}{\|\mathbf{a}\|_2} = -\|\mathbf{a}\|_2
+\]
+
+Therefore:
+\[
+f(\mathbf{z}^*) = -\|\mathbf{a}\|_2 \leq \mathbf{a}^T\mathbf{x} = f(\mathbf{x}) \quad \forall \mathbf{x} \in \Omega
+\]
+
+This shows that $\mathbf{z}^*$ achieves the minimum value of the objective function over the feasible region.<br><br>
+
+Therefore, $\mathbf{z}^*$ is a <strong>global minimiser</strong> for (EP).<br><br>
+
+<strong>Note:</strong> The maximum is achieved at $-\mathbf{z}^* = \frac{\mathbf{a}}{\|\mathbf{a}\|_2}$ with value $\|\mathbf{a}\|_2$.
+{{< /m2subsol >}}
+
+{{< /m2subprob >}}
+
+{{< /m2prob >}}
+
+
+
+
+** DONE Q16
+:PROPERTIES:
+:CUSTOM_ID: q16
+:CLOSED: [2025-12-15 Mon 14:26]
+:note: - State "DONE" from "" [2025-12-15 Mon 14:26]
+:END:
+
+{{< m2prob marks="6" >}}
+
+{{< m2subprob id="q16a" marks="2" >}}
+Prove that 
+{{< m2prop >}}
+\[|a| \leq b \iff -b \leq a \leq b\]
+{{< /m2prop >}}
+{{< m2proof >}}
+{{< m2subsol >}}
+<strong>Proof:</strong><br><br>
+
+$(\Rightarrow)$ Assume $|a| \leq b$.<br><br>
+
+By definition of absolute value:
+\[
+|a| = \begin{cases}
+a, & \text{if } a \geq 0\\
+-a, & \text{if } a < 0
+\end{cases}
+\]
+
+<strong>Case 1:</strong> If $a \geq 0$, then $|a| = a$, so $a \leq b$. Also, since $a \geq 0$, we have $a \geq -b$ (as $-b \leq 0 \leq a$ when $b \geq 0$). Thus $-b \leq a \leq b$.<br><br>
+
+<br><br>
+<strong>Case 2:</strong> If $a < 0$, then $|a| = -a$, so $-a \leq b$, which gives $a \geq -b$. Also, $a < 0 \leq b$ (assuming $b \geq 0$, which must hold since $|a| \geq 0$). Thus $-b \leq a < 0 \leq b$.
+<br><br>
+In both cases, $-b \leq a \leq b$.
+<br><br>
+$(\Leftarrow)$ Assume $-b \leq a \leq b$.
+<br><br>
+<strong>Case 1:</strong> If $a \geq 0$, then $|a| = a \leq b$ by assumption.
+<br><br>
+<strong>Case 2:</strong> If $a < 0$, then $|a| = -a$. From $-b \leq a$, we get $-a \leq b$, so $|a| = -a \leq b$.
+<br><br>
+In both cases, $|a| \leq b$. $\quad\square$
+{{< /m2subsol >}}
+{{< /m2proof >}}
+{{< /m2subprob >}}
+
+
+{{< m2subprob id="q16b" marks="2" >}}
+Prove that 
+{{< m2prop >}}
+\[\forall a, b \in \mathbb{R}, \quad |a|\cdot |b| = |a\cdot b |\]
+{{< /m2prop >}}
+{{< m2proof >}}
+{{< m2subsol >}}
+<strong>Proof:</strong>
+<br>
+We consider four cases based on the signs of $a$ and $b$:<br><br>
+
+<br>
+<strong>Case 1:</strong> $a \geq 0$ and $b \geq 0$<br><br>
+
+Then $ab \geq 0$, so:
+\[
+|a| \cdot |b| = a \cdot b = |ab|
+\]
+
+<strong>Case 2:</strong> $a \geq 0$ and $b < 0$<br><br>
+
+Then $ab \leq 0$, so:
+\[
+|a| \cdot |b| = a \cdot (-b) = -ab = |ab|
+\]
+
+<strong>Case 3:</strong> $a < 0$ and $b \geq 0$<br><br>
+
+Then $ab \leq 0$, so:
+\[
+|a| \cdot |b| = (-a) \cdot b = -ab = |ab|
+\]
+
+<strong>Case 4:</strong> $a < 0$ and $b < 0$<br><br>
+
+Then $ab > 0$, so:
+\[
+|a| \cdot |b| = (-a) \cdot (-b) = ab = |ab|
+\]
+
+In all cases, $|a| \cdot |b| = |ab|$. $\quad\square$<br><br>
+
+<strong>Alternative proof:</strong> Note that $|a| = \sqrt{a^2}$ and $|b| = \sqrt{b^2}$. Then:
+\[
+|a| \cdot |b| = \sqrt{a^2} \cdot \sqrt{b^2} = \sqrt{a^2 b^2} = \sqrt{(ab)^2} = |ab|
+\]
+{{< /m2subsol >}}
+{{< /m2proof >}}
+{{< /m2subprob >}}
+
+{{< m2subprob id="q16c" marks="2" >}}
+Complete the following
+
+{{< m2prop >}}
+Two real numbers, $a$ and $b$ are equal if and only if, for every $\epsilon > 0$, $|a-b| <\epsilon$.
+{{< /m2prop >}}
+{{< m2proof >}}
+{{< m2subsol >}}
+<strong>Proof:</strong><br><br>
+
+$(\Rightarrow)$ Assume $a = b$.
+<br><br>
+
+Then $|a - b| = |0| = 0 < \epsilon$ for all $\epsilon > 0$.
+<br><br>
+
+$(\Leftarrow)$ Assume that for every $\epsilon > 0$, $|a - b| < \epsilon$.
+<br><br>
+
+Suppose, for contradiction, that $a \neq b$. Then $|a - b| = d > 0$ for some $d \in \mathbb{R}$.
+<br><br>
+
+Choose $\epsilon_0 =\frac{d}{2} > 0$. By assumption, $|a - b| < \epsilon_0 = \frac{d}{2}$.
+<br><br>
+
+But this gives $d < \frac{d}{2}$, which implies $2d < d$, hence $d < 0$. This contradicts $d > 0$.
+<br><br>
+
+Therefore, $a = b$. $\quad\square$
+
+<br><br>
+<strong>Interpretation:</strong>
+<br>
+This states that two real numbers are equal if and only if the distance between them is arbitrarily small. This is a fundamental characterisation of equality in terms of the metric structure of $\mathbb{R}$.
+{{< /m2subsol >}}
+{{< /m2proof >}}
+{{< /m2subprob >}}
+
+{{< /m2prob >}}
+
+
+** DONE Q17
+:PROPERTIES:
+:CUSTOM_ID: q17
+:CLOSED: [2025-12-15 Mon 14:26]
+:note: - State "DONE" from "" [2025-12-15 Mon 14:26]
+:END:
+
+{{< m2prob marks="3" >}}
+Complete the following
+
+{{< m2prop >}}
+Let $\mathcal{A}\subseteq \mathbb{R}$ and $m\in \mathcal{A}$ be the minimum of $\mathcal{A}$, then $\inf \mathcal{A} = m$.
+{{< /m2prop >}}
+{{< m2proof >}}
+{{< m2subsol >}}
+<strong>Proof:</strong><br><br>
+
+Recall that $m$ is the <strong>minimum</strong> of $\mathcal{A}$ if:
+<ol>
+<li>$m \in \mathcal{A}$</li>
+<li>$m \leq a$ for all $a \in \mathcal{A}$</li>
+</ol>
+
+Recall that $\inf \mathcal{A}$ (the <strong>infimum</strong> or greatest lower bound) satisfies:
+<ol>
+<li>$\inf \mathcal{A} \leq a$ for all $a \in \mathcal{A}$ (it is a lower bound)</li>
+<li>If $\ell$ is any lower bound of $\mathcal{A}$, then $\ell \leq \inf \mathcal{A}$ (it is the greatest lower bound)</li>
+</ol>
+
+<strong>We must show $\inf \mathcal{A} = m$:</strong>
+<br><br>
+<strong>Part 1:</strong> Show $m$ is a lower bound of $\mathcal{A}$.
+<br><br>
+Since $m$ is the minimum, $m \leq a$ for all $a \in \mathcal{A}$. Thus $m$ is a lower bound.
+<br><br>
+<strong>Part 2:</strong> Show $m$ is the greatest lower bound.
+<br><br>
+Let $\ell$ be any lower bound of $\mathcal{A}$. Then $\ell \leq a$ for all $a \in \mathcal{A}$.
+<br><br>
+In particular, since $m \in \mathcal{A}$, we have $\ell \leq m$.
+<br><br>
+Since $m$ is a lower bound and every lower bound $\ell$ satisfies $\ell \leq m$, we conclude that $m = \inf \mathcal{A}$. $\quad\square$
+<br><br>
+<strong>Note:</strong> The minimum is the infimum when it exists and belongs to the set. However, not all sets have a minimum (e.g., $(0,1)$ has no minimum), but every non-empty bounded-below set has an infimum (by the completeness of $\mathbb{R}$).
+{{< /m2subsol >}}
+{{< /m2proof >}}
+
+{{< /m2prob >}}
+
+** DONE Q18
+:PROPERTIES:
+:CUSTOM_ID: q18
+:CLOSED: [2025-12-15 Mon 14:26]
+:note: - State "DONE" from "" [2025-12-15 Mon 14:26]
+:END:
+
+{{< m2prob marks="7" >}}
+
+{{< m2subprob id="q18a" marks="4" >}}
+State and prove the Cauchy-Schwarz inequality in $\mathbb{R}^n$.
+{{< m2prop >}}
+{{< m2subsol >}}
+<strong>Cauchy-Schwarz Inequality:</strong> For vectors $\mathbf{x}, \mathbf{y} \in \mathbb{R}^n$:
+\[
+|\mathbf{x}^T\mathbf{y}| \leq \|\mathbf{x}\| \|\mathbf{y}\|
+\]
+
+Equivalently, for real numbers:
+\[
+\left|\sum_{i=1}^n x_i y_i\right| \leq \sqrt{\sum_{i=1}^n x_i^2} \sqrt{\sum_{i=1}^n y_i^2}
+\]
+{{< /m2subsol >}}
+{{< /m2prop >}}
+{{< m2proof >}}
+{{< m2subsol >}}
+<strong>Proof:</strong><br><br>
+
+<strong>Case 1:</strong> If $\mathbf{y} = \mathbf{0}$, then both sides equal $0$, so the inequality holds.<br><br>
+
+<strong>Case 2:</strong> Assume $\mathbf{y} \neq \mathbf{0}$. For any $t \in \mathbb{R}$, consider:
+\[
+0 \leq \|\mathbf{x} - t\mathbf{y}\|^2 = (\mathbf{x} - t\mathbf{y})^T(\mathbf{x} - t\mathbf{y})
+\]
+
+Expanding:
+\begin{align*}
+0 &\leq \mathbf{x}^T\mathbf{x} - 2t\mathbf{x}^T\mathbf{y} + t^2\mathbf{y}^T\mathbf{y}\\
+&= \|\mathbf{x}\|^2 - 2t(\mathbf{x}^T\mathbf{y}) + t^2\|\mathbf{y}\|^2
+\end{align*}
+
+This is a quadratic in $t$ that is non-negative for all $t$. Choose $t = \frac{\mathbf{x}^T\mathbf{y}}{\|\mathbf{y}\|^2}$ (the value that minimises the quadratic):<br><br>
+
+\begin{align*}
+0 &\leq \|\mathbf{x}\|^2 - 2\frac{(\mathbf{x}^T\mathbf{y})^2}{\|\mathbf{y}\|^2} + \frac{(\mathbf{x}^T\mathbf{y})^2}{\|\mathbf{y}\|^4} \cdot \|\mathbf{y}\|^2\\
+&= \|\mathbf{x}\|^2 - \frac{(\mathbf{x}^T\mathbf{y})^2}{\|\mathbf{y}\|^2}
+\end{align*}
+
+Rearranging:
+\[
+(\mathbf{x}^T\mathbf{y})^2 \leq \|\mathbf{x}\|^2 \|\mathbf{y}\|^2
+\]
+
+Taking square roots:
+\[
+|\mathbf{x}^T\mathbf{y}| \leq \|\mathbf{x}\| \|\mathbf{y}\|
+\]
+
+<strong>Equality condition:</strong> Equality holds if and only if $\mathbf{x}$ and $\mathbf{y}$ are linearly dependent (i.e., $\mathbf{x} = c\mathbf{y}$ for some scalar $c$).<br><br>
+
+<strong>Alternative proof via discriminant:</strong> The quadratic $at^2 + bt + c$ with $a = \|\mathbf{y}\|^2 > 0$, $b = -2\mathbf{x}^T\mathbf{y}$, $c = \|\mathbf{x}\|^2$ is non-negative for all $t$. Thus its discriminant must be non-positive:
+\[
+b^2 - 4ac \leq 0 \implies 4(\mathbf{x}^T\mathbf{y})^2 - 4\|\mathbf{x}\|^2\|\mathbf{y}\|^2 \leq 0
+\]
+which gives the result.
+{{< /m2subsol >}}
+{{< /m2proof >}}
+{{< /m2subprob >}}
+
+{{< m2subprob id="q18b" marks="3" >}}
+Hence or otherwise, state and prove the Triangle Inequality in $\mathbb{R}^n$.
+{{< m2prop >}}
+{{< m2subsol >}}
+<strong>Triangle Inequality:</strong> For all real numbers $a, b$:
+\[
+|a + b| \leq |a| + |b|
+\]
+
+More generally, for vectors $\mathbf{x}, \mathbf{y} \in \mathbb{R}^n$:
+\[
+\|\mathbf{x} + \mathbf{y}\| \leq \|\mathbf{x}\| + \|\mathbf{y}\|
+\]
+{{< /m2subsol >}}
+{{< /m2prop >}}
+{{< m2proof >}}
+{{< m2subsol >}}
+We prove the vector version (the scalar case follows by setting $n=1$).
+
+\begin{align*}
+\|\mathbf{x} + \mathbf{y}\|^2 &= (\mathbf{x} + \mathbf{y})^T(\mathbf{x} + \mathbf{y})\\
+&= \mathbf{x}^T\mathbf{x} + 2\mathbf{x}^T\mathbf{y} + \mathbf{y}^T\mathbf{y}\\
+&= \|\mathbf{x}\|^2 + 2\mathbf{x}^T\mathbf{y} + \|\mathbf{y}\|^2
+\end{align*}
+
+By the Cauchy-Schwarz inequality (from part a):
+\[
+\mathbf{x}^T\mathbf{y} \leq |\mathbf{x}^T\mathbf{y}| \leq \|\mathbf{x}\| \|\mathbf{y}\|
+\]
+
+Therefore:
+\begin{align*}
+\|\mathbf{x} + \mathbf{y}\|^2 &\leq \|\mathbf{x}\|^2 + 2\|\mathbf{x}\| \|\mathbf{y}\| + \|\mathbf{y}\|^2\\
+&= (\|\mathbf{x}\| + \|\mathbf{y}\|)^2
+\end{align*}
+
+Taking square roots (both sides are non-negative):
+\[
+\|\mathbf{x} + \mathbf{y}\| \leq \|\mathbf{x}\| + \|\mathbf{y}\|
+\]
+
+<strong>Equality condition:</strong> Equality holds if and only if $\mathbf{x}$ and $\mathbf{y}$ are non-negative scalar multiples of each other (i.e., point in the same direction).
+{{< /m2subsol >}}
+{{< /m2proof >}}
+{{< /m2subprob >}}
+
+{{< /m2prob >}}
+
+** DONE Q19
+:PROPERTIES:
+:CUSTOM_ID: q19
+:CLOSED: [2025-12-15 Mon 14:26]
+:note: - State "DONE" from "" [2025-12-15 Mon 14:26]
+:END:
+
+{{< m2prob marks="14" >}}
+
+{{< m2subprob id="q19a" marks="8" >}}
+Give the definitions of these elementary analysis facts:
+
+{{< m2def name="Metric Space" >}}
+
+{{< m2subsol >}}
+A metric space is a pair $(X,d)$, where $X$ is a (non-empty) set and $d: X \times X \rightarrow [0,\infty)$ is a function, such that the following conditions hold for all $x,y,z \in X$:
+<ol>
+<li>$d(x,y) = 0 \iff x=y$</li>
+<li>$d(x,y) = d(y,x)$</li>
+<li>$d(x,z) \leq d(x,y) + d(y,z)\quad$ (triangle inequality)</li>
+</ol>
+{{< /m2subsol >}}
+{{< /m2def >}}
+
+{{< m2def name="Epsilon Ball" >}}
+
+{{< m2subsol >}}
+\[B_\epsilon(x_0) = \set{x\in X: d(x, x_0) < \epsilon}\]
+{{< /m2subsol >}}
+{{< /m2def >}}
+
+{{< m2def name="Interior Point" >}}
+{{< m2subsol >}}
+$x_0 \in Y \subseteq X$ is an <em>interior point</em> if $B(x_0,\epsilon)$ lies completely within $Y$.
+{{< /m2subsol >}}
+{{< /m2def >}}
+
+{{< m2def name="Open Set" >}}
+{{< m2subsol >}}
+A subset $Y$ in $(X,d)$ is <strong>open</strong> if
+\[Y=\text{Int}(Y)\]
+{{< /m2subsol >}}
+{{< /m2def >}}
+
+{{< /m2subprob >}}
+
+{{< m2subprob id="q19b" marks="6" >}}
+Complete the following
+
+{{< m2prop >}}
+Every $\epsilon$-ball in a metric space is open.
+{{< /m2prop >}}
+{{< m2proof >}}
+{{< m2subsol >}}
+Let $(X, d)$ be a metric space, $x_0 \in X$, and $\epsilon > 0$. We want to show that the $\epsilon$-ball
+\[
+B_\epsilon(x_0) = \{x \in X : d(x, x_0) < \epsilon\}
+\]
+is an open set.<br><br>
+
+To show $B_\epsilon(x_0)$ is open, we must show that every point in $B_\epsilon(x_0)$ is an interior point, i.e., for each $y \in B_\epsilon(x_0)$, there exists $\delta > 0$ such that $B_\delta(y) \subseteq B_\epsilon(x_0)$.<br><br>
+
+<strong>Construction:</strong><br><br>
+
+Let $y \in B_\epsilon(x_0)$ be arbitrary. Then $d(y, x_0) < \epsilon$.<br><br>
+
+Define $\delta = \epsilon - d(y, x_0) > 0$.<br><br>
+
+We claim that $B_\delta(y) \subseteq B_\epsilon(x_0)$.<br><br>
+
+<strong>Verification:</strong><br><br>
+
+Let $z \in B_\delta(y)$. Then $d(z, y) < \delta$.<br><br>
+
+By the triangle inequality:
+\begin{align*}
+d(z, x_0) &\leq d(z, y) + d(y, x_0)\\
+&< \delta + d(y, x_0)\\
+&= (\epsilon - d(y, x_0)) + d(y, x_0)\\
+&= \epsilon
+\end{align*}
+
+Therefore $d(z, x_0) < \epsilon$, which means $z \in B_\epsilon(x_0)$.<br><br>
+
+Since $z$ was arbitrary, we have $B_\delta(y) \subseteq B_\epsilon(x_0)$.<br><br>
+
+This shows that $y$ is an interior point of $B_\epsilon(x_0)$.<br><br>
+
+Since $y \in B_\epsilon(x_0)$ was arbitrary, every point of $B_\epsilon(x_0)$ is an interior point.<br><br>
+
+Therefore, $B_\epsilon(x_0) = \text{Int}(B_\epsilon(x_0))$, which means $B_\epsilon(x_0)$ is <strong>open</strong>. $\quad\square$
+{{< /m2subsol >}}
+{{< /m2proof >}}
+{{< /m2subprob >}}
+
+{{< /m2prob >}}
+
+
+
+** DONE Q20
+:PROPERTIES:
+:CUSTOM_ID: q20
+:CLOSED: [2025-12-15 Mon 14:26]
+:note: - State "DONE" from "" [2025-12-15 Mon 14:26]
+:END:
+
+{{< m2prob marks="12" >}}
+
+Infinite-dimensional vector spaces
+
+
+{{< m2subprob id="q20a" marks="8" >}}
+
+What are the sets $c_{00}, c_0, \ell^p$ and $\ell^\infty$?
+Give examples of sequences in each.
+
+{{< m2def name="$c_{00}$" >}}
+{{< m2subsol >}}
+</strong> The space of sequences with <strong>only finitely many non-zero terms</strong>.
+\[
+c_{00} = \left\{(x_n)_{n=1}^\infty : \text{only finitely many } x_n \neq 0\right\}
+\]
+{{< /m2subsol >}}
+{{< /m2def >}}
+
+{{< m2exam name="$c_{00}$" >}}
+{{< m2subsol >}}
+$(1, 2, 3, 0, 0, 0, \ldots)$, $(1, 0, 1, 0, 0, \ldots)$
+{{< /m2subsol >}}
+{{< /m2exam >}}
+
+
+{{< m2def name="$c_{0}$" >}}
+{{< m2subsol >}}
+</strong> The space of sequences that <strong>converge to zero</strong>.
+\[
+c_0 = \left\{(x_n)_{n=1}^\infty : \lim_{n\to\infty} x_n = 0\right\}
+\]
+{{< /m2subsol >}}
+{{< /m2def >}}
+
+{{< m2exam name="$c_{0}$" >}}
+{{< m2subsol >}}
+$\left(\frac{1}{n}\right)_{n=1}^\infty = \left(1, \frac{1}{2}, \frac{1}{3}, \frac{1}{4}, \ldots\right)$, $\left(\frac{1}{2^n}\right)_{n=1}^\infty$
+{{< /m2subsol >}}
+{{< /m2exam >}}
+
+
+{{< m2def name="$\ell^p$" >}}
+{{< m2subsol >}}
+</strong> The space of sequences whose $p$-th powers are <strong>summable</strong>.
+\[
+\ell^p = \left\{(x_n)_{n=1}^\infty : \sum_{n=1}^\infty |x_n|^p < \infty\right\}
+\]
+{{< /m2subsol >}}
+{{< /m2def >}}
+
+{{< m2exam name="$\ell^{p}$" >}}
+{{< m2subsol >}}
+<ul>
+<li>$\left(\frac{1}{n}\right)_{n=1}^\infty$ (since $\sum \frac{1}{n^2} < \infty$), $\left(\frac{1}{2^n}\right)_{n=1}^\infty$</li>
+<li>$\left(\frac{1}{n^2}\right)_{n=1}^\infty$ (since $\sum \frac{1}{n^2} < \infty$)</li>
+</ul>
+{{< /m2subsol >}}
+{{< /m2exam >}}
+
+
+{{< m2def name="$\ell^\infty$" >}}
+{{< m2subsol >}}
+</strong> The space of <strong>bounded sequences</strong>.
+\[
+\ell^\infty = \left\{(x_n)_{n=1}^\infty : \sup_{n\in\mathbb{N}} |x_n| < \infty\right\}
+\]
+{{< /m2subsol >}}
+{{< /m2def >}}
+
+{{< m2exam name="$\ell^{\infty}$" >}}
+{{< m2subsol >}}
+$(1, -1, 1, -1, \ldots)$, $\left(\sin(n)\right)_{n=1}^\infty$, any constant sequence $(c, c, c, \ldots)$
+{{< /m2subsol >}}
+{{< /m2exam >}}
+
+{{< m2rem >}}
+<strong>Relationships:</strong>
+\[
+c_{00} \subsetneq c_0 \subsetneq \ell^p \subsetneq \ell^\infty \quad \text{(for any } 1 \leq p < \infty\text{)}
+\]
+{{< /m2rem >}}
+
+{{< /m2subprob >}}
+
+
+{{< m2subprob id="q20b" marks="4" >}}
+Give the definition and at least 2 examples for each each:
+{{< m2def name="Hilbert Space" >}}
+{{< m2subsol >}}
+A complete inner product space.
+{{< /m2subsol >}}
+{{< /m2def >}}
+{{< m2exam name="Hilbert Space" >}}
+{{< m2subsol >}}
+
+<ul>
+<li>$\mathbb{R}^n$ with the standard inner product $\langle \mathbf{x}, \mathbf{y} \rangle = \sum_{i=1}^n x_i y_i$</li>
+<li>$\ell^2 = \left\{(x_n)_{n=1}^\infty : \sum_{n=1}^\infty |x_n|^2 < \infty\right\}$ with inner product $\langle x, y \rangle = \sum_{n=1}^\infty x_n y_n$</li>
+</ul>
+
+{{< /m2subsol >}}
+{{< /m2exam >}}
+
+{{< m2def name="Banach Space" >}}
+{{< m2subsol >}}
+A complete normed vector space
+{{< /m2subsol >}}
+{{< /m2def >}}
+{{< m2exam name="Banach Space" >}}
+{{< m2subsol >}}
+$(C[0,1], ||\cdot||_\infty)$ and $(\ell^p, ||\cdot||_p)$
+{{< /m2subsol >}}
+{{< /m2exam >}}
+
+{{< /m2subprob >}}
+
+{{< /m2prob >}}
+
+
+
+
+** DONE Q21
+:PROPERTIES:
+:CUSTOM_ID: q21
+:CLOSED: [2025-12-15 Mon 14:26]
+:note: - State "DONE" from "" [2025-12-15 Mon 14:26]
+:END:
+
+{{< m2prob marks="8" >}}
+
+{{< m2subprob id="q21a" marks="2" >}}
+State <strong>pointwise convergence</strong> for a sequence of functions.
+{{< m2subsol >}}
+\(\lim_{n\rightarrow \infty} f_n = f\) p.w (point-wise) $\iff \forall x\in X, \forall \epsilon > 0, \; \exists K = K(\epsilon, x) : \forall n\geq K \; |f_n(x)-f(x)| \;< \epsilon$
+{{< /m2subsol >}}
+{{< /m2subprob >}}
+
+{{< m2subprob id="q21b" marks="2" >}}
+State <strong>uniform convergence</strong> for a sequence of functions
+{{< m2subsol >}}
+\(\lim_{n\rightarrow \infty} f_n = f\) uniformly $\iff \forall\epsilon>0, \; \exists K=K(\epsilon) : \forall n \geq K \; |f_n(x)-f(x) |\, < \epsilon\quad\forall x\in X$
+{{< /m2subsol >}}
+
+{{< /m2subprob >}}
+
+{{< m2subprob id="q21c" marks="2" >}}
+Does the following function converge pointwise? What about uniformly?<br><br>
+
+For each integer $k\ge1$ define
+\[ f_k : [0,1] \longrightarrow \mathbb{R}, \qquad f_k(x)=\max\{0,1-4k^{2}|\,x-\tfrac{1}{k^{2}}|\}.\]
+
+{{< tikztwo >}}
+\begin{document}
+\begin{tikzpicture}[x=8cm,y=2.8cm,scale=1.2]
+  % axes -----------------------------------------------------------------------
+  \draw[->] (0,0) -- (1.32,0) node[right] {$x$};
+  \draw[->] (0,0) -- (0,1.10) node[above] {$y$};
+
+  %----------------------------------------------------------------------------%
+  %  f1  (k = 1)  -------------------------------------------------------------%
+  %  support = [3/4 , 5/4],   apex at (1 , 1)
+  \draw[very thick,blue]
+        (3/4,0) -- (1,1) -- (5/4,0)
+        node[midway,above right,blue] {$f_{1}$};
+
+  \filldraw[blue] (3/4,0) circle (0.7pt)
+        node[below] {$\bigl(\frac{3}{4},\,0\bigr)$};
+  \filldraw[blue] (1,1)   circle (0.7pt)
+        node[above] {$\bigl(1,\,1\bigr)$};
+  \filldraw[blue] (5/4,0) circle (0.7pt)
+        node[below] {$\bigl(\frac{5}{4},\,0\bigr)$};
+
+  %----------------------------------------------------------------------------%
+  %  f2  (k = 2)  -------------------------------------------------------------%
+  %  support = [3/16 , 5/16],   apex at (1/4 , 1)
+  \draw[very thick,red]
+        (3/16,0) -- (1/4,1) -- (5/16,0)
+        node[midway,right,pos=0.48,red] {$f_{2}$};
+
+  \filldraw[red] (3/16,0) circle (0.7pt)
+        node[below=20pt] {$\tiny(\frac{3}{16},\,0)$};
+  \filldraw[red] (1/4,1)  circle (0.7pt)
+        node[above] {$\tiny(\frac{1}{4},\,1)$};
+  \filldraw[red] (5/16,0) circle (0.7pt)
+        node[below=20pt] {$\tiny(\frac{5}{16},\,0)$};
+
+  %----------------------------------------------------------------------------%
+  %  f3  (k = 3)  -------------------------------------------------------------%
+  %  support = [1/12 , 5/36],   apex at (1/9 , 1)
+  \draw[very thick,green!70!black]
+        (1/12,0) -- (1/9,1) -- (5/36,0)
+        node[midway,right,pos=.48,green!70!black] {$f_{3}$};
+
+  \draw[very thick,black] (0,0) -- (1,0);
+  \draw (1,-0.02) -- (1,0.02) node[below] {$(1,0)$};
+  \filldraw[green!70!black] (1/12,0) circle (0.7pt)
+        node[below left] {$\tiny(\frac{1}{12},\,0)$};
+  \filldraw[green!70!black] (1/9,1)  circle (0.7pt)
+        node[above] {$\tiny(\frac1{9},\,1)$};
+  \filldraw[green!70!black] (5/36,0) circle (0.7pt)
+        node[below] {$\tiny(\frac{5}{36},\,0)$};
+\end{tikzpicture}
+\end{document}
+{{< /tikztwo >}}
+
+{{< m2subsol >}}
+<ul>
+<li><strong>Pointwise convergence and failure of uniform convergence of</strong></li>
+</ul>
+  \[ S(x):=\sum_{k=1}^{\infty}\frac{f_k(x)}{k}, \qquad x\in[0,1]. \]
+
+<ol>
+<li><em>Pointwise convergence.</em></li>
+
+
+     Fix $x\in(0,1]$.
+     The inequality $\frac{3}{4k^{2}}\lt x \lt \frac{5}{4k^{2}}$ is equivalent to
+     \[ A(x):=\sqrt{\tfrac{3}{4x}} \lt k \lt B(x):=\sqrt{\tfrac{5}{4x}}. \]
+     Whose length is
+     \[ L(x):=B(x)-A(x) =\frac{\sqrt{5}-\sqrt{3}}{2\sqrt{x}} <\frac{0.253}{\sqrt{x}}<\infty, \]
+     so the interval holds at most $\left\lceil L(x)\right\rceil$ integers.
+     Hence only finitely many $k$ satisfy $f_k(x)\neq0$; the series $S(x)$ reduces to a finite sum and converges.
+     For $x=0$ every term is $0$, so $S(0)=0$.
+     Thus $S$ converges for every $x\in[0,1]$.
+
+
+<li><em>Failure of uniform convergence.</em></li>
+
+
+     Let $S_N(x):=\sum_{k=1}^{N}\frac{f_k(x)}{k}$.
+     For $N\ge10$ choose
+     \[ x_N:=\frac{1}{N^{2}}\in[0,1]. \]
+
+     <strong>Claim:</strong> For every $k\in\left[N+1,N+\lfloor N/10\rfloor\right]$ we have $f_k(x_N)\ge\frac{1}{2}$.
+
+     <br><strong>Proof:</strong> For such $k$,
+     \begin{align*} \left|x_N-\tfrac{1}{k^{2}}\right| &=\frac{ | k^{2}-N^{2} | }{k^{2}N^{2}}
+     \\ &= \frac{(k-N)(k+N)}{k^{2}N^{2}} \le\frac{(N/10)(11N/10)}{k^{2}N^{2}}
+     \\ &<\frac{11}{100\,k^{2}}
+     \\ &<\frac{1}{8\,k^{2}}
+     \\ &<\frac{1}{4k^{2}}, \end{align*}
+     so $x_N\in\operatorname{supp}(f_k)$ and $f_k(x_N)=1-4k^{2}\lvert x_N-\tfrac{1}{k^{2}}\rvert\ge\frac{1}{2}$.<br><br>
+
+     Therefore the tail $T_N(x):=\sum_{k>N}\frac{f_k(x)}{k}$ satisfies
+     \[ T_N(x_N) \ge \frac{1}{2} \sum_{k=N+1}^{N+\lfloor N/10\rfloor}\frac{1}{k} \ge \frac{1}{2}\ln\left(1+\tfrac{1}{10}\right) =:c>0 \qquad(N\ge10), \]
+     using $\sum_{k=m}^{n} \tfrac{1}{k} \ge \ln\dfrac{n}{m}$, $\forall n,m\in\mathbb{N}$, $n\ge m\ge 1$:
+     \[ \|S-S_N\|_{\infty} =\sup_{x\in[0,1]}|S(x)-S_N(x)| \ge |T_N(x_N)| \ge c \quad\text{for all }N\ge10, \]
+     so $\|S-S_N\|_{\infty}\not\to0$.
+     The convergence of the series is therefore <em>not</em> uniform on $[0,1]$.
+</ol>
+{{< /m2subsol >}}
+{{< /m2subprob >}}
+
+
+{{< m2subprob id="q21d" marks="2" >}}
+What does uniform convergence imply about a series?
+{{< m2subsol >}}
+$L^p$ convergence and <strong>pointwise convergence</strong>.
+{{< /m2subsol >}}
+{{< /m2subprob >}}
+
+{{< /m2prob >}}
+
+
+** DONE Q22
+:PROPERTIES:
+:CUSTOM_ID: q22
+:CLOSED: [2025-12-15 Mon 14:26]
+:note: - State "DONE" from "" [2025-12-15 Mon 14:26]
+:END:
+
+{{< m2prob marks="7" >}}
+
+{{< m2subprob id="q22a" marks="2" >}}
+Give the definition of a topological space $(X, \tau)$.
+{{< m2subsol >}}
+
+A <strong>topological space</strong> is a pair \(\left( X ,\tau \right)\), where \(X\) is a set and \(\tau\subseteq\mathcal{P}\!\left( X \right)\) satisfies  
+<ol>
+<li>\(\varnothing , X \in \tau\);</li>
+<li>if \(\{V_i\}_{i\in I}\subseteq\tau\) then \(\bigcup_{i\in I} V_i \in \tau\);</li>
+<ul>
+<li>"an arbitrary union of open sets is open"</li>
+</ul>
+<li>if \(V_1,V_2\in\tau\) then \(V_1\cap V_2\in\tau\).</li>
+<ul>
+<li>"a finite intersection of open sets is open"</li>
+</ul>
+</ol>
+{{< /m2subsol >}}
+{{< /m2subprob >}}
+
+{{< m2subprob id="q22b" marks="3" >}}
+Give the definitions of these Topological spaces:
+
+{{< m2def name="Co-countable Topology" >}}
+{{< m2subsol >}}
+\[\tau = \set{Y\subseteq X: Y^c\text{ is countable }} \cup \set{\varnothing}\]
+{{< /m2subsol >}}
+{{< /m2def >}}
+
+{{< m2def name="Co-finite Topology" >}}
+
+{{< m2subsol >}}
+\[\tau = \set{Y\subseteq X: Y^c\text{ is finite }} \cup \set{\varnothing}\]
+{{< /m2subsol >}}
+{{< /m2def >}}
+
+{{< m2def name="Discrete Topology" >}}
+
+{{< m2subsol >}}
+\[\tau = \set{\varnothing, X}\]
+{{< /m2subsol >}}
+{{< /m2def >}}
+{{< /m2subprob >}}
+
+{{< m2subprob id="q22c" marks="2" >}}
+Are limits unique in a topological space? What about in a metric space?
+{{< m2subsol >}}
+Not unique. Only in Hausdorff spaces, of which metric is a type of.
+{{< /m2subsol >}}
+{{< /m2subprob >}}
+
+{{< /m2prob >}}
+
+
+
+** DONE Q23
+:PROPERTIES:
+:CUSTOM_ID: q23
+:CLOSED: [2025-12-15 Mon 14:26]
+:note: - State "DONE" from "" [2025-12-15 Mon 14:26]
+:END:
+
+{{< m2prob marks="14" >}}
+
+Let $(X_1, \ldots, X_n) \stackrel{\text{i.i.d}}{\sim} \mathcal{P}(\lambda)$.
+
+{{< m2subprob id="q23a" marks="3" >}}
+Let \[\bar{X}_n = \frac{1}{n} \sum_{i=1}^n X_i\] be an estimator of $\lambda$.
+Find the bias, standard error and Mean Squared Error of $\bar{X}_n$.
+{{< m2subsol >}}
+For $(X_1, \ldots, X_n) \stackrel{\text{i.i.d}}{\sim} \mathcal{P}(\lambda)$, we have $\mathbb{E}[X_i] = \lambda$ and $\text{Var}(X_i) = \lambda$.<br><br>
+
+<strong>Bias:</strong>
+\begin{align*}
+\text{Bias}(\bar{X}_n) &= \mathbb{E}[\bar{X}_n] - \lambda\\
+&= \mathbb{E}\left[\frac{1}{n}\sum_{i=1}^n X_i\right] - \lambda\\
+&= \frac{1}{n}\sum_{i=1}^n \mathbb{E}[X_i] - \lambda\\
+&= \frac{1}{n} \cdot n\lambda - \lambda\\
+&= 0
+\end{align*}
+
+So $\bar{X}_n$ is <strong>unbiased</strong>.<br><br>
+
+<strong>Standard Error:</strong>
+\begin{align*}
+\text{SE}(\bar{X}_n) &= \sqrt{\text{Var}(\bar{X}_n)}\\
+&= \sqrt{\text{Var}\left(\frac{1}{n}\sum_{i=1}^n X_i\right)}\\
+&= \sqrt{\frac{1}{n^2}\sum_{i=1}^n \text{Var}(X_i)} \quad\text{(by independence)}\\
+&= \sqrt{\frac{1}{n^2} \cdot n\lambda}\\
+&= \sqrt{\frac{\lambda}{n}}\\
+&= \frac{\sqrt{\lambda}}{\sqrt{n}}
+\end{align*}
+
+<strong>Mean Squared Error:</strong>
+\begin{align*}
+\text{MSE}(\bar{X}_n) &= \text{Var}(\bar{X}_n) + [\text{Bias}(\bar{X}_n)]^2\\
+&= \frac{\lambda}{n} + 0^2\\
+&= \frac{\lambda}{n}
+\end{align*}
+{{< /m2subsol >}}
+{{< /m2subprob >}}
+
+{{< m2subprob id="q23b" marks="2" >}}
+Let \[\widehat{T}_n = \frac{X_1 + 2X_2 + \ldots + nX_n}{1+2+\dots+n}.\]
+Compute the bias and MSE of $\widehat{T}_n$ as an estimator of $\lambda$.
+{{< m2subsol >}}
+Note that $\sum_{i=1}^n i = \frac{n(n+1)}{2}$.<br><br>
+
+<strong>Bias:</strong>
+\begin{align*}
+\mathbb{E}[\widehat{T}_n] &= \frac{1}{\frac{n(n+1)}{2}} \sum_{i=1}^n i \cdot \mathbb{E}[X_i]\\
+&= \frac{2}{n(n+1)} \sum_{i=1}^n i \cdot \lambda\\
+&= \frac{2\lambda}{n(n+1)} \cdot \frac{n(n+1)}{2}\\
+&= \lambda
+\end{align*}
+
+Therefore: $\text{Bias}(\widehat{T}_n) = 0$ (also unbiased).<br><br>
+
+<strong>Variance:</strong>
+\begin{align*}
+\text{Var}(\widehat{T}_n) &= \text{Var}\left(\frac{2}{n(n+1)}\sum_{i=1}^n i X_i\right)\\
+&= \frac{4}{n^2(n+1)^2} \sum_{i=1}^n i^2 \text{Var}(X_i) \quad\text{(by independence)}\\
+&= \frac{4\lambda}{n^2(n+1)^2} \sum_{i=1}^n i^2\\
+&= \frac{4\lambda}{n^2(n+1)^2} \cdot \frac{n(n+1)(2n+1)}{6}\\
+&= \frac{4\lambda(2n+1)}{6n(n+1)}\\
+&= \frac{2\lambda(2n+1)}{3n(n+1)}
+\end{align*}
+
+<strong>MSE:</strong>
+\[
+\text{MSE}(\widehat{T}_n) = \text{Var}(\widehat{T}_n) + 0^2 = \frac{2\lambda(2n+1)}{3n(n+1)}
+\]
+{{< /m2subsol >}}
+{{< /m2subprob >}}
+
+{{< m2subprob id="q23c" marks="2" >}}
+Compare $\widehat{T}_n$ to $\bar{X}_n$ in terms of MSE.
+Which estimator is preferable? Intuitively, why is one better than the other?
+{{< m2subsol >}}
+<strong>Comparison:</strong><br><br>
+
+\begin{align*}
+\text{MSE}(\bar{X}_n) &= \frac{\lambda}{n}\\
+\text{MSE}(\widehat{T}_n) &= \frac{2\lambda(2n+1)}{3n(n+1)}
+\end{align*}
+
+To compare, compute the ratio:
+\begin{align*}
+\frac{\text{MSE}(\widehat{T}_n)}{\text{MSE}(\bar{X}_n)} &= \frac{\frac{2\lambda(2n+1)}{3n(n+1)}}{\frac{\lambda}{n}}\\
+&= \frac{2(2n+1)}{3(n+1)}\\
+&= \frac{4n+2}{3n+3}\\
+&= \frac{4n+2}{3n+3}
+\end{align*}
+
+For large $n$: $\frac{4n+2}{3n+3} \approx \frac{4n}{3n} = \frac{4}{3} > 1$<br><br>
+
+More precisely: $\text{MSE}(\widehat{T}_n) > \text{MSE}(\bar{X}_n)$ for all $n \geq 1$.<br><br>
+
+To verify, check if $\frac{2(2n+1)}{3(n+1)} > 1$:
+\[
+2(2n+1) > 3(n+1) \iff 4n+2 > 3n+3 \iff n > 1
+\]
+
+For $n = 1$: both equal $\lambda$ (both reduce to $X_1$).
+For $n \geq 2$: $\text{MSE}(\bar{X}_n) < \text{MSE}(\widehat{T}_n)$.<br><br>
+
+<strong>Conclusion:</strong> $\bar{X}_n$ is preferable (lower MSE).<br><br>
+
+<strong>Intuition:</strong> $\bar{X}_n$ weights all observations equally, making efficient use of all data. $\widehat{T}_n$ gives more weight to later observations, which introduces unnecessary variability without reducing bias (both are unbiased). The equal weighting of the sample mean is optimal for i.i.d. data.
+{{< /m2subsol >}}
+{{< /m2subprob >}}
+
+{{< m2subprob id="q23d" marks="2" >}}
+Find the moment estimator for $\lambda$.
+{{< m2subsol >}}
+The <strong>method of moments</strong> equates population moments to sample moments.<br><br>
+
+For the Poisson distribution: $\mathbb{E}[X] = \lambda$ (first moment).<br><br>
+
+Sample first moment: $\bar{X}_n = \frac{1}{n}\sum_{i=1}^n X_i$<br><br>
+
+Setting them equal:
+\[
+\lambda = \bar{X}_n
+\]
+
+Therefore, the <strong>moment estimator</strong> is:
+\[
+\boxed{\widehat{\lambda}_{\text{MM}} = \bar{X}_n = \frac{1}{n}\sum_{i=1}^n X_i}
+\]
+
+This is simply the sample mean.
+{{< /m2subsol >}}
+{{< /m2subprob >}}
+
+
+{{< m2subprob id="q23e" marks="3" >}}
+Find the maximum likelihood estimator for $\lambda$.
+{{< m2subsol >}}
+The likelihood function for i.i.d. Poisson observations is:
+\begin{align*}
+L(\lambda) &= \prod_{i=1}^n P(X_i = x_i)\\
+&= \prod_{i=1}^n \frac{\lambda^{x_i} e^{-\lambda}}{x_i!}\\
+&= \frac{\lambda^{\sum_{i=1}^n x_i} e^{-n\lambda}}{\prod_{i=1}^n x_i!}
+\end{align*}
+
+The log-likelihood is:
+\begin{align*}
+\ell(\lambda) &= \log L(\lambda)\\
+&= \sum_{i=1}^n x_i \log \lambda - n\lambda - \sum_{i=1}^n \log(x_i!)\\
+&= \left(\sum_{i=1}^n x_i\right) \log \lambda - n\lambda - \text{const}
+\end{align*}
+
+Taking the derivative with respect to $\lambda$:
+\[
+\frac{\mathrm{d}\ell}{\mathrm{d}\lambda} = \frac{\sum_{i=1}^n x_i}{\lambda} - n
+\]
+
+Setting equal to zero:
+\[
+\frac{\sum_{i=1}^n x_i}{\lambda} - n = 0 \implies \lambda = \frac{1}{n}\sum_{i=1}^n x_i
+\]
+
+Checking the second derivative:
+\[
+\frac{\mathrm{d}^2\ell}{\mathrm{d}\lambda^2} = -\frac{\sum_{i=1}^n x_i}{\lambda^2} < 0
+\]
+
+This confirms a maximum.<br><br>
+
+Therefore, the <strong>maximum likelihood estimator</strong> is:
+\[
+\boxed{\widehat{\lambda}_{\text{MLE}} = \bar{X}_n = \frac{1}{n}\sum_{i=1}^n X_i}
+\]
+
+<strong>Note:</strong> For the Poisson distribution, the MLE equals the moment estimator.
+{{< /m2subsol >}}
+{{< /m2subprob >}}
+
+
+{{< m2subprob id="q23f" marks="2" >}}
+Find the Fisher information $\mathcal{I}(\lambda)$
+{{< m2subsol >}}
+The <strong>Fisher information</strong> for a single observation is:
+\[
+\mathcal{I}(\lambda) = \mathbb{E}\left[\left(\frac{\partial}{\partial \lambda} \log f(X; \lambda)\right)^2\right]
+\]
+
+or equivalently (when regularity conditions hold):
+\[
+\mathcal{I}(\lambda) = -\mathbb{E}\left[\frac{\partial^2}{\partial \lambda^2} \log f(X; \lambda)\right]
+\]
+
+For $X \sim \mathcal{P}(\lambda)$:
+\[
+\log f(x; \lambda) = x \log \lambda - \lambda - \log(x!)
+\]
+
+<strong>First derivative:</strong>
+\[
+\frac{\partial}{\partial \lambda} \log f(x; \lambda) = \frac{x}{\lambda} - 1
+\]
+
+<strong>Second derivative:</strong>
+\[
+\frac{\partial^2}{\partial \lambda^2} \log f(x; \lambda) = -\frac{x}{\lambda^2}
+\]
+
+Taking the negative expectation:
+\begin{align*}
+\mathcal{I}(\lambda) &= -\mathbb{E}\left[-\frac{X}{\lambda^2}\right]\\
+&= \frac{\mathbb{E}[X]}{\lambda^2}\\
+&= \frac{\lambda}{\lambda^2}\\
+&= \frac{1}{\lambda}
+\end{align*}
+
+<strong>Verification using first formula:</strong>
+\begin{align*}
+\mathcal{I}(\lambda) &= \mathbb{E}\left[\left(\frac{X}{\lambda} - 1\right)^2\right]\\
+&= \mathbb{E}\left[\frac{X^2}{\lambda^2} - \frac{2X}{\lambda} + 1\right]\\
+&= \frac{\mathbb{E}[X^2]}{\lambda^2} - \frac{2\mathbb{E}[X]}{\lambda} + 1\\
+&= \frac{\lambda^2 + \lambda}{\lambda^2} - \frac{2\lambda}{\lambda} + 1\\
+&= 1 + \frac{1}{\lambda} - 2 + 1\\
+&= \frac{1}{\lambda}
+\end{align*}
+
+Therefore:
+\[
+\boxed{\mathcal{I}(\lambda) = \frac{1}{\lambda}}
+\]
+
+For $n$ i.i.d. observations: $\mathcal{I}_n(\lambda) = n \cdot \mathcal{I}(\lambda) = \frac{n}{\lambda}$
+{{< /m2subsol >}}
+{{< /m2subprob >}}
+
+{{< /m2prob >}}
+
+
+** DONE Q24
+:PROPERTIES:
+:CUSTOM_ID: q24
+:CLOSED: [2025-12-15 Mon 14:27]
+:note: - State "DONE" from "" [2025-12-15 Mon 14:27]
+:END:
+
+{{< m2prob marks="3">}}
+What is the maximum straight-line distance in an N-dimensional unit hyper-cube?
+
+{{< m2subsol >}}
+
+<strong>Answer:</strong>
+\[
+\boxed{\sqrt{N}}
+\]
+
+<strong>Derivation:</strong><br><br>
+
+An $N$-dimensional unit hyper-cube is the set $[0,1]^N = \{(x_1, x_2, \ldots, x_N) : 0 \leq x_i \leq 1 \text{ for all } i\}$.<br><br>
+
+The maximum distance is achieved between opposite corners (vertices). Consider the vertices at the origin $\mathbf{0} = (0, 0, \ldots, 0)$ and the opposite corner $\mathbf{1} = (1, 1, \ldots, 1)$.<br><br>
+
+The Euclidean distance is:
+\begin{align*}
+d(\mathbf{0}, \mathbf{1}) &= \sqrt{(1-0)^2 + (1-0)^2 + \cdots + (1-0)^2}\\
+&= \sqrt{\underbrace{1 + 1 + \cdots + 1}_{N \text{ times}}}\\
+&= \sqrt{N}
+\end{align*}
+
+<strong>Visualisation:</strong>
+
+<div style="display: flex; justify-content: space-around; align-items: center; flex-wrap: wrap;">
+
+<div style="text-align: center;">
+<p><strong>2D Unit Square</strong></p>
+
+{{< tikztwo >}}
+\begin{document}
+\begin{tikzpicture}[scale=3.5]
+    % Draw the square
+    \draw[thick, blue!60] (0,0) rectangle (1,1);
+    
+    % Draw the diagonal
+    \draw[very thick, red, ->] (0,0) -- (1,1);
+    
+    % Label vertices
+    \node[below left] at (0,0) {$(0,0)$};
+    \node[above right] at (1,1) {$(1,1)$};
+    
+    % Label sides
+    \node[below] at (0.5,0) {$1$};
+    \node[left] at (0,0.5) {$1$};
+    
+    % Label diagonal
+    \node[above left, red] at (0.5,0.5) {$\sqrt{2}$};
+    
+    % Add grid
+    \draw[very thin, gray!30] (0,0) grid[step=0.2] (1,1);
+\end{tikzpicture}
+\end{document}
+{{< /tikztwo >}}
+</div>
+
+<div style="text-align: center;">
+<p><strong>3D Unit Cube</strong></p>
+
+{{< tikztwo >}}
+\usepackage{tikz-3dplot}
+\begin{document}
+\begin{tikzpicture}
+    [scale=2.5, cube/.style={thick,blue!60},
+	grid/.style={very thin,gray!30},
+	axis/.style={->,blue,thick}]
+    
+    % Draw the bottom face
+    \draw[cube] (0,0,0) -- (1,0,0) -- (1,1,0) -- (0,1,0) -- cycle;
+    
+    % Draw the top face
+    \draw[cube] (0,0,1) -- (1,0,1) -- (1,1,1) -- (0,1,1) -- cycle;
+    
+    % Draw the vertical edges
+    \draw[cube] (0,0,0) -- (0,0,1);
+    \draw[cube] (1,0,0) -- (1,0,1);
+    \draw[cube] (0,1,0) -- (0,1,1);
+    \draw[cube] (1,1,0) -- (1,1,1);
+    
+    % Draw the space diagonal
+    \draw[very thick, dashed, red, ->] (0,0,1) -- (1,1,0);
+    
+    % Label key vertices
+    \node[below left] at (0,0,1) {$A=(0,0,0)$};
+    \node[above right] at (1,1,0) {$B=(1,1,1)$};
+    
+    % Label edge lengths
+    \node[below] at (0.5,0,0) {$1$};
+    \node[left] at (0,0.5,0) {$1$};
+    \node[right] at (0,0,0.5) {$1$};
+    
+    % Label diagonal
+    \node[above, red] at (0.5,0.6,0.6) {$\sqrt{3}$};
+    
+\end{tikzpicture}
+\end{document}
+{{< /tikztwo >}}
+</div>
+
+</div>
+
+<strong>General Pattern:</strong>
+<ul>
+<li>1D (line segment): maximum distance = $\sqrt{1} = 1$</li>
+<li>2D (square): maximum distance = $\sqrt{2} \approx 1.414$</li>
+<li>3D (cube): maximum distance = $\sqrt{3} \approx 1.732$</li>
+<li>$N$D (hyper-cube): maximum distance = $\sqrt{N}$</li>
+</ul>
+
+This demonstrates the <em>curse of dimensionality</em>: as dimension increases, the diagonal of the unit hyper-cube grows without bound, even though each side length remains $1$.
+
+{{< /m2subsol >}}
+
+{{< /m2prob >}}
+
+
+
+

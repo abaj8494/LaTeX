@@ -1,6 +1,5 @@
 \documentclass[12pt,dvipsnames,addpoints]{exam}
 
-
 %packages
 \usepackage{amsmath}
 \usepackage{derivative}
@@ -104,7 +103,8 @@ Furthermore, there are additional changes to the structure of this Game:
 \section{Problems}
 
 \begin{questions}
-\question[4]
+
+\question
 Given that \(A\) and \(B\) are sets like so:
 
 
@@ -148,7 +148,7 @@ $A$ and $B$ are non-empty sets
 Give an expression for the conditional probability \(P(A|B)\)
 
 \begin{solution}
-\begin{equation}\label{eq:1}P(A|B) = \frac{P(A\cap B)}{P(B)}\end{equation}
+\begin{equation}\label{eq:11}P(A|B) = \frac{P(A\cap B)}{P(B)}\end{equation}
 \end{solution}
 
 \part[1] \label{q1b}
@@ -160,7 +160,7 @@ Hence or otherwise derive Bayes' (first) rule for conditional probability:
 \begin{solution}
 
 \begin{align*}
-P(A|B) &= \frac{P(A\cap B)}{P(B)} \qquad\text{ as }\eqref{eq:1}\\
+P(A|B) &= \frac{P(A\cap B)}{P(B)} \qquad\text{ as }\eqref{eq:11}\\
 P(B|A) &= \frac{P(A\cap B)}{P(A)}\\
 &\implies P(B|A) \cdot P(A) = P(A|B) \cdot P(B)\\
 &\implies P(A|B) = P(B|A)\times \frac{P(A)}{P(B)}
@@ -199,7 +199,8 @@ Therefore:
 \end{solution}
 \end{parts}
 
-\question[9]
+\newpage
+\question
 The Gamma Function
 
 \begin{center}
@@ -272,9 +273,9 @@ The Gamma Function
 \end{center}
 \begin{parts}
 \part[1] \label{q2a}
-Recall the integral of $$\int e^{-x} \mathrm{d}x$$ 
+Recall the integral of \begin{equation}\label{eq:1}\int e^{-x} \mathrm{d}x\end{equation} 
 \begin{solution}
-\begin{equation}\label{eq:3}\large\int e^{-x} \mathrm{d}x = -e^{-x}\end{equation}
+\begin{equation}\label{eq:2}\int e^{-x} \mathrm{d}x = -e^{-x}\end{equation}
 \end{solution}
 
 \part[2] \label{q2b}
@@ -286,9 +287,9 @@ Apply integration by parts on \[\int x e^{-x}\mathrm{d}x.\] Factorise your resul
 \end{align*}
 \end{solution}
 
-\part[3] \label{q2c}
+\part[1] \label{q2c}
 These above are special cases of $\alpha=1$ and $\alpha=2$.
-More generally we can compute the integration of \[\int x^{\alpha-1} e^{-x}\mathrm{d}x.\]
+More generally we can manipulate the form of the integral \begin{equation}\label{eq:33}\int x^{\alpha-1} e^{-x}\mathrm{d}x.\end{equation} with IBP to produce:
 \begin{solution}
 \begin{align}\label{eq:4}
 &= -x^{\alpha-1}e^{-x} + (\alpha-1)\int x^{\alpha-2} e^{-x} \mathrm{d}x\\
@@ -296,13 +297,16 @@ More generally we can compute the integration of \[\int x^{\alpha-1} e^{-x}\math
 \end{solution}
 
 \part[3] \label{q2d}
-Fixing the limits of integration leads to the Gamma function, defined by \[\Gamma(\alpha) = \int^\infty_0 x^{\alpha-1}e^{-x} \mathrm{d}x, \quad\text{for }\alpha > 0\]
-Show that with $\eqref{eq:4}$, it follows that \[\Gamma(\alpha) = (\alpha-1)\times\Gamma(\alpha-1).\]
+Using \eqref{eq:33}, show that fixing the limits of integration leads to the Gamma function, defined by \[\Gamma(\alpha) = \int^\infty_0 x^{\alpha-1}e^{-x} \mathrm{d}x, \quad\text{for }\alpha > 0\]
+Show that with $\eqref{eq:33}$, it follows that \[\Gamma(\alpha) = (\alpha-1)\times\Gamma(\alpha-1).\]
 
+So, for any integral $k$:
 
-Therefore, we have for any integral $k$: $\Gamma(k) = (k-1)\times(k-2)\times\ldots\times 2\times\Gamma(1)$, and $\Gamma(1) = 1$ due to $\eqref{eq:3}$.
+\begin{align*}\Gamma(k) &= (k-1)\times(k-2)\times\ldots\times 2\times\Gamma(1)\\&=(k-1)!\end{align*}
+
+with $\Gamma(1) = 1$ $\eqref{eq:1}$, and the factorial function has a recursive structure intimately linked with the number $e$.
 \begin{solution}
-From \eqref{eq:4}, we have:
+From \eqref{eq:33}, we have:
 \begin{align*}
 \int x^{\alpha-1} e^{-x}\mathrm{d}x &= -x^{\alpha-1}e^{-x} + (\alpha-1)\int x^{\alpha-2} e^{-x} \mathrm{d}x
 \end{align*}
@@ -329,7 +333,8 @@ Therefore:
 \end{solution}
 \end{parts}
 
-\question[5]
+\newpage
+\question
 Monty Hall Problem:
 
 \begin{center}
@@ -359,7 +364,7 @@ Suppose there are three curtains.
 Behind one curtain there is a nice prize, while behind the other two there are worthless prizes (perhaps 1 car and 2 goats).
 A contestant selects one curtain at random, and then Monte Hall opens one of the other two curtains to reveal a worthless prize (goat).
 Hall then expresses the willingness to trade the curtain that the contestant has chosen for the other curtain that has not been opened.
-Should the contentestant switch curtains or stick or stick with the one that she has?
+Should the contestant switch curtains or stick with the one that she has?
 
 \begin{solution}
 She should \textbf{switch}.
@@ -434,7 +439,8 @@ The key insight: when the host doesn't know, revealing a goat provides no inform
 \end{solution}
 \end{parts}
 
-\question[7]
+\newpage
+\question
 
 \begin{parts}
 \part[2] \label{q4a}
@@ -448,7 +454,7 @@ Consider \(f:\mathbb{Z}\to \mathbb{Z}\) given by \(f(2n)=n\) and \(f(2n+1)=-(n+1
 \begin{center}
 
 \usetikzlibrary{intersections,arrows.meta,decorations.pathreplacing}
-   \begin{tikzpicture}[>=Latex, node distance=1.6cm,scale=1.5, transform shape]
+   \begin{tikzpicture}[>=Latex, node distance=1.6cm,scale=1.2, transform shape]
      % top row: N
      \node (nlabel) at (-1.0,0) {$\mathbb{N}:$};
      \node (n0) at (0,0) {$0$};
@@ -561,7 +567,7 @@ Therefore \([0,1]\) is uncountable, and since \([0,1]\subseteq\mathbb{R}\), the 
 \begin{center}
 
 \usetikzlibrary{matrix,fit,arrows.meta,positioning}
-\begin{tikzpicture}[>=Latex, font=\small, scale=2, transform shape]
+\begin{tikzpicture}[>=Latex, font=\small, scale=1.3, transform shape]
   \matrix (m) [matrix of math nodes, row sep=5pt, column sep=7pt] {
     x_1 &=& 0. & a_{11} & a_{12} & a_{13} & a_{14} & \cdots \\
     x_2 &=& 0. & a_{21} & a_{22} & a_{23} & a_{24} & \cdots \\
@@ -590,67 +596,117 @@ Therefore \([0,1]\) is uncountable, and since \([0,1]\subseteq\mathbb{R}\), the 
 \end{solution}
 \end{parts}
 
-\question[4]
+\newpage
+\question
 
 \begin{parts}
 \part[2] \label{q5a}
-What does the sequence \(1,\tfrac14,\tfrac19,\tfrac1{16},\ldots\) converge to? (If at all)
+What does the series \(1+\tfrac14+\tfrac19+\tfrac1{16}+\ldots\) converge to? (If at all)
 \begin{solution}
-The sequence is $a_n = \frac{1}{n^2}$ for $n = 1, 2, 3, \ldots$
+Write the series as \(\sum_{n=1}^{\infty}\frac{1}{n^2}\).
 
 
-To show convergence to $0$, we use the $\epsilon$-$N$ definition:
-
-
-For any $\epsilon > 0$, we need $N$ such that for all $n \geq N$:
+Consider the function \(f(x)=x\) on the interval \((-\pi,\pi)\). It is odd, so its Fourier series contains only sine terms:
 \[
-\left|\frac{1}{n^2} - 0\right| < \epsilon
+x \sim \sum_{n=1}^{\infty} b_n \sin(nx),
+\qquad 
+b_n=\frac{1}{\pi}\int_{-\pi}^{\pi} x\sin(nx)\,dx.
 \]
 
+Since the integrand is even, we can write
+\[
+b_n=\frac{2}{\pi}\int_{0}^{\pi} x\sin(nx)\,dx.
+\]
+Integrate by parts with \(u=x\), \(dv=\sin(nx)\,dx\) (so \(du=dx\), \(v=-\cos(nx)/n\)):
+\[
+\int_{0}^{\pi} x\sin(nx)\,dx
+=
+\left[-\frac{x\cos(nx)}{n}\right]_{0}^{\pi}
++
+\frac{1}{n}\int_{0}^{\pi}\cos(nx)\,dx.
+\]
+But \(\int_{0}^{\pi}\cos(nx)\,dx=\left[\frac{\sin(nx)}{n}\right]_{0}^{\pi}=0\). Hence
+\[
+\int_{0}^{\pi} x\sin(nx)\,dx
+=
+-\frac{\pi\cos(n\pi)}{n}
+=
+-\frac{\pi(-1)^n}{n}.
+\]
+Therefore
+\[
+b_n=\frac{2}{\pi}\left(-\frac{\pi(-1)^n}{n}\right)=\frac{2(-1)^{n+1}}{n}.
+\]
+So
+\[
+x \sim 2\sum_{n=1}^{\infty}\frac{(-1)^{n+1}}{n}\sin(nx).
+\]
 
-This is equivalent to $\frac{1}{n^2} < \epsilon$, or $n^2 > \frac{1}{\epsilon}$, or $n > \frac{1}{\sqrt{\epsilon}}$.
-
-
-Choose $N = \left\lceil \frac{1}{\sqrt{\epsilon}} \right\rceil$. Then for all $n \geq N$, we have $|a_n - 0| < \epsilon$.
-
+Now apply \textbf{Parseval's identity}:
+\[
+\frac{1}{\pi}\int_{-\pi}^{\pi} |f(x)|^2\,dx
+=
+\frac{a_0^2}{2}+\sum_{n=1}^{\infty}(a_n^2+b_n^2).
+\]
+For \(f(x)=x\) we have \(a_0=a_n=0\), so
+\[
+\frac{1}{\pi}\int_{-\pi}^{\pi} x^2\,dx
+=
+\sum_{n=1}^{\infty} b_n^2
+=
+\sum_{n=1}^{\infty}\left(\frac{2(-1)^{n+1}}{n}\right)^2
+=
+4\sum_{n=1}^{\infty}\frac{1}{n^2}.
+\]
+Compute the integral:
+\[
+\frac{1}{\pi}\int_{-\pi}^{\pi} x^2\,dx
+=
+\frac{1}{\pi}\cdot 2\int_{0}^{\pi} x^2\,dx
+=
+\frac{1}{\pi}\cdot 2\cdot \frac{\pi^3}{3}
+=
+\frac{2\pi^2}{3}.
+\]
+Thus
+\[
+\frac{2\pi^2}{3}=4\sum_{n=1}^{\infty}\frac{1}{n^2}
+\quad\Longrightarrow\quad
+\sum_{n=1}^{\infty}\frac{1}{n^2}=\frac{\pi^2}{6}.
+\]
 
 Therefore:
 \[
-\boxed{\lim_{n\to\infty} \frac{1}{n^2} = 0}
+\boxed{1+\tfrac14+\tfrac19+\tfrac1{16}+\cdots=\frac{\pi^2}{6}}.
 \]
 \end{solution}
 
 \part[2] \label{q5b}
-What does the sequence \(1,\tfrac12,\tfrac13,\tfrac14,\ldots\) converge to? (If at all)
+What does the series \(1+\tfrac12+\tfrac13+\tfrac14+\ldots\) converge to? (If at all)
 \begin{solution}
-The sequence is $a_n = \frac{1}{n}$ for $n = 1, 2, 3, \ldots$
-
-
-To show convergence to $0$:
-
-
-For any $\epsilon > 0$, we need $N$ such that for all $n \geq N$:
+This is the harmonic series
 \[
-\left|\frac{1}{n} - 0\right| < \epsilon
+\sum_{n=1}^{\infty}\frac{1}{n}.
 \]
-
-
-This requires $\frac{1}{n} < \epsilon$, or $n > \frac{1}{\epsilon}$.
-
-
-Choose $N = \left\lceil \frac{1}{\epsilon} \right\rceil$. Then for all $n \geq N$, we have $|a_n - 0| < \epsilon$.
+Using the integral test:
+\[
+\int_{1}^{\infty}\frac{1}{x}\,dx
+=
+\left[\ln x\right]_{1}^{\infty}
+=
+\infty,
+\]
+so the series \emph{diverges}.
 
 
 Therefore:
 \[
-\boxed{\lim_{n\to\infty} \frac{1}{n} = 0}
+\boxed{1+\tfrac12+\tfrac13+\tfrac14+\cdots\ \text{diverges (does not converge to a finite value).}}
 \]
-
-
-\textbf{Note:} While the sequence converges, the corresponding series $\sum_{n=1}^\infty \frac{1}{n}$ (the harmonic series) \emph{diverges}.
 \end{solution}
 \end{parts}
 
+\newpage
 \question[4]
 Which is larger asymptotically as \(n \rightarrow \infty\)? \[2^n \ll n!\] OR \[2^n \gg n!\] Give a proof by induction.
 \begin{solution}
@@ -689,7 +745,8 @@ The ratio $\frac{n!}{2^n}$ grows without bound:
 For $n \geq 5$, each factor $\frac{k}{2}$ for $k \geq 3$ is $> 1$, and we have infinitely many such factors as $n \to \infty$. Thus $\frac{n!}{2^n} \to \infty$, confirming $n! \gg 2^n$.
 \end{solution}
 
-\question[12]
+\newpage
+\question
 
 \begin{parts}
 \part[4] \label{q7a}
@@ -699,7 +756,7 @@ Find the eigenspaces of the following matrices:
 \item $\begin{bmatrix}1&0\\1&1\end{bmatrix}$
 \item $\begin{bmatrix}-2&2\\2&1\end{bmatrix}$
 \item $\begin{bmatrix}2&3&0\\1&4&3\\0&0&1\end{bmatrix}$
-\item $\begin{bmatrix}1&1&0&0\\0&0&0&0\\0&0&0&0\end{bmatrix}$
+\item $\begin{bmatrix}1&1&0&0\\0&0&0&0\\0&0&0&0\\0&0&0&0\end{bmatrix}$
 \end{enumerate}
 \begin{solution}
 \textbf{(a)} $A = \begin{bmatrix}1&0\\1&1\end{bmatrix}$
@@ -770,27 +827,47 @@ From row 3: $z = 0$, from row 1: $-3x + 3y = 0 \implies x = y$
 $E_5 = \text{span}\left\{\begin{bmatrix}1\\1\\0\end{bmatrix}\right\}$
 
 
-\textbf{(d)} $D = \begin{bmatrix}1&1&0\\0&0&0\\0&0&0\end{bmatrix}$ (assuming this is $3 \times 3$)
+\textbf{(d)} $D = \begin{bmatrix}1&1&0&0\\0&0&0&0\\0&0&0&0\\0&0&0&0\end{bmatrix}$
 
 
-Characteristic polynomial: $\det(D - \lambda I) = (1-\lambda)(-\lambda)^2 = -\lambda^2(1-\lambda) = 0$
-
-
-Eigenvalues: $\lambda_1 = 0$ (multiplicity 2), $\lambda_2 = 1$
-
-
-For $\lambda = 0$: $D\mathbf{v} = 0$:
+Characteristic polynomial: Since $D$ is upper triangular, its eigenvalues are the diagonal entries. Thus
 \[
-\begin{bmatrix}1&1&0\\0&0&0\\0&0&0\end{bmatrix}\begin{bmatrix}x\\y\\z\end{bmatrix} = 0 \implies x + y = 0
+\chi_D(\lambda) = (1-\lambda)(-\lambda)^3 = 0
 \]
-$E_0 = \text{span}\left\{\begin{bmatrix}-1\\1\\0\end{bmatrix}, \begin{bmatrix}0\\0\\1\end{bmatrix}\right\}$
+Eigenvalues: $\lambda_1 = 1$ (multiplicity 1), $\lambda_2 = 0$ (multiplicity 3)
 
 
-For $\lambda = 1$: $(D - I)\mathbf{v} = 0$:
+For $\lambda = 0$: Solve $D\mathbf{v} = 0$:
 \[
-\begin{bmatrix}0&1&0\\0&-1&0\\0&0&-1\end{bmatrix}\begin{bmatrix}x\\y\\z\end{bmatrix} = 0 \implies y = z = 0
+\begin{bmatrix}1&1&0&0\\0&0&0&0\\0&0&0&0\\0&0&0&0\end{bmatrix}
+\begin{bmatrix}x\\y\\z\\w\end{bmatrix}
+= 0
+\;\implies\; x+y = 0
 \]
-$E_1 = \text{span}\left\{\begin{bmatrix}1\\0\\0\end{bmatrix}\right\}$
+So $y=-x$ and $z,w$ are free:
+\[
+E_0 = \text{span}\left\{
+\begin{bmatrix}1\\-1\\0\\0\end{bmatrix},
+\begin{bmatrix}0\\0\\1\\0\end{bmatrix},
+\begin{bmatrix}0\\0\\0\\1\end{bmatrix}
+\right\}\]
+ 
+For $\lambda = 1$: Solve $(D-I)\mathbf{v} = 0$:
+\[
+\left(
+\begin{bmatrix}1&1&0&0\\0&0&0&0\\0&0&0&0\\0&0&0&0\end{bmatrix}
+-
+\begin{bmatrix}1&0&0&0\\0&1&0&0\\0&0&1&0\\0&0&0&1\end{bmatrix}
+\right)
+\begin{bmatrix}x\\y\\z\\w\end{bmatrix}
+=
+\begin{bmatrix}0&1&0&0\\0&-1&0&0\\0&0&-1&0\\0&0&0&-1\end{bmatrix}
+\begin{bmatrix}x\\y\\z\\w\end{bmatrix}
+= 0
+\]
+This gives $y=0$, $z=0$, $w=0$, with $x$ free:
+\[
+E_1 = \text{span}\left\{\begin{bmatrix}1\\0\\0\\0\end{bmatrix}\right\}\]
 \end{solution}
 
 \part[8] \label{q7b}
@@ -803,7 +880,7 @@ If they are not diagonal, give reasons why not.
 \item $\begin{bmatrix}0&1\\-8&4\end{bmatrix}$
 \item $\begin{bmatrix}1&1&1\\1&1&1\\1&1&1\end{bmatrix}$
 \item $\begin{bmatrix}5&-6&-6\\-1&4&2\\3&-6&-4\end{bmatrix}$
-\item $\begin{bmatrix}5&4&2&1\\-1&-1&3&0\\1&1&-1&2\end{bmatrix}$
+\item $\begin{bmatrix}5&4&2&1\\0&1&-1&-1\\-1&-1&3&0\\1&1&-1&2\end{bmatrix}$
 \end{enumerate}
 \begin{solution}
 \textbf{(a)} $A = \begin{bmatrix}0&1\\-8&4\end{bmatrix}$
@@ -846,10 +923,14 @@ For $\lambda = 3$: $(B - 3I)\mathbf{v} = 0$:
 \begin{bmatrix}-2&1&1\\1&-2&1\\1&1&-2\end{bmatrix}\mathbf{v} = 0
 \]
 All rows are equivalent to $x + y + z = 0$ after reduction.
+
+
 Eigenvector: $\mathbf{v}_1 = \begin{bmatrix}1\\1\\1\end{bmatrix}$
 
 
 For $\lambda = 0$: $B\mathbf{v} = 0 \implies x + y + z = 0$
+
+
 Eigenspace: $E_0 = \text{span}\left\{\begin{bmatrix}1\\-1\\0\end{bmatrix}, \begin{bmatrix}1\\0\\-1\end{bmatrix}\right\}$ (dimension 2)
 
 
@@ -890,17 +971,48 @@ Eigenspace: $\dim(E_2) = 2$, spanned by $\begin{bmatrix}2\\1\\0\end{bmatrix}, \b
 Basis: $P = \begin{bmatrix}3&2&2\\1&1&0\\1&0&1\end{bmatrix}$
 
 
-\textbf{(d)} This appears to be a $3 \times 4$ matrix (non-square).
+\textbf{(d)} $D = \begin{bmatrix}5&4&2&1\\0&1&-1&-1\\-1&-1&3&0\\1&1&-1&2\end{bmatrix}$
 
 
-\textbf{Not diagonalizable} - only square matrices can be diagonalized in the standard sense.
+Characteristic polynomial:
+\[
+\det(D-\lambda I)=\lambda^4-11\lambda^3+42\lambda^2-64\lambda+32
+=(\lambda-4)^2(\lambda-2)(\lambda-1)
+\]
+Eigenvalues: $\lambda=4$ (multiplicity 2), $\lambda=2$, $\lambda=1$
 
 
-If intended as $3 \times 3$ (ignoring last column), one would need to compute eigenvalues/eigenvectors accordingly.
+Compute the eigenspace for the repeated eigenvalue $\lambda=4$:
+\[
+(D-4I)=
+\begin{bmatrix}
+1&4&2&1\\
+0&-3&-1&-1\\
+-1&-1&-1&0\\
+1&1&-1&-2
+\end{bmatrix}
+\sim
+\begin{bmatrix}
+1&0&0&-1\\
+0&1&0&0\\
+0&0&1&1\\
+0&0&0&0
+\end{bmatrix}
+\]
+So $x-w=0$, $y=0$, $z+w=0$, hence
+\[
+E_4=\text{span}\left\{\begin{bmatrix}1\\0\\-1\\1\end{bmatrix}\right\}
+\quad\text{(dimension 1)}
+\]
+But the algebraic multiplicity of $\lambda=4$ is $2$ while $\dim(E_4)=1$, so there are not enough linearly independent eigenvectors to form a basis.
+
+
+\textbf{Not diagonalisable} (geometric multiplicity $< $ algebraic multiplicity for $\lambda=4$).
 \end{solution}
 \end{parts}
 
-\question[4]
+\newpage
+\question
 Consider the following bivariate distribution $p(x,y)$ of two discrete random variables $X$ and $Y$.
 
 
@@ -1019,6 +1131,7 @@ Therefore: $p(y|x_3) = \left(\frac{3}{11}, \frac{5}{11}, \frac{3}{11}\right)$
 \end{solution}
 \end{parts}
 
+\newpage
 \question[3]
 Consider two random variables, $x$, $y$  with joint distribution $p(x,y)$. Show that
 \[\mathbb{E}_X[x] = \mathbb{E}_Y[\mathbb{E}_X[x|y]]\]
@@ -1056,15 +1169,16 @@ Starting with the right-hand side:
 Therefore, $\mathbb{E}_X[x] = \mathbb{E}_Y[\mathbb{E}_X[x|y]]$. $\quad\square$
 \end{solution}
 
-\question[7]
+\newpage
+\question[7] \label{q10}
 Last year we qualitatively described a number of Probability Distributions, this year we shall discover more results. 
 
 
 To begin, find the Probability Mass/Density Functions for the following distributions:
 
 \begin{enumerate}
-\item Binomial
 \item Bernoulli
+\item Binomial
 \item Geometric
 \item Poisson
 \item Exponential
@@ -1073,17 +1187,17 @@ To begin, find the Probability Mass/Density Functions for the following distribu
 \end{enumerate}
 
 \begin{solution}
-\textbf{(a) Binomial:} $X \sim \text{Bin}(n, p)$, where $n \in \mathbb{N}$, $p \in [0,1]$
-\[
-P(X = k) = \binom{n}{k} p^k (1-p)^{n-k}, \quad k = 0, 1, \ldots, n
-\]
-
-
-\textbf{(b) Bernoulli:} $X \sim \text{Ber}(p)$, where $p \in [0,1]$
+\textbf{(a) Bernoulli:} $X \sim \text{Ber}(p)$, where $p \in [0,1]$
 \[
 P(X = k) = p^k (1-p)^{1-k}, \quad k \in \{0, 1\}
 \]
 Equivalently: $P(X=1) = p$, $P(X=0) = 1-p$
+
+
+\textbf{(b) Binomial:} $X \sim \text{Bin}(n, p)$, where $n \in \mathbb{N}$, $p \in [0,1]$
+\[
+P(X = k) = \binom{n}{k} p^k (1-p)^{n-k}, \quad k = 0, 1, \ldots, n
+\]
 
 
 \textbf{(c) Geometric:} $X \sim \text{Geo}(p)$, where $p \in (0,1]$
@@ -1124,7 +1238,7 @@ f(x) = \frac{1}{\sqrt{2\pi\sigma^2}} \exp\left(-\frac{(x-\mu)^2}{2\sigma^2}\righ
 \]
 \end{solution}
 
-\question[23]
+\question
 
 \begin{parts}
 \part[2] \label{q11a}
@@ -1143,7 +1257,7 @@ What is the formula for the Moment Generating Function? What about the \(k\textu
 \end{solution}
 
 \part[21] \label{q11b}
-Hence, or otherwise derive the \textbf{Expectation}, \textbf{Variance} and \textbf{Moment Generating Function} for all 7 distributions in Q10. Show minimal working.
+Hence, or otherwise derive the \textbf{Expectation}, \textbf{Variance} and \textbf{Moment Generating Function} for all 7 distributions in Q\ref{q10}. Show minimal working.
 
 \begin{solution}
 \textbf{1. Binomial} $X \sim \text{Bin}(n,p)$:
@@ -1240,7 +1354,7 @@ M_Z(t) &= \frac{1}{\sqrt{2\pi}} \int_{-\infty}^\infty e^{tz} e^{-z^2/2} \mathrm{
 \end{parts}
 
 \question[4]
-Shortest distance between an arbitrary point and hyperplane given by $wx + b = 0$
+Shortest distance between an arbitrary point $\mathbf{x}_0 \in \mathbb{R}^n$ and a hyperplane given by $\mathbf{w}^T \mathbf{x} + b = 0$
 \begin{solution}
 Let $\mathbf{x}_0 \in \mathbb{R}^n$ be an arbitrary point, and consider the hyperplane $H = \{\mathbf{x} : \mathbf{w}^T\mathbf{x} + b = 0\}$ where $\mathbf{w} \neq \mathbf{0}$.
 
@@ -1284,7 +1398,8 @@ d(\mathbf{x}_0, H) = \|\mathbf{x}_0 - \mathbf{x}_{\text{proj}}\| = \|\alpha \mat
 In the case where $\|\mathbf{w}\| = 1$ (normalized), the distance simplifies to $|\mathbf{w}^T\mathbf{x}_0 + b|$.
 \end{solution}
 
-\question[4]
+\newpage
+\question
 Consider minimising the strictly convex quadratic function
 
 
@@ -1372,7 +1487,7 @@ This is because the Hessian of a quadratic is constant, and Newton's method is \
 \end{solution}
 \end{parts}
 
-\question[14]
+\question
 Consider the following inequality constrained optimisation problem
 \begin{align}
 \text{(IP)} \quad \underset{\mathbf{x}\in\mathbb{R}^n}{\text{minimise}} \quad & \mathbf{a}^T\mathbf{x}\notag \\
@@ -1410,7 +1525,7 @@ Show that $c(\mathbf{x})$ is a convex function.
 A twice-differentiable function $c: \mathbb{R}^n \to \mathbb{R}$ is convex if and only if its Hessian is positive semidefinite everywhere.
 
 
-From part (a): $\nabla^2 c(\mathbf{x}) = 2Q$
+From part \ref{q14a}: $\nabla^2 c(\mathbf{x}) = 2Q$
 
 
 Since $Q$ is given to be \textbf{positive definite}, we have for all $\mathbf{v} \neq \mathbf{0}$:
@@ -1443,7 +1558,7 @@ A problem is a \textbf{convex optimisation problem} if:
 \textbf{2. Constraint:} $c(\mathbf{x}) = \mathbf{x}^TQ\mathbf{x} - 1 \leq 0$
 
 
-From part (b), $c(\mathbf{x})$ is (strictly) convex.
+From part \ref{q14b}, $c(\mathbf{x})$ is (strictly) convex.
 
 
 The feasible region is $\Omega = \{\mathbf{x} : \mathbf{x}^TQ\mathbf{x} \leq 1\}$, which is a convex set (it's a sublevel set of a convex function).
@@ -1521,7 +1636,7 @@ Determine whether \(\large \mathbf{x}^* = \frac{-Q^{-1}\mathbf{a}}{\sqrt{\mathbf
 \textbf{Proof:}
 
 
-Since (IP) is a convex optimisation problem (from part c) with:
+Since (IP) is a convex optimisation problem (from part \ref{q14c}) with:
 \begin{itemize}
 \item Convex objective function $f(\mathbf{x}) = \mathbf{a}^T\mathbf{x}$
 \item Convex feasible region $\Omega$
@@ -1530,7 +1645,7 @@ Since (IP) is a convex optimisation problem (from part c) with:
 Any local minimiser is also a \textbf{global minimiser} for convex problems.
 
 
-We showed in part (d) that $\mathbf{x}^*$ satisfies the KKT conditions. For convex problems, the KKT conditions are \textbf{sufficient} for global optimality.
+We showed in part \ref{q14d} that $\mathbf{x}^*$ satisfies the KKT conditions. For convex problems, the KKT conditions are \textbf{sufficient} for global optimality.
 
 
 \textbf{Alternative geometric argument:}
@@ -1593,7 +1708,7 @@ Equivalently, eliminating $\mathbf{x}$ using the stationarity condition $\mathbf
 \end{solution}
 
 \part[2] \label{q14g}
-What is the optimal objective value of the Wolfe dual problem in part f)? Give reasons for your answer. You do not need to solve the Wolfe dual problem.
+What is the optimal objective value of the Wolfe dual problem in part \ref{q14f}? Give reasons for your answer. You do not need to solve the Wolfe dual problem.
 \begin{solution}
 The optimal objective value of the Wolfe dual is $-\sqrt{\mathbf{a}^TQ^{-1}\mathbf{a}}$.
 
@@ -1607,7 +1722,7 @@ By strong duality:
 \]
 
 
-From part (e), we found that the primal optimal value is:
+From part \ref{q14e}, we found that the primal optimal value is:
 \[
 f(\mathbf{x}^*) = \mathbf{a}^T\mathbf{x}^* = -\sqrt{\mathbf{a}^TQ^{-1}\mathbf{a}}
 \]
@@ -1619,7 +1734,7 @@ Therefore, the Wolfe dual optimal value is also:
 \]
 
 
-\textbf{Verification:} At the optimal $\mu^* = \frac{\sqrt{\mathbf{a}^TQ^{-1}\mathbf{a}}}{2}$ from part (d), the dual objective is:
+\textbf{Verification:} At the optimal $\mu^* = \frac{\sqrt{\mathbf{a}^TQ^{-1}\mathbf{a}}}{2}$ from part \ref{q14d}, the dual objective is:
 \begin{align*}
 L(\mathbf{x}^*, \mu^*) &= \mathbf{a}^T\mathbf{x}^* + \mu^* \cdot 0\\
 &= -\sqrt{\mathbf{a}^TQ^{-1}\mathbf{a}}
@@ -1628,7 +1743,8 @@ confirming strong duality with zero duality gap.
 \end{solution}
 \end{parts}
 
-\question[15]
+\newpage
+\question
 Consider the following equality constrained optimisation problem
 
 
@@ -1640,9 +1756,6 @@ Consider the following equality constrained optimisation problem
 
 where $n \geq 1$, $\mathbf{a} \in \mathbb{R}^n$, $\mathbf{a} \neq \mathbf{0}$ and $\|\mathbf{a}\|_2 = \sqrt{\mathbf{a}^T\mathbf{a}}$.
 Let $\mathbf{z}^* = \frac{-\mathbf{a}}{\|\mathbf{a}\|_2}$.
-
-
-where $n\ge 1$, $Q$ is a symmetric and \textbf{positive definite} $n\times n$ matrix, $\mathbf{a}\in\mathbb{R}^n, \mathbf{a} \neq \mathbf{0}$ and the constraint function $\mathbf{c}(\mathbf{x}) = \mathbf{x}^TQ\mathbf{x} -1$.
 \begin{parts}
 \part[2] \label{q15a}
 Show that global minima of (EP) must exist.
@@ -1878,16 +1991,16 @@ Therefore, $\mathbf{z}^*$ is a \textbf{global minimiser} for (EP).
 \end{solution}
 \end{parts}
 
-\question[6]
+\newpage
+\question
 
 \begin{parts}
 \part[2] \label{q16a}
 Prove that 
-\begin{propbox}
 \[|a| \leq b \iff -b \leq a \leq b\]
-\end{propbox}
-\begin{proof}
 \begin{solution}
+
+
 \textbf{Proof:}
 
 
@@ -1923,15 +2036,13 @@ $(\Leftarrow)$ Assume $-b \leq a \leq b$.
 
 In both cases, $|a| \leq b$. $\quad\square$
 \end{solution}
-\end{proof}
 
 \part[2] \label{q16b}
 Prove that 
-\begin{propbox}
 \[\forall a, b \in \mathbb{R}, \quad |a|\cdot |b| = |a\cdot b |\]
-\end{propbox}
-\begin{proof}
 \begin{solution}
+
+
 \textbf{Proof:}
 
 
@@ -1982,16 +2093,15 @@ In all cases, $|a| \cdot |b| = |ab|$. $\quad\square$
 |a| \cdot |b| = \sqrt{a^2} \cdot \sqrt{b^2} = \sqrt{a^2 b^2} = \sqrt{(ab)^2} = |ab|
 \]
 \end{solution}
-\end{proof}
 
 \part[2] \label{q16c}
 Complete the following
 
-\begin{propbox}
 Two real numbers, $a$ and $b$ are equal if and only if, for every $\epsilon > 0$, $|a-b| <\epsilon$.
-\end{propbox}
-\begin{proof}
 \begin{solution}
+
+
+
 \textbf{Proof:}
 
 
@@ -2021,17 +2131,17 @@ Therefore, $a = b$. $\quad\square$
 
 This states that two real numbers are equal if and only if the distance between them is arbitrarily small. This is a fundamental characterisation of equality in terms of the metric structure of $\mathbb{R}$.
 \end{solution}
-\end{proof}
 \end{parts}
 
+\newpage
 \question[3]
 Complete the following
 
-\begin{propbox}
 Let $\mathcal{A}\subseteq \mathbb{R}$ and $m\in \mathcal{A}$ be the minimum of $\mathcal{A}$, then $\inf \mathcal{A} = m$.
-\end{propbox}
-\begin{proof}
 \begin{solution}
+
+
+
 \textbf{Proof:}
 
 
@@ -2070,14 +2180,14 @@ Since $m$ is a lower bound and every lower bound $\ell$ satisfies $\ell \leq m$,
 
 \textbf{Note:} The minimum is the infimum when it exists and belongs to the set. However, not all sets have a minimum (e.g., $(0,1)$ has no minimum), but every non-empty bounded-below set has an infimum (by the completeness of $\mathbb{R}$).
 \end{solution}
-\end{proof}
 
-\question[7]
+\newpage
+\question
+State and prove the Cauchy-Schwarz inequality in $\mathbb{R}^n$.
 
 \begin{parts}
 \part[4] \label{q18a}
 State and prove the Cauchy-Schwarz inequality.
-\begin{propbox}
 \begin{solution}
 \textbf{Cauchy-Schwarz Inequality:} For vectors $\mathbf{x}, \mathbf{y} \in \mathbb{R}^n$:
 \[
@@ -2090,9 +2200,9 @@ Equivalently, for real numbers:
 \left|\sum_{i=1}^n x_i y_i\right| \leq \sqrt{\sum_{i=1}^n x_i^2} \sqrt{\sum_{i=1}^n y_i^2}
 \]
 \end{solution}
-\end{propbox}
-\begin{proof}
 \begin{solution}
+
+
 \textbf{Proof:}
 
 
@@ -2142,11 +2252,9 @@ b^2 - 4ac \leq 0 \implies 4(\mathbf{x}^T\mathbf{y})^2 - 4\|\mathbf{x}\|^2\|\math
 \]
 which gives the result.
 \end{solution}
-\end{proof}
 
 \part[3] \label{q18b}
 Hence or otherwise, state and prove the Triangle Inequality.
-\begin{propbox}
 \begin{solution}
 \textbf{Triangle Inequality:} For all real numbers $a, b$:
 \[
@@ -2158,10 +2266,7 @@ More generally, for vectors $\mathbf{x}, \mathbf{y} \in \mathbb{R}^n$:
 \[
 \|\mathbf{x} + \mathbf{y}\| \leq \|\mathbf{x}\| + \|\mathbf{y}\|
 \]
-\end{solution}
-\end{propbox}
-\begin{proof}
-\begin{solution}
+
 We prove the vector version (the scalar case follows by setting $n=1$).
 
 
@@ -2193,17 +2298,18 @@ Taking square roots (both sides are non-negative):
 
 \textbf{Equality condition:} Equality holds if and only if $\mathbf{x}$ and $\mathbf{y}$ are non-negative scalar multiples of each other (i.e., point in the same direction).
 \end{solution}
-\end{proof}
 \end{parts}
 
-\question[14]
+\newpage
+\question
+Infinite-dimensional vector spaces and Metric Spaces
 
 \begin{parts}
 \part[8] \label{q19a}
 Give the definitions of these elementary analysis facts:
 
-\begin{definitionbox}{Metric Space}
-
+\begin{subparts}
+\subpart{Metric Space}
 \begin{solution}
 A metric space is a pair $(X,d)$, where $X$ is a (non-empty) set and $d: X \times X \rightarrow [0,\infty)$ is a function, such that the following conditions hold for all $x,y,z \in X$:
 \begin{enumerate}
@@ -2212,35 +2318,31 @@ A metric space is a pair $(X,d)$, where $X$ is a (non-empty) set and $d: X \time
 \item $d(x,y) + d(y,z) \geq d(x,z)\quad$ (triangle inequality)
 \end{enumerate}
 \end{solution}
-\end{definitionbox}
 
-\begin{definitionbox}{Epsilon Ball}
-
+\subpart{Epsilon Ball}
 \begin{solution}
 \[B_\epsilon(x_0) = \set{x\in X: d(x, x_0) < \epsilon}\]
 \end{solution}
-\end{definitionbox}
 
-\begin{definitionbox}{Interior Point}
+\subpart{Interior Point}
 \begin{solution}
 $x_0 \in Y \subseteq X$ is an \emph{interior point} if $B(x_0,\epsilon)$ lies completely within $Y$.
 \end{solution}
-\end{definitionbox}
 
-\begin{definitionbox}{A subset $Y$ in $(X,d)$ is \textbf{open} if}
+\subpart{Open Set}
 \begin{solution}
+A subset $Y$ in $(X,d)$ is \textbf{open} if
 \[Y=\text{Int}(Y)\]
 \end{solution}
-\end{definitionbox}
+\end{subparts}
 
 \part[6] \label{q19b}
 Complete the following
 
-\begin{propbox}
 Every $\epsilon$-ball in a metric space is open.
-\end{propbox}
-\begin{proof}
 \begin{solution}
+
+
 \textbf{Proof:}
 
 
@@ -2295,120 +2397,78 @@ Since $y \in B_\epsilon(x_0)$ was arbitrary, every point of $B_\epsilon(x_0)$ is
 
 Therefore, $B_\epsilon(x_0) = \text{Int}(B_\epsilon(x_0))$, which means $B_\epsilon(x_0)$ is \textbf{open}. $\quad\square$
 \end{solution}
-\end{proof}
 \end{parts}
 
-\question[12]
+\newpage
+\question
 Infinite-dimensional vector spaces
 \begin{parts}
 \part[8] \label{q20a}
 What are the sets $c_{00}, c_0, \ell^p$ and $\ell^\infty$?
 Give examples of sequences in each.
 
-\begin{definitionbox}{$c_{00}$}
+\begin{subparts}
+\subpart{$c_{00}$}
 \begin{solution}
 The space of sequences with \textbf{only finitely many non-zero terms}.
 \[
 c_{00} = \left\{(x_n)_{n=1}^\infty : \text{only finitely many } x_n \neq 0\right\}
 \]
+Examples: $(1, 2, 3, 0, 0, 0, \ldots)$, $(1, 0, 1, 0, 0, \ldots)$
 \end{solution}
-\end{definitionbox}
 
-\begin{examplebox}{$c_{00}$}
-\begin{solution}
-$(1, 2, 3, 0, 0, 0, \ldots)$, $(1, 0, 1, 0, 0, \ldots)$
-\end{solution}
-\end{examplebox}
-
-
-\begin{definitionbox}{$c_{0}$}
+\subpart{$c_{0}$}
 \begin{solution}
 The space of sequences that \textbf{converge to zero}.
 \[
 c_0 = \left\{(x_n)_{n=1}^\infty : \lim_{n\to\infty} x_n = 0\right\}
 \]
+Examples: $\left(\frac{1}{n}\right)_{n=1}^\infty$, $\left(\frac{1}{2^n}\right)_{n=1}^\infty$
 \end{solution}
-\end{definitionbox}
 
-\begin{examplebox}{$c_{0}$}
-\begin{solution}
-$\left(\frac{1}{n}\right)_{n=1}^\infty = \left(1, \frac{1}{2}, \frac{1}{3}, \frac{1}{4}, \ldots\right)$, $\left(\frac{1}{2^n}\right)_{n=1}^\infty$
-\end{solution}
-\end{examplebox}
-
-
-\begin{definitionbox}{$\ell^p$}
+\subpart{$\ell^p$}
 \begin{solution}
 The space of sequences whose $p$-th powers are \textbf{summable}.
 \[
 \ell^p = \left\{(x_n)_{n=1}^\infty : \sum_{n=1}^\infty |x_n|^p < \infty\right\}
 \]
+Examples: $\left(\frac{1}{n}\right)_{n=1}^\infty$ (since $\sum \frac{1}{n^2} < \infty$), $\left(\frac{1}{2^n}\right)_{n=1}^\infty$
 \end{solution}
-\end{definitionbox}
 
-\begin{examplebox}{$\ell^{p}$}
-\begin{solution}
-\begin{itemize}
-\item $\left(\frac{1}{n}\right)_{n=1}^\infty$ (since $\sum \frac{1}{n^2} < \infty$), $\left(\frac{1}{2^n}\right)_{n=1}^\infty$
-\item $\left(\frac{1}{n^2}\right)_{n=1}^\infty$ (since $\sum \frac{1}{n^2} < \infty$)
-\end{itemize}
-\end{solution}
-\end{examplebox}
-
-
-\begin{definitionbox}{$\ell^\infty$}
+\subpart{$\ell^\infty$}
 \begin{solution}
 The space of \textbf{bounded sequences}.
 \[
 \ell^\infty = \left\{(x_n)_{n=1}^\infty : \sup_{n\in\mathbb{N}} |x_n| < \infty\right\}
 \]
+Examples: $(1, -1, 1, -1, \ldots)$, $\left(\sin(n)\right)_{n=1}^\infty$
 \end{solution}
-\end{definitionbox}
+\end{subparts}
 
-\begin{examplebox}{$\ell^{\infty}$}
-\begin{solution}
-$(1, -1, 1, -1, \ldots)$, $\left(\sin(n)\right)_{n=1}^\infty$, any constant sequence $(c, c, c, \ldots)$
-\end{solution}
-\end{examplebox}
-
-\begin{remarkbox}
-\textbf{Relationships:}
+Relationships:
 \[
 c_{00} \subsetneq c_0 \subsetneq \ell^p \subsetneq \ell^\infty \quad \text{(for any } 1 \leq p < \infty\text{)}
 \]
-\end{remarkbox}
 
 \part[4] \label{q20b}
 Give the definition and at least 2 examples for each each:
-\begin{definitionbox}{Hilbert Space}
+\begin{subparts}
+\subpart{Hilbert Space}
 \begin{solution}
 A complete inner product space.
+Examples: $\mathbb{R}^n$, $\ell^2$
 \end{solution}
-\end{definitionbox}
-\begin{examplebox}{Hilbert Space}
-\begin{solution}
 
-\begin{itemize}
-\item $\mathbb{R}^n$ with the standard inner product $\langle \mathbf{x}, \mathbf{y} \rangle = \sum_{i=1}^n x_i y_i$
-\item $\ell^2 = \left\{(x_n)_{n=1}^\infty : \sum_{n=1}^\infty |x_n|^2 < \infty\right\}$ with inner product $\langle x, y \rangle = \sum_{n=1}^\infty x_n y_n$
-\end{itemize}
-
-\end{solution}
-\end{examplebox}
-
-\begin{definitionbox}{Banach Space}
+\subpart{Banach Space}
 \begin{solution}
 A complete normed vector space
+Examples: $C[0,1]$, $\ell^p$
 \end{solution}
-\end{definitionbox}
-\begin{examplebox}{Banach Space}
-\begin{solution}
-$(C[0,1], ||\cdot||_\infty)$ and $(\ell^p, ||\cdot||_p)$
-\end{solution}
-\end{examplebox}
+\end{subparts}
 \end{parts}
 
-\question[8]
+\newpage
+\question
 
 \begin{parts}
 \part[2] \label{q21a}
@@ -2516,7 +2576,12 @@ For each integer $k\ge1$ define
 
      
 \textbf{Proof:} For such $k$,
-     \[ \left|x_N-\tfrac{1}{k^{2}}\right| =\frac{|k^{2}-N^{2}|}{k^{2}N^{2}} =\frac{(k-N)(k+N)}{k^{2}N^{2}} \le\frac{(N/10)(11N/10)}{k^{2}N^{2}} <\frac{11}{100\,k^{2}} <\frac{1}{8\,k^{2}} <\frac{1}{4k^{2}}, \]
+
+    \begin{align*} \left|x_N-\tfrac{1}{k^{2}}\right| &=\frac{ | k^{2}-N^{2} | }{k^{2}N^{2}}
+     \\ &= \frac{(k-N)(k+N)}{k^{2}N^{2}} \le\frac{(N/10)(11N/10)}{k^{2}N^{2}}
+     \\ &<\frac{11}{100\,k^{2}}
+     \\ &<\frac{1}{8\,k^{2}}
+     \\ &<\frac{1}{4k^{2}}, \end{align*}
      so $x_N\in\operatorname{supp}(f_k)$ and $f_k(x_N)=1-4k^{2}\lvert x_N-\tfrac{1}{k^{2}}\rvert\ge\frac{1}{2}$.
 
 
@@ -2536,7 +2601,8 @@ $L^p$ convergence and \textbf{pointwise convergence}.
 \end{solution}
 \end{parts}
 
-\question[7]
+\newpage
+\question
 
 \begin{parts}
 \part[2] \label{q22a}
@@ -2562,25 +2628,22 @@ A \textbf{topological space} is a pair \(\left( X ,\tau \right)\), where \(X\) i
 \part[3] \label{q22b}
 Give the definitions of these Topological spaces:
 
-\begin{definitionbox}{Co-countable Topology}
+\begin{subparts}
+\subpart{Co-countable Topology}
 \begin{solution}
 \[\tau = \set{Y\subseteq X: Y^c\text{ is countable }} \cup \set{\varnothing}\]
 \end{solution}
-\end{definitionbox}
 
-\begin{definitionbox}{Co-finite Topology}
-
+\subpart{Co-finite Topology}
 \begin{solution}
 \[\tau = \set{Y\subseteq X: Y^c\text{ is finite }} \cup \set{\varnothing}\]
 \end{solution}
-\end{definitionbox}
 
-\begin{definitionbox}{Discrete Topology}
-
+\subpart{Discrete Topology}
 \begin{solution}
 \[\tau = \set{\varnothing, X}\]
 \end{solution}
-\end{definitionbox}
+\end{subparts}
 
 \part[2] \label{q22c}
 Are limits unique in a topological space? What about in a metric space?
@@ -2589,7 +2652,8 @@ Not unique. Only in Hausdorff spaces, of which metric is a type of.
 \end{solution}
 \end{parts}
 
-\question[14]
+\newpage
+\question
 Let $(X_1, \ldots, X_n) \stackrel{\text{i.i.d}}{\sim} \mathcal{P}(\lambda)$.
 \begin{parts}
 \part[3] \label{q23a}
@@ -2850,6 +2914,7 @@ For $n$ i.i.d. observations: $\mathcal{I}_n(\lambda) = n \cdot \mathcal{I}(\lamb
 \end{solution}
 \end{parts}
 
+\newpage
 \question[3]
 What is the maximum straight-line distance in an N-dimensional unit hyper-cube?
 
@@ -2962,5 +3027,10 @@ This demonstrates the \emph{curse of dimensionality}: as dimension increases, th
 \end{solution}
 
 \end{questions}
+
+
+\newpage
+\section{Grade Table}
+\hspace{-0.5cm}\multirowgradetable{2}[questions]
 
 \end{document}
