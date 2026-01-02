@@ -1,4 +1,4 @@
-PWD /Users/aayushbajaj/Documents/new-site/static/code/latex/bday-problems/24
+PWD /Users/aayushbajaj/Documents/code-private/latex/bday-problems/24
 INPUT /usr/local/texlive/2025/texmf-var/web2c/luahbtex/lualatex.fmt
 INPUT ./final.tex
 OUTPUT final.log
